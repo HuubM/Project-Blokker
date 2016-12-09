@@ -114,6 +114,8 @@ textarea {
 
 .footer {
     width:70%;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
 .footer ul {
@@ -123,10 +125,6 @@ textarea {
 
 .footer ul li a {
     color: #78726F;
-}
-
-.footer div {
-    padding-left: 40px;
 }
 
 .text-pink {
