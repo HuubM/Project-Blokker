@@ -1,6 +1,6 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #FCE8E7;
 }
 
 /* Wrapping element */
@@ -17,34 +17,129 @@ textarea {
     max-width: 280px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* buttons and links extension to use brackets: [ click me ] */
-.btn-bracketed::before {
-    display:inline-block;
-    content: "[";
-    padding-right: 0.5em;
-}
-.btn-bracketed::after {
-    display:inline-block;
-    content: "]";
-    padding-left: 0.5em;
-}
-
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"]
 {
     width: 100%;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
-    display: none
-  }
+.header {
+	background-color: #FAC9C4;
+}
+
+.header .mainlinks {
+	padding: 5px;
+}
+
+.header .btn {
+	text-decoration: none;
+	color: #F2587C;
+	font-weight: bold;
+}
+
+.header .btn.selected {
+	color: black;
+}
+
+.header .infobar {
+	padding: 0;
+    align-items: center;
+    display: flex;
+}
+
+.phonenumber {
+	margin-left: auto;
+}
+
+.searchbar .form-control {
+	height: 100%;
+	border-radius: 0;
+	box-shadow: none;
+	border: 0;
+	padding: 15px 5px 15px 20px
+}
+
+.searchbar {
+	padding: 0;
+}
+
+.searchbar .btn {
+	padding: 0;
+	height: 100%;
+	width: 50px;
+	border: 0;
+	border-radius: 0;
+}
+
+.menu .navbar {
+	background: none;
+	border: 0;
+	color: white;
+}
+
+.menu .navbar li a {
+	font-weight: bold;
+	color: white;
+    font-size: 13px;
+    padding-right: 10px;
+}
+
+.menu .navbar .navbar-brand {
+	color: white;
+	font-size: 25px;
+    margin: 8px 0 0 0;
+}
+
+.menu .navbar-nav {
+	padding: 10px 5px 0 5px;
+}
+
+.menu .navbar .active a, .menu .navbar .active a:hover {
+	color: #F2587C;
+	background: none;
+}
+
+.menu .navbar li a:hover {
+	color: #F2587C;
+}
+
+.afspraak {
+	margin: 8px;
+}
+
+.panel-1 {
+	background-image: url("https://placekitten.com/1170/500"); 
+    height: 500px;
+}
+
+.footer {
+    width:70%;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer ul li a {
+    color: #78726F;
+}
+
+.footer div {
+    padding-left: 40px;
+}
+
+.text-pink {
+	color: #F2587C;
+}
+
+.text-white {
+    color:white;
+}
+
+.btn-pink {
+    background-color: #F2587C;
+    border-radius: 0;
+    color:white;
+    font-weight: bold;
 }
