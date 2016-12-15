@@ -1,0 +1,54 @@
+@model ProjectBlokker.Models.Afspraak
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Afspraak</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AfspraakDatum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AfspraakDatum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nieuwsbrief)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nieuwsbrief)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TelNr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TelNr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TrouwDatum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TrouwDatum)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
