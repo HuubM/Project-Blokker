@@ -425,14 +425,21 @@ textarea {
     font-size: 10px;
 }
 
+.afspraak-widget {
+    width: 75%;
+    margin: 0 auto;
+}
+
 
 @media (min-width: 992px) {
     .headline-left {
-    padding-right:0;
+        padding-right:0;
+    }
+
+    .headline-right {
+        padding-left: 0;
+    }
 }
 
-.headline-right {
-    padding-left: 0;
-}
-}
+
 
