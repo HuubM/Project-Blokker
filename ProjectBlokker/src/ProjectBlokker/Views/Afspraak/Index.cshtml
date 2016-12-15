@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -38,14 +39,12 @@
     <div class="col-md-5">
         Stap 1, datum en tijd selecteren
     </div>
-    <div class="col-md-5">
-        Selecteer een datum
+    <div class="col-md-5 kiesdatum">
+        <h4 class="text-left text-white">Selecteer een datum</h4>
 
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker'>
-                    <input type="hidden" id="my_hidden_input">
-                </div>
+        <div class="form-group text-white">
+            <div class='input-group date' id='datetimepicker'>
+                <input type="hidden" id="my_hidden_input">
             </div>
         </div>
 

@@ -14,8 +14,9 @@
 	};
 
     $('#datetimepicker').datepicker({
-     format: 'dd/mm/yyyy',
-     language: 'nl'
+        format: 'dd/mm/yyyy',
+        language: 'nl',
+        startDate: new Date()
     });
 
     $('#datetimepicker').on("changeDate", function() {

@@ -430,6 +430,48 @@ textarea {
     margin: 0 auto;
 }
 
+.kiesdatum {
+    background-color: #F2587C;
+}
+
+#datetimepicker table {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+#datetimepicker .day {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#datetimepicker .prev, #datetimepicker .next {
+    cursor: pointer;
+}
+
+#datetimepicker .datepicker-switch {
+    text-align: center;
+}
+
+#datetimepicker .day.active {
+    border: 1px solid white;
+    border-radius: 25px;
+}
+
+#datetimepicker .old.day, #datetimepicker .new.day {
+    visibility: hidden;
+}
+
+#datetimepicker .disabled {
+    color: grey;
+}
+
+
+
 
 @media (min-width: 992px) {
     .headline-left {
