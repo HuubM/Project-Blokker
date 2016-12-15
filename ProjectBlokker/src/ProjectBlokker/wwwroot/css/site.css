@@ -131,6 +131,9 @@ textarea {
     background-color: white;
 }
 
+.panel-4 {
+    background-color: white;
+}
 .welcome {
     margin-top: 180px;
     margin-bottom: 150px;
@@ -179,6 +182,10 @@ textarea {
 	color: #F2587C;
 }
 
+.text-blue {
+	color: #1A91BE;
+}
+
 .text-white {
     color:white;
 }
@@ -224,10 +231,24 @@ textarea {
     letter-spacing: 4px;
     margin: 5px;
 }
-
+.btn-dressfinder {
+    box-sizing: border-box;
+    width: 550px;
+    font-size:30px;
+    height:75px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 40px;
+}
 .btn-pink {
     background-color: #F2587C;
     border-radius: 0;
+    color:white;
+}
+
+.btn-blue{
+    background-color: #1A91BE;
+    border-radius:0;
     color:white;
 }
 
@@ -240,6 +261,20 @@ textarea {
 }
 
 .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: #c3c3c3;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    margin: 10px;
+    font-style: inherit;
+}
+.circle-blue {
     width: 30px;
     height: 30px;
     border-radius: 50px;
@@ -290,6 +325,10 @@ textarea {
 
 .active .circle {
     background-color: #F2587C;
+}
+
+.active .circle-blue{
+    background-color: #1A91BE
 }
 
 .top-space {

@@ -13,6 +13,16 @@ namespace ProjectBlokker.Controllers
             return View();
         }
 
+        public IActionResult Bruidegom()
+        {
+            return View();
+        }
+
+        public IActionResult Bruid()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();
