@@ -7,8 +7,6 @@ namespace ProjectBlokker.Models
 {
     public class Afspraak
     {
-        public Afspraak() { }
-
         public int ID { get; set; }
         public DateTime AfspraakDatum { get; set; }
         public string Naam { get; set; }

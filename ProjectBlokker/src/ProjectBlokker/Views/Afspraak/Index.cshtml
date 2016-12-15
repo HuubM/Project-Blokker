@@ -34,10 +34,29 @@
 
 <div class="row panel-2 text-center afspraak-widget">
     <div class="col-md-2">
-        Datum en tijd selecteren
+        <div class="stepwizard">
+            <div class="stepwizard-row">
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-primary btn-circle">1</button>
+                    <p>Cart</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-default btn-circle">2</button>
+                    <p>Shipping</p>
+                </div>
+                <div class="stepwizard-step">
+                    <button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
+                    <p>Payment</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-5">
         Stap 1, datum en tijd selecteren
+        <form method="post" action="/afspraak/test">
+            <input type="text" name="AfspraakDatum" />
+            <input type="submit" />
+        </form>
     </div>
     <div class="col-md-5 kiesdatum">
         <h4 class="text-left text-white">Selecteer een datum</h4>
