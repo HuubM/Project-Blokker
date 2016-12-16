@@ -22,7 +22,9 @@ $(function () {
     $('#datetimepicker').datepicker({
         format: 'dd/mm/yyyy',
         language: 'nl',
-        startDate: new Date()
+        startDate: new Date(),
+        minViewMode: 0,
+        maxViewMode: 0
     });
 
     $('#datetimepicker').datepicker()
