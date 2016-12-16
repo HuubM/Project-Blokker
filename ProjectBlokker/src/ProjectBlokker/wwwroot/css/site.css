@@ -25,6 +25,17 @@ textarea {
     max-width: 280px;
 }
 
+.push-to-bottom {
+  position: absolute;
+  bottom: 50px;
+}
+
+.padding-right5 {
+    padding-right: 5px;
+}
+
+
+
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"]
 {
@@ -120,7 +131,7 @@ textarea {
 }
 
 .panel-1 {
-	background-image: url("https://placekitten.com/1170/650"); 
+	background-color: #c5bebe;
 }
 
 .panel-2 {
@@ -192,6 +203,10 @@ textarea {
 
 .text-bold {
     font-weight: bold;
+}
+
+.fontsize-12 {
+    font-size: 12px;
 }
 
 .fontsize-14 {
@@ -335,6 +350,10 @@ textarea {
     margin-top: 45px;
 }
 
+.top-space-small {
+    margin-top: 20px;
+}
+
 .top-space-large {
     margin-top: 150px;
 }
@@ -426,17 +445,27 @@ textarea {
 }
 
 .afspraak-widget {
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
+    background: none;
+}
+
+.afspraak-left {
+    background-color: white;
 }
 
 .kiesdatum {
     background-color: #F2587C;
+    min-height: 320px;
+}
+
+#selectTime {
+    display: none;
 }
 
 #datetimepicker table {
     border-collapse: separate;
-    border-spacing: 10px;
+    border-spacing: 14px 5px;
 }
 
 #datetimepicker .day {
@@ -468,6 +497,39 @@ textarea {
 
 #datetimepicker .disabled {
     color: grey;
+}
+
+#gegevens-invullen {
+    display: none;
+}
+
+#gegevens-controleren {
+    display: none;
+}
+
+#tijd-kiezen {
+    display: none;
+}
+
+#gegevens-bevestigen {
+    display: none;
+}
+
+#naar-gegevensinvullen {
+    display: none;
+}
+
+#gekozen-tijd-datum {
+    display: none;
+}
+
+#terug-stap2 {
+    float: left;
+    margin-top: 150px;
+}
+
+.stepwizard-step.active {
+    margin-bottom: 75px;
 }
 
 

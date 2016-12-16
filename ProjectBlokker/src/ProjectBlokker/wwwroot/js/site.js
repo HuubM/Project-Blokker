@@ -1,5 +1,7 @@
 ﻿
- $(function () {
+$(function () {
+
+    // Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
 		days: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
 		daysShort: ["zo", "ma", "di", "wo", "do", "vr", "za"],
@@ -11,17 +13,147 @@
 		clear: "Wissen",
 		weekStart: 1,
 		format: "dd-mm-yyyy"
-	};
+    };
 
+    var weekday = ["ZO", "MA", "DI", "WO", "DO", "VR", "ZA"];
+    var months = ["JANUARI", "FEBRUARI", "MAART", "APRIL", "MEI", "JUNI", "JULI", "AUGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DECEMBER"];
+
+    // Datepicker initialisatie
     $('#datetimepicker').datepicker({
         format: 'dd/mm/yyyy',
         language: 'nl',
         startDate: new Date()
     });
 
-    $('#datetimepicker').on("changeDate", function() {
-        $('#my_hidden_input').val(
-            $('#datepicker').datepicker('getFormattedDate')
+    $('#datetimepicker').datepicker()
+    .on('changeDate', function (e) {
+        $('#selectTime').slideDown();
+    });
+
+    // Van stap 1 naar stap 2
+    $('#naar-gegevensinvullen').on("click", function (e) {
+        
+        
+        var dateInput = $('#datumAfpsraak').val();
+        var date = new Date(dateInput);
+        var tijd = $('input[name=tijdstip]:checked', '#afspraakgegevens').val();
+
+        $('#eindafspraak').val($.format.date(date, "dd-MM-yyyy " + tijd));
+
+
+        $('.gekozen-datum-tijd').text(weekday[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear() + " OM " + tijd + "U");
+
+        $('#datum-tijd').slideUp();
+        $('#tijd-kiezen').slideUp();
+        $('#gekozen-tijd-datum').slideDown();
+        $('#gegevens-invullen').slideDown();
+
+        $(".circle2").addClass("active");
+        $(".circle1").removeClass("active");
+
+        e.preventDefault();
+    });
+
+    // Terug naar stap 1 vanuit stap 2
+    $('#terug-stap1').on("click", function (e) {
+
+        $('#datum-tijd').slideDown();
+        $('#tijd-kiezen').slideDown();
+        $('#gekozen-tijd-datum').slideUp();
+        $('#gegevens-invullen').slideUp();
+
+        $(".circle1").addClass("active");
+        $(".circle2").removeClass("active");
+
+        e.preventDefault();
+    });
+
+
+    // Van stap 2 naar stap 3
+    $('#naar-gegevenscontroleren').on("click", function (e) {
+
+        // Als valid, dan mag die naar stap 3
+        if ($('#afspraakgegevens').valid()) {
+
+            // Zet gegevens in controle tabel
+            $('#gekozennaam').text($('#Naam').val());
+            $('#gekozentrouwdatum').text($('#TrouwDatum').val());
+            $('#gekozentelefoon').text($('#TelNr').val());
+            $('#gekozenemail').text($('#Email').val());
+
+
+            $('#gekozen-tijd-datum').slideUp();
+            $('#gegevens-invullen').slideUp();
+            $('#gegevens-bevestigen').slideDown();
+            $('#gegevens-controleren').slideDown();
+
+            $(".circle3").addClass("active");
+            $(".circle2").removeClass("active");
+
+            e.preventDefault();
+        }
+    });
+
+    // Terug naar stap 2 vanuit stap 3
+    $('#terug-stap2').on("click", function (e) {
+
+        $('#gekozen-tijd-datum').slideDown();
+        $('#gegevens-invullen').slideDown();
+        $('#gegevens-bevestigen').slideUp();
+        $('#gegevens-controleren').slideUp();
+
+        $(".circle2").addClass("active");
+        $(".circle3").removeClass("active");
+
+        e.preventDefault();
+    });
+
+
+    // Bij tijd selecteren in stap 1
+    $('#selectTime').on("click", function (e) {
+
+        var dateInput = $('#datumAfpsraak').val();
+        var date = new Date(dateInput);
+
+        $('#gekozen-datum').text(weekday[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear());
+
+        $('#datum-kiezen').slideUp();
+        e.preventDefault();
+
+        $('#tijd-kiezen').slideDown();
+        e.preventDefault();
+    });
+
+    // Terug naar datum in stap 1
+    $('#tijd-terug-datum').on("click", function (e) {
+
+        $('#datum-kiezen').slideDown();
+        e.preventDefault();
+
+        $('#tijd-kiezen').slideUp();
+        e.preventDefault();
+    });
+
+
+
+
+    
+
+
+
+    $('input:radio[name="tijdstip"]').change(
+    function () {
+        if ($(this).is(':checked')) {
+            $('#naar-gegevensinvullen').slideDown();
+        }
+    });
+    
+    
+    // Input waarden toevoegen bij kiezen datum
+    $('#datetimepicker').on("changeDate", function () {
+
+        $('#datumAfpsraak').val(
+           $('#datetimepicker').datepicker('getDate')
         );
     });
 });
