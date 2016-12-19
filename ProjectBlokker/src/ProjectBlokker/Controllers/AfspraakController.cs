@@ -61,7 +61,7 @@ namespace ProjectBlokker.Controllers
 
             }
 
-            return RedirectToAction("/Afspraak/Geslaagd");
+            return RedirectToAction("AfspraakGeslaagd");
         }
         
     }
