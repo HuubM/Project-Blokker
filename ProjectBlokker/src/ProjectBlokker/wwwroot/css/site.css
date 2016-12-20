@@ -374,6 +374,10 @@ textarea {
     margin: 0 auto;
 }
 
+.imglogo {
+    max-width: 425px;
+}
+
 #onestopshop-carousel .carousel-inner {
     height: 450px;
 }
