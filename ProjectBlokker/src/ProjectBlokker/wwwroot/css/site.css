@@ -201,6 +201,14 @@ textarea {
     color:white;
 }
 
+.text-gray {
+    color:#333;
+}
+
+.text-back {
+    color:rgba(255,0,0,0.5);
+}
+
 .text-bold {
     font-weight: bold;
 }
@@ -378,6 +386,11 @@ textarea {
     max-width: 425px;
 }
 
+.imgtransparent {
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
 #onestopshop-carousel .carousel-inner {
     height: 450px;
 }
@@ -402,6 +415,17 @@ textarea {
     color: black;
     padding: 20px;
     text-shadow: none;
+    box-shadow: 2px 2px 10px #e8e8e8;
+}
+
+.evenementblock{
+    width: 330px;
+    height: 200px;
+    background-color: white;
+    text-align: left;
+    padding: 0 25px;
+    position: absolute;
+    bottom: 0;
     box-shadow: 2px 2px 10px #e8e8e8;
 }
 
