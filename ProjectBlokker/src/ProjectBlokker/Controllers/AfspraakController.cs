@@ -7,6 +7,10 @@ using ProjectBlokker.Models;
 using System.Diagnostics;
 using ProjectBlokker.Data;
 
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
+
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ProjectBlokker.Controllers
@@ -36,11 +40,29 @@ namespace ProjectBlokker.Controllers
             {
                 _context.Add(afspraak);
                 await _context.SaveChangesAsync();
+
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("HoneyMoonShop", "HoneyMoonShop@outlook.com"));
+                message.To.Add(new MailboxAddress(@afspraak.Naam, @afspraak.Email));
+                message.Subject = "Afspraak Bevestiging HoneyMoonShop";
+                message.Body = new TextPart("plain")
+                {
+                    Text = "Geachte " + @afspraak.Naam + "," + "\n" + "\n" + "Uw Afspraak op " + @afspraak.AfspraakDatum + " is in goede orde ontvangen." + "\n" + "\n" + "Met vriendelijke groet," + 
+                    "\n" + "HoneyMoonShop" 
+                };
+
+                using (SmtpClient client = new SmtpClient())
+                {
+                    client.Connect("smtp.live.com", 587);
+                    client.Authenticate("honeymoonshop@outlook.com", "Honeymoon");
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("AfspraakGeslaagd");
         }
-
-
+        
     }
 }
