@@ -5,72 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Afspraak Geslaagd</h2>
-
-<form asp-action="AfspraakGeslaagd">
-    <div class="form-horizontal">
-        <h4>Afspraak</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="ID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="ID" class="form-control" />
-                <span asp-validation-for="ID" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="AfspraakDatum" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="AfspraakDatum" class="form-control" />
-                <span asp-validation-for="AfspraakDatum" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Naam" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Naam" class="form-control" />
-                <span asp-validation-for="Naam" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="TrouwDatum" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="TrouwDatum" class="form-control" />
-                <span asp-validation-for="TrouwDatum" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="TelNr" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="TelNr" class="form-control" />
-                <span asp-validation-for="TelNr" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Email" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                    <input asp-for="Nieuwsbrief" />
-                    <label asp-for="Nieuwsbrief"></label>
+<div class="row panel-1">
+    <div class="row menu">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header ">
+                    <a class="navbar-brand" href="#">HONEYMOON SHOP</a>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                    <li class="active"><a href="/home/index">HOME</a></li>
+                    <li><a href="#">Bruid</a></li>
+                    <li><a href="/home/bruidegom">Bruidegom</a></li>
+                    <li><a href="#">De winkel</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
+                </ul>
             </div>
         </div>
     </div>
-</form>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
+<div class="row">
+    <h1>Afspraak Geslaagd</h1>
+</div>
+
+
 
