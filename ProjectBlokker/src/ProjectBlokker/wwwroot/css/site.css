@@ -391,6 +391,12 @@ textarea {
     filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
+.imgbig {
+    height: 600px;
+    background-size: 100%;
+    background-image:url('/images/Ronaldo.PNG')
+}
+
 #onestopshop-carousel .carousel-inner {
     height: 450px;
 }
