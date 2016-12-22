@@ -75,7 +75,6 @@ textarea {
     font-weight: bold;
     font-size: 65px;
     color:white;
-    
 }
 
 .imagefront{
@@ -83,6 +82,22 @@ textarea {
     z-index:1;
     font-weight:bold;
     text-transform:uppercase;
+}
+
+.imagefrontz{
+    position:relative;
+    z-index:1;
+}
+
+.imagebackmain{
+    position:absolute;
+    z-index:0;
+    opacity:0.3;
+    font-family:'Script MT';
+    font-weight: bold;
+    font-style:italic;
+    color:lightcoral;
+
 }
 
 .phonenumber {
