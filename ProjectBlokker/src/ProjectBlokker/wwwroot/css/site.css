@@ -287,7 +287,7 @@ textarea {
     width: 30px;
     height: 30px;
     border-radius: 50px;
-    background-color: #c3c3c3;
+    background-color: #e0e0e0;
     color: white;
     text-align: center;
     padding: 2px;
@@ -560,6 +560,11 @@ textarea {
     margin-bottom: 75px;
 }
 
+.stepwizard-step h4 {
+    background-color: white;
+    padding: 4px;
+}
+
 
 .stepwizard-step p {
     margin-top: 10px; 
@@ -585,11 +590,13 @@ textarea {
     bottom: 0;
     position: absolute;
     content: " ";
-    width: 1px;
+    width: 2px;
     height: 100%;
-    background-color: #ccc;
     z-index: 0;
-    
+    background-image: linear-gradient(#e0e0e0  65%, rgba(255,255,255,0) 0%);
+    background-position: right;
+    background-size: 2px 20px;
+    background-repeat: repeat-y;
 }
 
 .stepwizard-step {    
