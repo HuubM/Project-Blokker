@@ -15,6 +15,8 @@ namespace ProjectBlokker.Models
 
         [Required(ErrorMessage = "Naam is verplicht.")]
         public string Naam { get; set; }
+
+        [Required(ErrorMessage = "Trouwdatum is verplicht.")]
         public DateTime TrouwDatum { get; set; }
         public int? TelNr { get; set; }
         
