@@ -131,7 +131,9 @@ textarea {
 }
 
 .panel-1 {
-	background-color: #c5bebe;
+	background-image: url("../images/women.png");
+    background-size:100% 100%;
+    
 }
 
 .panel-2 {
@@ -154,7 +156,12 @@ textarea {
     margin: 0;
     padding: 0;
 }
+b{
+    z-index : -1;
 
+    
+
+}
 .footer {
     width: 75%;
     margin: 0 auto;
