@@ -1,4 +1,5 @@
-﻿@font-face {
+﻿
+@font-face {
     font-family: Nexa;
     src: url("/fonts/Nexa Light.otf");
 }
@@ -64,6 +65,24 @@ textarea {
 	padding: 0;
     align-items: center;
     display: flex;
+}
+
+.imageback{
+    position:absolute;
+    z-index:0;
+    opacity:0.3;
+    font-family:'Script MT';
+    font-weight: bold;
+    font-size: 65px;
+    color:white;
+    
+}
+
+.imagefront{
+    position:relative;
+    z-index:1;
+    font-weight:bold;
+    text-transform:uppercase;
 }
 
 .phonenumber {
@@ -389,6 +408,12 @@ textarea {
 .imgtransparent {
     opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.imgbig {
+    height: 600px;
+    background-size: 100%;
+    background-image:url('/images/Ronaldo.PNG')
 }
 
 #onestopshop-carousel .carousel-inner {
