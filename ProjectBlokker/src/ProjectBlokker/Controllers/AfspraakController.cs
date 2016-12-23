@@ -57,17 +57,17 @@ namespace ProjectBlokker.Controllers
                     "\n" + "HoneyMoonShop" 
                 };
 
-                using (SmtpClient client = new SmtpClient())
+                using (SmtpClient client = new SmtpClient())//TODO takes too much time, should be multi threading 
                 {
                     client.Connect("smtp.live.com", 587);
-                    client.Authenticate("honeymoonshop@outlook.com", "Honeymoon");
+                    client.Authenticate("honeymoonshop@outlook.com", "Honeymoon"); //TODO betere security
                     client.Send(message);
                     client.Disconnect(true);
                 }
 
             }
 
-            return RedirectToAction("AfspraakGeslaagd");
+            return RedirectToAction("/Afspraak");
         }
         
     }

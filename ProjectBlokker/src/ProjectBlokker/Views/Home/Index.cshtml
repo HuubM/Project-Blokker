@@ -6,18 +6,24 @@
     <div class="row menu">
         <div class="navbar navbar-default">
             <div class="container">
-                <div class="navbar-header ">
-                    <a class="navbar-brand" href="#">HONEYMOON SHOP</a>
+                <div class="navbar-header col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                    <div class="imglogo">
+                        <a class="navbar-brand " href="#">
+                            <img src="~/images/HMSLogo.png" alt="HONEYMOON SHOP" class="img-responsive" />
+                        </a>
+                    </div>
                 </div>
-                <ul class="nav navbar-nav navbar-right text-uppercase">
-                    <li class="active"><a href="/home/index">HOME</a></li>
-                    <li><a href="#">Bruid</a></li>
-                    <li><a href="/home/bruidegom">Bruidegom</a></li>
-                    <li><a href="#">De winkel</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
-                </ul>
+                <div class="col-lg-8 col-md-9 col-sm-12 col-xs-12" style="padding-top: 5px;">
+                    <ul class="nav navbar-nav navbar-right text-uppercase">
+                        <li class="active"><a href="/home/index">HOME</a></li>
+                        <li><a href="/home/bruid">Bruid</a></li>
+                        <li><a href="/home/bruidegom">Bruidegom</a></li>
+                        <li><a href="#">De winkel</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><button class="btn btn-pink text-bold afspraak text-uppercase">Afspraak maken</button></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -52,8 +58,9 @@
 <div class="row panel-2 text-center">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="text-bold text-uppercase fontsize-32 margin-0 top-space-large">Een jurk of pak kopen?</h3>
-            <h3 class="text-bold text-uppercase fontsize-32 margin-0 bottom-space">Zo werkt het...</h3>
+            <h1 class="imagebackmain font-size-32 margin-0 top-space-large">One Stop Shop</h1>
+            <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 top-space-large">Een jurk of pak kopen?</h3>
+            <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 bottom-space">Zo werkt het...</h3>
         </div>
     </div>
     <div class="row bottom-space-small carousel slide" id="onestopshop-carousel" data-ride="carousel">
@@ -62,7 +69,7 @@
                 <div class="item active">
                     <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
-                        <h3 class="text-uppercase text-bold"><i class="glyphicon glyphicon-play fontsize-20 text-pink"></i> Bekijk video</h3>
+                        <h3 class="text-uppercase text-bold text-gray"><i class="glyphicon glyphicon-play fontsize-20 text-pink"></i> Bekijk video</h3>
                         <p class="onestopinfo text-left">
                             Hoe vind je de perfecte outfit?
                             Onze specialisten nemen echt de tijd voor je en je met elke stap. Oneindig jurken/pakken passen? Geen probleem! Er kunnen zoveel mensen mee als jij zelf wilt.
@@ -73,7 +80,7 @@
                 <div class="item">
                     <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
-                        <h3 class="text-uppercase text-bold">Onze specialisten</h3>
+                        <h3 class="text-uppercase text-bold text-gray"><i class="glyphicon glyphicon-play fontsize-20 text-pink"></i>Onze specialisten</h3>
                         <p class="onestopinfo text-left">
                             Hoe vind je de perfecte outfit?
                             Onze specialisten nemen echt de tijd voor je en helpen je met elke stap. Oneindig jurken/pakken passen? Geen probleem! Er kunnen zoveel mensen mee als jij zelf wilt.
@@ -84,7 +91,7 @@
                 <div class="item">
                     <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
-                        <h3 class="text-uppercase text-bold">Naai atelier.</h3>
+                        <h3 class="text-uppercase text-bold text-gray"><i class="glyphicon glyphicon-play fontsize-20 text-pink"></i> NaaiAtelier</h3>
                         <p class="onestopinfo text-left">
                             Hoe vind je de perfecte outfit?
                             Onze specialisten nemen echt de tijd voor je en helpen je met elke stap. Oneindig jurken/pakken passen? Geen probleem! Er kunnen zoveel mensen mee als jij zelf wilt.
@@ -95,7 +102,7 @@
                 <div class="item">
                     <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
-                        <h3 class="text-uppercase text-bold">Servicepunten.</h3>
+                        <h3 class="text-uppercase text-bold text-gray"><i class="glyphicon glyphicon-play fontsize-20 text-pink"></i>Servicepunten.</h3>
                         <p class="onestopinfo text-left">
                             Hoe vind je de perfecte outfit?
                             Onze specialisten nemen echt de tijd voor je en helpen je met elke stap. Oneindig jurken/pakken passen? Geen probleem! Er kunnen zoveel mensen mee als jij zelf wilt.
@@ -121,7 +128,7 @@
                         <i class="circle"> 3 </i> Naai-atelier
                     </a>
                 </li>
-                <li class="list-item text-left" data-target="#onestopshop-carousel"  data-slide-to="3">
+                <li class="list-item text-left" data-target="#onestopshop-carousel" data-slide-to="3">
                     <a href="">
                         <i class="circle"> 4 </i> Servicepunten
                     </a>
@@ -147,31 +154,41 @@
     <div class="row">
         <div class="col-md-6 headline-left bottom-space">
             <div class="headline-background" style="background-image:url('https://placekitten.com/700/400')">
-                <div class="headline">
+               <div class="evenementblock">
                     <h3 class="text-uppercase headline-type">Evenement</h3>
                     <div class="headline-date"> <div class="day">30</div><div class="month">NOV</div></div>
                     <p>
-                        Afgelopen weekend waren wij op de Love & Marriage beurs in
+                        Afgelopen weekend waren wij op de Love & Marriage beurs in Ahoy te Rotterdam.
+                        Hier hebben wij de mooiste jurken uit de 2017 collectie geshowd.
                     </p>
-                    <a href="">Lees meer</a>
+                    <div class="top-space-small" >
+                        <a href="" class="text-gray"><u>Lees meer</u></a> 
+                        <img src="~/images/Arrow.png" alt="" />
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6 headline-right bottom-space">
             <div class="headline-background" style="background-image:url('https://placekitten.com/700/405')">
-                <div class="headline">
+                <div class="evenementblock">
                     <h3 class="text-uppercase headline-type">Evenement</h3>
                     <div class="headline-date"> <div class="day">30</div><div class="month">NOV</div></div>
                     <p>
-                        Afgelopen weekend waren wij op de Love & Marriage beurs in
+                        Afgelopen weekend waren wij op de Love & Marriage beurs in Ahoy te Rotterdam.
+                        Hier hebben wij de mooiste jurken uit de 2017 collectie geshowd.
                     </p>
-                    <a href="">Lees meer</a>
+                    <div class="top-space-small">
+                        <a href="" class="text-gray"><u>Lees meer</u></a>
+                        <img src="~/images/Arrow.png" alt="" />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
+<div class="row">
+        <img class="img-responsive" src="~/images/Ronaldo.PNG"/>
 </div>
 
 

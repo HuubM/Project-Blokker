@@ -47,6 +47,7 @@ $(function () {
 
         $('#datum-tijd').slideUp();
         $('#tijd-kiezen').slideUp();
+        $('#datum-kiezen').slideUp();
         $('#gekozen-tijd-datum').slideDown();
         $('#gegevens-invullen').slideDown();
 
