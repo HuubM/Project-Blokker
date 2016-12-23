@@ -423,6 +423,11 @@ b{
     background-image:url('/images/Ronaldo.PNG')
 }
 
+.imgiconresp{
+    max-height: 22px;
+    max-width: 22px;
+}
+
 #onestopshop-carousel .carousel-inner {
     height: 450px;
 }
