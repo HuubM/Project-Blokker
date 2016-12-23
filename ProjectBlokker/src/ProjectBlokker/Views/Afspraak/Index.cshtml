@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum" } })
+                        @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type= "Date"} })
                         @Html.ValidationMessageFor(model => model.TrouwDatum)
                     </div>
 
