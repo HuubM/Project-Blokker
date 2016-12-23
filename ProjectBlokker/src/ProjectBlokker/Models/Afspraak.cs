@@ -21,6 +21,7 @@ namespace ProjectBlokker.Models
         public int? TelNr { get; set; }
         
         [Required(ErrorMessage = "E-mailadres is verplicht.")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public bool Nieuwsbrief { get; set; }
     }
