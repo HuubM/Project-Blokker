@@ -338,6 +338,22 @@ b{
     margin: 10px;
     font-style: inherit;
 }
+
+.circlecarousel {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: #F2587C;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 60px;
+    display: inline-block;
+    margin: 10px;
+    font-style: inherit;
+}
+
 .circle-blue {
     width: 30px;
     height: 30px;
@@ -443,6 +459,12 @@ b{
     max-width: 22px;
 }
 
+.circleincarousel{
+    border-top-width: 100px;
+    margin-top: 160px;
+    padding-top: 8px;
+}
+
 #onestopshop-carousel .carousel-inner {
     height: 450px;
 }
@@ -457,7 +479,7 @@ b{
 
 .onestopshop-content {
     top: 40%;
-    left: 50%;
+    left: 7%;
 }
 
 .onestopinfo {
