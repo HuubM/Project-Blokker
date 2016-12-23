@@ -10,7 +10,9 @@ namespace ProjectBlokker.Models
     {
         public int ID { get; set; }
 
+        
         [Required(ErrorMessage = "Afspraakdatum is verplicht.")]
+        [DataType(DataType.Date)]
         public DateTime AfspraakDatum { get; set; }
 
         [Required(ErrorMessage = "Naam is verplicht.")]
@@ -21,6 +23,7 @@ namespace ProjectBlokker.Models
         public int? TelNr { get; set; }
         
         [Required(ErrorMessage = "E-mailadres is verplicht.")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public bool Nieuwsbrief { get; set; }
     }

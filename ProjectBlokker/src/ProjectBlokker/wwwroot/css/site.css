@@ -75,6 +75,8 @@ textarea {
     font-weight: bold;
     font-size: 65px;
     color:white;
+    left: 0;
+    right: 0;
 }
 
 .imagefront{
