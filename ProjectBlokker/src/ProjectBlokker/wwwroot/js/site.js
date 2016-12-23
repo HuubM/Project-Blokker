@@ -1,5 +1,14 @@
 ﻿
 $(function () {
+    
+
+    $("#repeatEmail").rules("add", {
+        equalTo: "#Email",
+        messages: {
+            equalTo: "E-mail adres is niet hetzelfde.",
+            required: "E-mail adres is niet hetzelfde."
+        }
+    });
 
     // Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
