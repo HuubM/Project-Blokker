@@ -32,6 +32,12 @@ namespace ProjectBlokker.Controllers
             return View();
         }
 
+        // GET: /<controller>/
+        public IActionResult AfspraakGeslaagd()
+        {
+            return View("AfspraakGeslaagd");
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Add([Bind("ID,AfspraakDatum,Email,Naam,Nieuwsbrief,TelNr,TrouwDatum")] Afspraak afspraak)
