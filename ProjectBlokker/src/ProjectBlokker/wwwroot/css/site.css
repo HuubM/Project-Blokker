@@ -90,16 +90,39 @@ textarea {
     position:relative;
     z-index:1;
 }
-
+.imagebackblue{
+    position:absolute;
+    z-index:0;
+    opacity:0.3;
+    font-family:'Script MT';
+    font-weight: bold;
+    font-size: 60px;
+    font-style: italic;
+    color:#1A91BE;
+    left: 0;
+    right: 0;
+}
 .imagebackmain{
     position:absolute;
     z-index:0;
     opacity:0.3;
     font-family:'Script MT';
-    
     font-weight: bold;
-    font-style:italic;
+    font-size: 60px;
+    font-style: italic;
     color:lightcoral;
+    left: 0;
+    right: 0;
+
+    /*position:absolute;
+    z-index:0;
+    opacity:0.3;
+    font-family:'Script MT';
+    font-weight: bold;
+    font-size:60px;
+    color:lightcoral;
+    /*left:0;
+    right: 0;*/*/
 
 }
 
@@ -206,15 +229,29 @@ textarea {
     font-size: 13px;
 }
 
-.panel-1 {
-	background-image: url("../images/women.png");
+
+/*.panel-1 {
+	background-image: url("../images/bruidegom.png");
     background-size:100% 100%;
-}
+}*/
 
 .panel-afspraak {
     background-color: #fafafa;
 }
 
+.panel-afspraakgeslaagd{
+    background-image: url("../images/bruid.png");
+    background-size: 100% 100%;
+    )
+}
+.panel-home {
+	background-image: url("../images/home.png");
+    background-size:100% 100%;
+}
+.panel-bruidegom {
+	background-image: url("../images/bruidegom.png");
+    background-size:100% 100%;
+}
 .panel-2 {
     background-color: white;
 }
@@ -350,13 +387,21 @@ b{
 }
 .btn-dressfinder {
     box-sizing: border-box;
-    width: 550px;
-    font-size:30px;
-    height:75px;
+    width: 400px;
+    height:50px;
     font-weight: bold;
     letter-spacing: 4px;
     margin: 40px;
 }
+.btn-meerberichten {
+    box-sizing: border-box;
+    width: 350px;
+    height:50px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 40px;
+}
+
 .btn-pink {
     background-color: #F2587C;
     border-radius: 0;
@@ -391,7 +436,20 @@ b{
     margin-top: 16px;
     font-style: inherit;
 }
-
+.circlecarouselblue{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: #1A91BE;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 60px;
+    display: inline-block;
+    margin: 10px;
+    font-style: inherit;
+}
 .circlecarousel {
     width: 100px;
     height: 100px;
@@ -450,11 +508,14 @@ b{
     width: auto;
     height: auto;
     background-color: none;
+
 }
 
 .carousel-indicators .active a {
     font-weight: bold;
+    color: #F2587C;
 }
+
 
 .active .circle {
     background-color: #F2587C;
@@ -480,20 +541,23 @@ b{
     margin-top: 150px;
 }
 
+.top-space-backgroundtext{
+    margin-top: -90px;
+}
 .top-space-onestopshop{
-    margin-top: 70px;
-    padding-left:25%;
+    margin-top: -90px;
+
 }
 .top-space-bruidswinkel{
     margin-top:-90px;
 }
 .top-space-thedress{
     margin-top:70px;
-    padding-left:30%;
+    
 }
 .top-space-blog{
-    margin-top:50px;
-    padding-left: 40%;
+    margin-top:-90px;
+
 }
 .top-space-review{
     
