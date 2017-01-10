@@ -613,9 +613,9 @@ b{
     width: 80%;
     margin: 0 auto;
     background: none;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    box-shadow: 0 0 50px -7px black;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    box-shadow: 0 0 50px -15px black;
 }
 
 .afspraak-left {
