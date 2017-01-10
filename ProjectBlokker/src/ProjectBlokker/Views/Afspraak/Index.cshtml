@@ -35,136 +35,138 @@
 <div class="row panel-2 text-center afspraak-widget afspraakwindow">
     <form id="afspraakgegevens" method="post" action="/afspraak/Add" class="rowss">
         <div class="col-md-7 afspraak-left col">
-            <div class="col-md-3">
-                <div class="stepwizard">
-                    <div class="stepwizard-row">
-                        <div class="stepwizard-step circle1 active">
-                            <div class="circle">1</div>
-                            <h4 class="small margin-0 text-bold">Datum en tijd selecteren</h4>
-                        </div>
-                        <div class="stepwizard-step circle2">
-                            <div class="circle">2</div>
-                            <h4 class="small margin-0 text-bold">Gegevens invullen</h4>
-                        </div>
-                        <div class="stepwizard-step circle3">
-                            <div class="circle">3</div>
-                            <h4 class="small margin-0 text-bold">Gegevens controleren</h4>
+            <div class="afspraak-left-inner">
+                <div class="col-md-3">
+                    <div class="stepwizard">
+                        <div class="stepwizard-row">
+                            <div class="stepwizard-step circle1 active">
+                                <div class="circle">1</div>
+                                <h4 class="small margin-0 text-bold">Datum en tijd selecteren</h4>
+                            </div>
+                            <div class="stepwizard-step circle2">
+                                <div class="circle">2</div>
+                                <h4 class="small margin-0 text-bold">Gegevens invullen</h4>
+                            </div>
+                            <div class="stepwizard-step circle3">
+                                <div class="circle">3</div>
+                                <h4 class="small margin-0 text-bold">Gegevens controleren</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-9 text-left">
-                <div id="datum-tijd">
-                    <h3 class="fontsize-17 text-bold">Stap 1, Datum en tijd selecteren</h3>
+                <div class="col-md-9 text-left">
+                    <div id="datum-tijd">
+                        <h3 class="fontsize-17 text-bold">Stap 1, Datum en tijd selecteren</h3>
 
-                    <p class="fontsize-17">Selecteer eerst een datum en vervolgens een tijdstip dat je wilt komen passen!</p>
+                        <p class="fontsize-17">Selecteer eerst een datum en vervolgens een tijdstip dat je wilt komen passen!</p>
 
-                    <h4 class="fontsize-14">Openingstijden:</h4>
-                    <table class="text-bold fontsize-14">
-                        <tr>
-                            <td>MA</td>
-                            <td>12:00-17:30</td>
-                        </tr>
-                        <tr>
-                            <td style="padding-right: 10px;">DI-VR</td>
-                            <td>09:30-17:30</td>
-                        </tr>
-                        <tr>
-                            <td>ZA</td>
-                            <td>09:30-18:00</td>
-                        </tr>
-                        <tr>
-                            <td>ZO</td>
-                            <td>11:00-18:00</td>
-                        </tr>
-                    </table>
+                        <h4 class="fontsize-14">Openingstijden:</h4>
+                        <table class="text-bold fontsize-14">
+                            <tr>
+                                <td>MA</td>
+                                <td>12:00-17:30</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">DI-VR</td>
+                                <td>09:30-17:30</td>
+                            </tr>
+                            <tr>
+                                <td>ZA</td>
+                                <td>09:30-18:00</td>
+                            </tr>
+                            <tr>
+                                <td>ZO</td>
+                                <td>11:00-18:00</td>
+                            </tr>
+                        </table>
 
-                    <p class="fontsize-14 top-space-small">*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
+                        <p class="fontsize-14 top-space-small">*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
 
-                    <button id="naar-gegevensinvullen" class="btn btn-pink bottom-space-small">Naar stap 2</button>
+                        <button id="naar-gegevensinvullen" class="btn btn-pink bottom-space-small">Naar stap 2</button>
+                    </div>
+                    <div id="gegevens-invullen">
+                        <h3 class="fontsize-17 text-bold">Stap 2, Gegevens invullen</h3>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.Naam, "Voor- en achternaam*")
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control", id = "Naam" } })
+                            @Html.ValidationMessageFor(model => model.Naam)
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.TrouwDatum, "Trouwdatum*")
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type = "Date" } })
+                            @Html.ValidationMessageFor(model => model.TrouwDatum)
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.TelNr, "Telefoonnummer")
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.EditorFor(model => model.TelNr, new { htmlAttributes = new { @class = "form-control", id = "TelNr" } })
+                            @Html.ValidationMessageFor(model => model.TelNr)
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.Email, "E-mailadres*")
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="repeatEmail">Herhaal E-mailadres*</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="E-mailadres is verplicht." id="repeatEmail" name="repeatEmail" type="email" value="" aria-required="true" aria-describedby="repeatEmail-error" aria-invalid="true">
+                            <span class="field-validation-error" data-valmsg-for="repeatEmail" data-valmsg-replace="true"></span>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="fontsize-14" type="checkbox" value="true" id="Nieuwsbrief" name="Nieuwsbrief" />
+                            </div>
+                            <div class="col-md-10">
+                                <h4> Ja, ik wil me graag aanmelden voor de inspirerende nieuwsbrief van honeymoon Shop</h4>
+                            </div>
+                        </div>
+
+                        <button id="naar-gegevenscontroleren" class="btn btn-pink bottom-space-small top-space-small">Naar stap 3</button>
+                    </div>
+                    <div id="gegevens-controleren">
+                        <h3 class="fontsize-17 text-bold">Stap 3, Gegevens controleren</h3>
+                        <p>Controleer alle gegevens voor je pasafspraak bij Honeymoon shop aan Korte hoogstraat 4, te Rotterdam.</p>
+
+                        <input type="submit" class="btn btn-pink text-uppercase" value="Afspraak bevestigen" />
+
+                    </div>
+
                 </div>
-                <div id="gegevens-invullen">
-                    <h3 class="fontsize-17 text-bold">Stap 2, Gegevens invullen</h3>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            @Html.LabelFor(model => model.Naam, "Voor- en achternaam*")
-                        </div>
-                    </div>
-                    <div class="row">
-                        @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control", id = "Naam" } })
-                        @Html.ValidationMessageFor(model => model.Naam)
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            @Html.LabelFor(model => model.TrouwDatum, "Trouwdatum*")
-                        </div>
-                    </div>
-                    <div class="row">
-                        @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type= "Date"} })
-                        @Html.ValidationMessageFor(model => model.TrouwDatum)
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            @Html.LabelFor(model => model.TelNr, "Telefoonnummer")
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        @Html.EditorFor(model => model.TelNr, new { htmlAttributes = new { @class = "form-control", id = "TelNr" } })
-                        @Html.ValidationMessageFor(model => model.TelNr)
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            @Html.LabelFor(model => model.Email, "E-mailadres*")
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
-                        @Html.ValidationMessageFor(model => model.Email)
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="repeatEmail">Herhaal E-mailadres*</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <input class="form-control text-box single-line" data-val="true" data-val-required="E-mailadres is verplicht." id="repeatEmail" name="repeatEmail" type="email" value="" aria-required="true" aria-describedby="repeatEmail-error" aria-invalid="true">
-                        <span class="field-validation-error" data-valmsg-for="repeatEmail" data-valmsg-replace="true"></span>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-2">
-                            <input class="fontsize-14" type="checkbox" value="true" id="Nieuwsbrief" name="Nieuwsbrief" />
-                        </div>
-                        <div class="col-md-10">
-                            <h4> Ja, ik wil me graag aanmelden voor de inspirerende nieuwsbrief van honeymoon Shop</h4>
-                        </div>
-                    </div>
-
-                    <button id="naar-gegevenscontroleren" class="btn btn-pink bottom-space-small top-space-small">Naar stap 3</button>
-                </div>
-                <div id="gegevens-controleren">
-                    <h3 class="fontsize-17 text-bold">Stap 3, Gegevens controleren</h3>
-                    <p>Controleer alle gegevens voor je pasafspraak bij Honeymoon shop aan Korte hoogstraat 4, te Rotterdam.</p>
-
-                    <input type="submit" class="btn btn-pink text-uppercase" value="Afspraak bevestigen"/>
-
-                </div>
-
             </div>
         </div>
         <div class="col-md-5 kiesdatum col">
-            <div id="datum-kiezen">
-                <h4 class="text-left text-white">Selecteer een datum</h4>
+            <div id="datum-kiezen" class="afspraak-right-inner">
+                <h4 class="text-left text-white text-bold"> <span class="glyphicon glyphicon-heart"></span> &nbsp; Selecteer een datum: </h4>
 
                 <div class="form-group text-white">
                     <div class='input-group date' id='datetimepicker'>
