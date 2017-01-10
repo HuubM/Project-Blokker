@@ -32,11 +32,11 @@
     </div>
 </div>
 
-<div class="row panel-2 text-center afspraak-widget">
+<div class="row panel-2 text-center afspraak-widget bottom-space-large">
     <form id="afspraakgegevens" method="post" action="/afspraak/Add">
         <div class="col-md-7 afspraak-left">
             <div class="col-md-3">
-                <div class="stepwizard">
+                <div class="stepwizard bottom-space-small top-space-small">
                     <div class="stepwizard-row">
                         <div class="stepwizard-step circle1 active">
                             <div class="circle">1</div>
@@ -91,9 +91,11 @@
                             @Html.LabelFor(model => model.Naam, "Voor- en achternaam*")
                         </div>
                     </div>
-                    <div class="row">
-                        @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control", id = "Naam" } })
-                        @Html.ValidationMessageFor(model => model.Naam)
+                    <div class="row bottom-space-small">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control", id = "Naam" } })
+                            @Html.ValidationMessageFor(model => model.Naam)
+                         </div>
                     </div>
 
                     <div class="row">
@@ -101,9 +103,11 @@
                             @Html.LabelFor(model => model.TrouwDatum, "Trouwdatum*")
                         </div>
                     </div>
-                    <div class="row">
-                        @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type= "Date"} })
-                        @Html.ValidationMessageFor(model => model.TrouwDatum)
+                    <div class="row bottom-space-small">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type = "Date" } })
+                            @Html.ValidationMessageFor(model => model.TrouwDatum)
+                        </div>
                     </div>
 
                     <div class="row">
@@ -112,9 +116,11 @@
 
                         </div>
                     </div>
-                    <div class="row">
-                        @Html.EditorFor(model => model.TelNr, new { htmlAttributes = new { @class = "form-control", id = "TelNr" } })
-                        @Html.ValidationMessageFor(model => model.TelNr)
+                    <div class="row bottom-space-small">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.TelNr, new { htmlAttributes = new { @class = "form-control", id = "TelNr" } })
+                            @Html.ValidationMessageFor(model => model.TelNr)
+                        </div>
                     </div>
 
                     <div class="row">
@@ -123,9 +129,11 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
-                        @Html.ValidationMessageFor(model => model.Email)
+                    <div class="row bottom-space-small">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
                     </div>
 
 
@@ -135,9 +143,11 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <input class="form-control text-box single-line" data-val="true" data-val-required="E-mailadres is verplicht." id="repeatEmail" name="repeatEmail" type="email" value="" aria-required="true" aria-describedby="repeatEmail-error" aria-invalid="true">
-                        <span class="field-validation-error" data-valmsg-for="repeatEmail" data-valmsg-replace="true"></span>
+                    <div class="row bottom-space-small">
+                        <div class="col-md-12">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="E-mailadres is verplicht." id="repeatEmail" name="repeatEmail" type="email" value="" aria-required="true" aria-describedby="repeatEmail-error" aria-invalid="true">
+                            <span class="field-validation-error" data-valmsg-for="repeatEmail" data-valmsg-replace="true"></span>
+                        </div>
                     </div>
 
 
@@ -146,7 +156,7 @@
                             <input class="fontsize-14" type="checkbox" value="true" id="Nieuwsbrief" name="Nieuwsbrief" />
                         </div>
                         <div class="col-md-10">
-                            <h4> Ja, ik wil me graag aanmelden voor de inspirerende nieuwsbrief van honeymoon Shop</h4>
+                            <label class="text-normal" for="Nieuwsbrief"> Ja, ik wil me graag aanmelden voor de inspirerende nieuwsbrief van honeymoon Shop</label>
                         </div>
                     </div>
 
