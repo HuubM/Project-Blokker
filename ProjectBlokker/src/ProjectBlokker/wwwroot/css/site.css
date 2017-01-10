@@ -580,10 +580,21 @@ b{
     background: none;
     margin-top: 10%;
     margin-bottom: 10%;
+    box-shadow: 0 0 50px -7px black;
 }
 
 .afspraak-left {
     background-color: white;
+}
+
+.afspraak-left-inner{
+    padding-top: 5%;
+}
+
+.afspraak-right-inner{
+    width: 100%;
+    margin-left: 10%;
+    margin-top: 5%;
 }
 
 .kiesdatum {
