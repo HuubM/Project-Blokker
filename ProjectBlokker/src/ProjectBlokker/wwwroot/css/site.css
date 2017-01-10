@@ -73,7 +73,7 @@ textarea {
     opacity:0.3;
     font-family:'Script MT';
     font-weight: bold;
-    font-size: 65px;
+    font-size: 60px;
     color:white;
     left: 0;
     right: 0;
@@ -292,6 +292,7 @@ b{
     color:rgba(255,0,0,0.5);
 }
 
+
 .text-bold {
     font-weight: bold;
 }
@@ -325,6 +326,10 @@ b{
 }
 .fontsize-100{
     font-size:100px;
+}
+
+.fontsize-120{
+    font-size:120px;
 }
 .margin-0 {
     margin: 0;
@@ -479,9 +484,19 @@ b{
     margin-top: 70px;
     padding-left:25%;
 }
+.top-space-bruidswinkel{
+    margin-top:-90px;
+}
+.top-space-thedress{
+    margin-top:70px;
+    padding-left:30%;
+}
 .top-space-blog{
     margin-top:50px;
     padding-left: 40%;
+}
+.top-space-review{
+    
 }
 .bottom-space {
     margin-bottom: 45px;

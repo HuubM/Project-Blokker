@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ProjectBlokker", "src\ProjectBlokker\ProjectBlokker.xproj", "{E37B3569-8DF7-4FD6-A961-026419B927CA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{08B6284D-C8F2-498E-9508-7C039608EAD2}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "tests", "tests\tests.xproj", "{9E284DFF-441A-4EDC-BD15-AE7F76F755EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +26,16 @@ Global
 		{E37B3569-8DF7-4FD6-A961-026419B927CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E37B3569-8DF7-4FD6-A961-026419B927CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E37B3569-8DF7-4FD6-A961-026419B927CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E284DFF-441A-4EDC-BD15-AE7F76F755EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E284DFF-441A-4EDC-BD15-AE7F76F755EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E284DFF-441A-4EDC-BD15-AE7F76F755EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E284DFF-441A-4EDC-BD15-AE7F76F755EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E37B3569-8DF7-4FD6-A961-026419B927CA} = {4371400B-8AE4-4B00-AD07-D762A0AC182B}
+		{9E284DFF-441A-4EDC-BD15-AE7F76F755EF} = {08B6284D-C8F2-498E-9508-7C039608EAD2}
 	EndGlobalSection
 EndGlobal
