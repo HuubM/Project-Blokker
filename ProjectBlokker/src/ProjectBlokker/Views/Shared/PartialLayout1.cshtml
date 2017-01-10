@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjectBlokker</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    </environment>
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="row panel-1">
+        <div class="row menu">
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                        <div class="imglogo">
+                            <a class="navbar-brand " href="#">
+                                <img src="~/images/HMSLogo.png" alt="HONEYMOON SHOP" class="img-responsive" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-9 col-sm-12 col-xs-12" style="padding-top: 5px;">
+                        <ul class="nav navbar-nav navbar-right text-uppercase">
+                            <li class="active"><a href="/home/index">HOME</a></li>
+                            <li><a href="~/home/bruid">Bruid</a></li>
+                            <li><a href="~/home/bruidegom">Bruidegom</a></li>
+                            <li><a href="#">De winkel</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
