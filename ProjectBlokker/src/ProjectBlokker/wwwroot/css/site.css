@@ -138,9 +138,22 @@ textarea {
 	color: white;
 }
 
+.menu .navbar2 {
+	background: none;
+	border: 0;
+	color: black;
+}
+
 .menu .navbar li a {
 	font-weight: bold;
 	color: white;
+    font-size: 13px;
+    padding-right: 10px;
+}
+
+.menu .navbar2 li a {
+	font-weight: bold;
+	color: black;
     font-size: 13px;
     padding-right: 10px;
 }
@@ -153,7 +166,19 @@ textarea {
     font-family: 'Libre Baskerville', serif;
 }
 
+.menu .navbar2 .navbar-brand {
+	color: black;
+	font-size: 30px;
+    margin: 14px 0 0 0;
+    letter-spacing: 1px;
+    font-family: 'Libre Baskerville', serif;
+}
+
 .menu .navbar-nav {
+	padding: 15px 15px 0 5px;
+}
+
+.menu .navbar2-nav {
 	padding: 15px 15px 0 5px;
 }
 
@@ -162,9 +187,19 @@ textarea {
 	background: none;
 }
 
+.menu .navbar2 .active a, .menu .navbar2 .active a:hover, .menu .navbar2 .active a:focus {
+	color: #F2587C;
+	background: none;
+}
+
 .menu .navbar li a:hover {
 	color: #F2587C;
 }
+
+.menu .navbar2 li a:hover {
+	color: #F2587C;
+}
+
 
 .afspraak {
 	margin: 8px;
@@ -593,9 +628,9 @@ b{
     width: 80%;
     margin: 0 auto;
     background: none;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    box-shadow: 0 0 50px -7px black;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    box-shadow: 0 0 50px -15px black;
 }
 
 .afspraak-left {
