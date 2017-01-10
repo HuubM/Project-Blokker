@@ -10,7 +10,9 @@ namespace ProjectBlokker.Models
     {
         public int ID { get; set; }
 
+        
         [Required(ErrorMessage = "Afspraakdatum is verplicht.")]
+        [DataType(DataType.Date)]
         public DateTime AfspraakDatum { get; set; }
 
         [Required(ErrorMessage = "Naam is verplicht.")]

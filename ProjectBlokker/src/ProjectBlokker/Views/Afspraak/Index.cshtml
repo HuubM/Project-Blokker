@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="row panel-1">
+<div class="row panel-afspraak">
     <div class="row menu">
         <div class="navbar navbar-default">
             <div class="container">
@@ -32,10 +32,10 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row panel-2 text-center afspraak-widget">
-        <form id="afspraakgegevens" method="post" action="/afspraak/Add">
-            <div class="col-md-7 afspraak-left">
+<div class="row panel-2 text-center afspraak-widget afspraakwindow">
+    <form id="afspraakgegevens" method="post" action="/afspraak/Add" class="rowss">
+        <div class="col-md-7 afspraak-left col">
+            <div class="afspraak-left-inner">
                 <div class="col-md-3">
                     <div class="stepwizard">
                         <div class="stepwizard-row">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum" } })
+                            @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type = "Date" } })
                             @Html.ValidationMessageFor(model => model.TrouwDatum)
                         </div>
 
@@ -157,78 +157,78 @@
                         <h3 class="fontsize-17 text-bold">Stap 3, Gegevens controleren</h3>
                         <p>Controleer alle gegevens voor je pasafspraak bij Honeymoon shop aan Korte hoogstraat 4, te Rotterdam.</p>
 
-                        <input type="submit" class="btn btn-pink text-uppercase" value="Afspraak bevestigen"/>
+                        <input type="submit" class="btn btn-pink text-uppercase" value="Afspraak bevestigen" />
 
                     </div>
 
                 </div>
             </div>
-            <div class="col-md-5 kiesdatum">
-                <div id="datum-kiezen">
-                    <h4 class="text-left text-white">Selecteer een datum</h4>
+        </div>
+        <div class="col-md-5 kiesdatum col">
+            <div id="datum-kiezen" class="afspraak-right-inner">
+                <h4 class="text-left text-white text-bold"> <span class="glyphicon glyphicon-heart"></span> &nbsp; Selecteer een datum: </h4>
 
-                    <div class="form-group text-white">
-                        <div class='input-group date' id='datetimepicker'>
-                            <input type="hidden" id="datumAfpsraak">
-                        </div>
-                        <a id="selectTime" class="text-white text-bold" href="#">Selecteer een tijd</a>
+                <div class="form-group text-white">
+                    <div class='input-group date' id='datetimepicker'>
+                        <input type="hidden" id="datumAfpsraak">
                     </div>
-                </div>
-
-                <div id="tijd-kiezen" class="text-left text-white text-bold">
-                    <h4 class="text-left text-white">Selecteer een tijdstip</h4>
-                    <h3 id="gekozen-datum"></h3>
-                    <input type="radio" name="tijdstip" value="09:30" id="0930"><label for="0930">09:30</label><br>
-                    <input type="radio" name="tijdstip" value="12:00" id="1200"><label for="1200">12:00</label><br>
-                    <input type="radio" name="tijdstip" value="15:00" id="1500"><label for="1500">15:00</label>
-                    <br />
-                    <a href="#" id="tijd-terug-datum" class="text-white push-to-bottom text-bold">Terug naar datum selecteren</a>
-                </div>
-
-                <div id="gekozen-tijd-datum" class="text-left text-white">
-                    <h4 class="text-bold text-left text-white">Gekozen tijd en datum:</h4>
-                    <h4 class="gekozen-datum-tijd text-bold"></h4>
-                    <p>
-                        Vul je persoonlijke gegevens in om de pasafspraak compleet te maken.
-                    </p>
-
-                    <a href="#" class="text-white" id="terug-stap1">Terug naar stap 1 om datum te wijzigen</a>
-                </div>
-
-                <div id="gegevens-bevestigen" class="text-white">
-                    <h4 class="text-left text-bold">Controleer je gegevens:</h4>
-                    <h4 class="gekozen-datum-tijd text-bold"></h4>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">Naam:</div>
-                        <div class="col-md-9"><div id="gekozennaam"></div></div>
-                    </div>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">Trouwdatum:</div>
-                        <div class="col-md-9"><div id="gekozentrouwdatum"></div></div>
-                    </div>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">Telefoon:</div>
-                        <div class="col-md-9"><div id="gekozentelefoon"></div></div>
-                    </div>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">E-mail:</div>
-                        <div class="col-md-9"><div id="gekozenemail"></div></div>
-                    </div>
-
-                    <a href="#" id="terug-stap2" class="text-white">Terug naar stap 2 om gegevens te wijzigen</a>
+                    <a id="selectTime" class="text-white text-bold" href="#">Selecteer een tijd</a>
                 </div>
             </div>
-            <input type="hidden" name="AfspraakDatum" id="eindafspraak"/>
-        </form>
-    </div>
 
-    <div class="row">
-        <img class="img-responsive" src="~/images/Ronaldo.PNG" />
-    </div>
+            <div id="tijd-kiezen" class="text-left text-white text-bold">
+                <h4 class="text-left text-white">Selecteer een tijdstip</h4>
+                <h3 id="gekozen-datum"></h3>
+                <input type="radio" name="tijdstip" value="09:30" id="0930"><label for="0930">09:30</label><br>
+                <input type="radio" name="tijdstip" value="12:00" id="1200"><label for="1200">12:00</label><br>
+                <input type="radio" name="tijdstip" value="15:00" id="1500"><label for="1500">15:00</label>
+                <br />
+                <a href="#" id="tijd-terug-datum" class="text-white push-to-bottom text-bold">Terug naar datum selecteren</a>
+            </div>
+
+            <div id="gekozen-tijd-datum" class="text-left text-white">
+                <h4 class="text-bold text-left text-white">Gekozen tijd en datum:</h4>
+                <h4 class="gekozen-datum-tijd text-bold"></h4>
+                <p>
+                    Vul je persoonlijke gegevens in om de pasafspraak compleet te maken.
+                </p>
+
+                <a href="#" class="text-white" id="terug-stap1">Terug naar stap 1 om datum te wijzigen</a>
+            </div>
+
+            <div id="gegevens-bevestigen" class="text-white">
+                <h4 class="text-left text-bold">Controleer je gegevens:</h4>
+                <h4 class="gekozen-datum-tijd text-bold"></h4>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">Naam:</div>
+                    <div class="col-md-9"><div id="gekozennaam"></div></div>
+                </div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">Trouwdatum:</div>
+                    <div class="col-md-9"><div id="gekozentrouwdatum"></div></div>
+                </div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">Telefoon:</div>
+                    <div class="col-md-9"><div id="gekozentelefoon"></div></div>
+                </div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">E-mail:</div>
+                    <div class="col-md-9"><div id="gekozenemail"></div></div>
+                </div>
+
+                <a href="#" id="terug-stap2" class="text-white">Terug naar stap 2 om gegevens te wijzigen</a>
+            </div>
+        </div>
+        <input type="hidden" name="AfspraakDatum" id="eindafspraak"/>
+    </form>
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="~/images/Ronaldo.PNG" />
 </div>
 
 @section Scripts {
