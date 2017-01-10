@@ -173,11 +173,10 @@ textarea {
 .panel-1 {
 	background-image: url("../images/women.png");
     background-size:100% 100%;
-    
 }
 
-.panel-2 {
-    background-color: white;
+.panel-afspraak {
+    background-color: #fafafa;
 }
 
 .panel-3 {
@@ -488,6 +487,14 @@ b{
     left: 7%;
 }
 
+.rowss{
+    display: flex;
+}
+
+.col{
+    flex: 1;
+}
+
 .onestopinfo {
     width: 250px;
     font-size: 14px;
@@ -556,6 +563,8 @@ b{
     width: 80%;
     margin: 0 auto;
     background: none;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .afspraak-left {
