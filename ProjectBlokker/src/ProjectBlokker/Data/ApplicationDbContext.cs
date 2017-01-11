@@ -31,5 +31,12 @@ namespace ProjectBlokker.Data
 
         // Property is virtual om te kunnen mocken.
         public virtual DbSet<Afspraak> Afspraak { get; set; }
+
+        public virtual DbSet<Artikel> Artikel { get; set; }
+        public virtual DbSet<Categorie> Categorie { get; set; }
+        public virtual DbSet<Jurk> Jurk { get; set; }
+        public virtual DbSet<Merk> Merk { get; set; }
+        public virtual DbSet<Neklijn> Neklijn { get; set; }
+        public virtual DbSet<Stijl> Stijl { get; set; }
     }
 }
