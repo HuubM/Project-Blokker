@@ -877,6 +877,18 @@ input.form-control {
     border-width: 2px;
 }
 
+#slider 
+{
+    width: 80%;
+    margin-left: 1em;
+}
+
+#min, #max {
+    width: 50px;
+    text-align: center;
+}
+
+
 @media (min-width: 992px) {
     .headline-left {
         padding-right:0;

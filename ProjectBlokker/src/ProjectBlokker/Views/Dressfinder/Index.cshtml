@@ -5,12 +5,46 @@
 }
 
 
-
-@foreach (var item in ViewBag.jurken)
+Categorieen:<br />
+@foreach (var item in ViewBag.categorieen) //categorie
 {
-    <div>
-        @item.Omschrijving
-        <hr />
-    </div>
+    <input type="checkbox" id="categorie_@item.Naam" name="categorie" value="@item.CategorieID">
+    <label for="categorie_@item.Naam">@item.Naam</label><br />
 }
+
+
+Merken:<br />
+@foreach (var item in ViewBag.merken) //merk
+{
+    <input type="checkbox" id="merk_@item.Naam" name="merk" value="@item.MerkID">
+    <label for="merk_@item.Naam">@item.Naam</label><br />
+}
+
+
+Stijlen:<br />
+@foreach (var item in ViewBag.stijlen) //stijl
+{
+    <input type="checkbox" id="stijl_@item.Naam" name="stijl" value="@item.StijlID">
+    <label for="stijl_@item.Naam">@item.Naam</label><br />
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="hidden" id="maxprijs" value="@ViewBag.maxprijs" />
+
+        <div class="col-md-3">
+            Prijs:
+        </div>
+
+        <div class="col-md-3">
+            <div id="slider"></div>
+            <div id="min"></div>
+            <div id="max"></div>
+        </div>
+
+
+        </div>
+</div>
+
 

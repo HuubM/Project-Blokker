@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectBlokker.Data;
 using ProjectBlokker.Models;
+using ProjectBlokker.ViewModels;
 
 namespace ProjectBlokker.Controllers
 {
@@ -77,7 +78,15 @@ namespace ProjectBlokker.Controllers
             {
                 return NotFound();
             }
-            return View(jurk);
+
+            JurkViewModel jvm = new JurkViewModel();
+
+            ViewBag.artikelen = new SelectList(_context.Artikel.ToList<Artikel>());
+
+            jvm.jurk = jurk;
+            jvm.artikelen = _context.Artikel.ToList<Artikel>();
+
+            return View(jvm);
         }
 
         // POST: Jurks/Edit/5
@@ -112,7 +121,16 @@ namespace ProjectBlokker.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(jurk);
+
+
+            JurkViewModel jvm = new JurkViewModel();
+
+            ViewBag.artikelen = new SelectList(_context.Artikel.ToList<Artikel>());
+
+            jvm.jurk = jurk;
+            jvm.artikelen = _context.Artikel.ToList<Artikel>();
+
+            return View(jvm);
         }
 
         // GET: Jurks/Delete/5

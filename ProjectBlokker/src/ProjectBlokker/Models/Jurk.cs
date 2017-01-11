@@ -38,8 +38,14 @@ namespace ProjectBlokker.Models
         public string Omschrijving { get; set; }
 
 
+        public string image1_location { get; set; }
+        public string image2_location { get; set; }
+        public string image3_location { get; set; }
+        public string image4_location { get; set; }
+
+
         // Naviagtion properties
-        
+
         public virtual Artikel artikel { get; set; }
         public virtual Silhouette silhouette { get; set; }
         public virtual Neklijn neklijn { get; set; }
