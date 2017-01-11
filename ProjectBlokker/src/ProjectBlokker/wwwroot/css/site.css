@@ -70,7 +70,7 @@ textarea {
 .imageback{
     position:absolute;
     z-index:0;
-    opacity:0.3;
+    opacity:0.4;
     font-family:'Script MT';
     font-weight: bold;
     font-size: 60px;
@@ -388,6 +388,15 @@ b{
 .btn-dressfinder {
     box-sizing: border-box;
     width: 400px;
+    height:50px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin: 40px;
+}
+
+.btn-deelditmoment{
+    box-sizing: border-box;
+    width: 350px;
     height:50px;
     font-weight: bold;
     letter-spacing: 4px;
