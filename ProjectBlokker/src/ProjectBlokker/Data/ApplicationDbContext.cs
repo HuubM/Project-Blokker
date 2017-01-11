@@ -10,6 +10,12 @@ namespace ProjectBlokker.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // Default constructor nodig om te kunnen mocken
+        public ApplicationDbContext()
+        {
+
+        }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -23,6 +29,7 @@ namespace ProjectBlokker.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<Afspraak> Afspraak { get; set; }
+        // Property is virtual om te kunnen mocken.
+        public virtual DbSet<Afspraak> Afspraak { get; set; }
     }
 }

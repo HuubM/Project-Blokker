@@ -2,41 +2,28 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="row panel-1">
-    @Html.Partial("PartialLayout1")
-    <li class="active"><a href="/home/index">HOME</a></li>
-    <li><a href="~/home/bruid">Bruid</a></li>
-    <li><a href="~/home/bruidegom">Bruidegom</a></li>
-    <li><a href="#">De winkel</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
-    </ul>
-</div>
-                </div>
-            </div>
-        </div>
+<div class="row panel-home">
+    @Html.Partial("PartialLayout2")
 
     <div class="row welcome">
         <div class="row text-center text-white">
             <div class="col-md-12">
-                <h3 class="fontsize-28">Al bijna 50 jaar de grootste bruidszaak van Nederland.</h3>
-            </div>
-        </div>
-
-        <div class="row text-center bottom-space">
-            <div class="col-md-12">
+                <h1 class="imageback fontsize-120  top-space-bruidswinkel">Bruidswinkel</h1>
+                <h3 class="imagefrontz fontsize-28">Al bijna 50 jaar de grootste bruidszaak van Nederland.</h3>
                 <h2 class="text-uppercase text-white text-bold fontsize-32">Hoe kunnen we jou helpen?</h2>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <button class="btn btn-large btn-pink text-uppercase">Bruid</button>
-                <button class="btn btn-large btn-white text-uppercase">Bruidegom</button>
-            </div>
+
+    </div>
+
+    <div class="row welcome">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-large btn-pink text-uppercase">Bruid</button>
+            <button class="btn btn-large btn-white text-uppercase">Bruidegom</button>
         </div>
     </div>
+
 
     <div class="row text-white text-center bottom-space-small">
         <h4 class="small margin-0">Scroll</h4>
@@ -45,9 +32,9 @@
 </div>
 
 <div class="row panel-2 text-center">
-    <div class="row">
+    <div class="row welcome">
         <div class="col-md-12">
-            <h1 class="imagebackmain fontsize-100  margin-0 top-space-onestopshop">One stop shop</h1>
+            <h1 class="imagebackmain fontsize-120  margin-0 top-space-backgroundtext">One stop shop</h1>
             <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 top-space-large">Een jurk of pak kopen?</h3>
             <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 bottom-space">Zo werkt het...</h3>
         </div>
@@ -56,7 +43,7 @@
         <div class="col-md-8">
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
+                    <img src="~/images/bruidcar.png" alt="" class="img-responsive">
                     <div class="row carousel-caption onestopshop-content">
                         <div class="col-md-6">
                             <i class="circlecarousel circleincarousel"> 1 </i>
@@ -72,7 +59,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
+                    <img src="~/images/bruidcar.png"  alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
                         <div class="col-md-6 ">
                             <i class="circlecarousel circleincarousel"> 2 </i>
@@ -88,7 +75,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
+                    <img src=~/images/bruidcar.png alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
                         <div class="col-md-6">
                             <i class="circlecarousel circleincarousel"> 3 </i>
@@ -104,7 +91,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="https://placekitten.com/650/400" alt="" class="img-responsive">
+                    <img src=~/images/bruidcar.png alt="" class="img-responsive">
                     <div class="carousel-caption onestopshop-content">
                         <div class="col-md-6">
                             <i class="circlecarousel circleincarousel"> 4 </i>
@@ -153,10 +140,10 @@
 </div>
 
 <div class="row panel-3 text-center">
-    <div class="row">
+    <div class="row welcome">
         <div class="col-md-12">
             <h1></h1>
-            <h1 class="imagebackmain fontsize-100 margin-0 top-space-blog">Blog</h1>
+            <h1 class="imagebackmain fontsize-120 margin-0 top-space-backgroundtext">Blog</h1>
             <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 top-space-large">Blijf op de hoogte over</h3>
             <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 bottom-space">De bruidswereld</h3>
         </div>
@@ -198,6 +185,18 @@
         </div>
     </div>
 </div>
+
+<div class="row panel-2">
+    <div class="col-md-12 text-center">
+        <button class="btn btn-meerberichten btn-pink text-uppercase text-bold fontsize-20">Meer berichten</button>
+    </div>
+
+</div>
+<div class="row panel-2 text-pink text-center bottom-space-small">
+
+    <i class="glyphicon glyphicon-triangle-bottom pink "></i>
+</div>
+
 <div class="row">
         <img class="img-responsive" src="~/images/Ronaldo.PNG"/>
 </div>

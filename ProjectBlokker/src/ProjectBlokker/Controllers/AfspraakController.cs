@@ -40,12 +40,12 @@ namespace ProjectBlokker.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Add([Bind("ID,AfspraakDatum,Email,Naam,Nieuwsbrief,TelNr,TrouwDatum")] Afspraak afspraak)
+        public IActionResult Add(Afspraak afspraak)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(afspraak);
-                await _context.SaveChangesAsync();
+                _context.Afspraak.Add(afspraak);
+                _context.SaveChanges();
 
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("HoneyMoonShop", "HoneyMoonShop@outlook.com"));
@@ -53,8 +53,8 @@ namespace ProjectBlokker.Controllers
                 message.Subject = "Afspraak Bevestiging HoneyMoonShop";
                 message.Body = new TextPart("plain")
                 {
-                    Text = "Geachte " + @afspraak.Naam + "," + "\n" + "\n" + "Uw Afspraak op " + @afspraak.AfspraakDatum + " is in goede orde ontvangen." + "\n" + "\n" + "Met vriendelijke groet," + 
-                    "\n" + "HoneyMoonShop" 
+                    Text = "Geachte " + @afspraak.Naam + "," + "\n" + "\n" + "Uw Afspraak op " + @afspraak.AfspraakDatum + " is in goede orde ontvangen." + "\n" + "\n" + "Met vriendelijke groet," +
+                    "\n" + "HoneyMoonShop"
                 };
 
                 using (SmtpClient client = new SmtpClient())//TODO takes too much time, should be multi threading 
