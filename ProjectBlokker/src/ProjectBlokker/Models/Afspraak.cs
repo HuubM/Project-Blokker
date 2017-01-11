@@ -11,18 +11,8 @@ namespace ProjectBlokker.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Afspraakdatum is verplicht.")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime AfspraakDatum { get; set; }
-
-        [Required(ErrorMessage = "Afspraaktijd is verplicht.")]
-        [DataType(DataType.Date)]
-        public DateTime AfspraakTijd { get; set; }
-       
-    }
-
-    public class AfspraakKlant
-    {
-        public int ID { get; set; }
 
         [Required(ErrorMessage = "Naam is verplicht.")]
         public string Naam { get; set; }

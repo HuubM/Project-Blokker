@@ -2,28 +2,23 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Bruid";
+    ViewData["Title"] = "Index";
 }
 
 <div class="row panel-home">
-    <div class="row menu">
-        <div class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header ">
-                    <a class="navbar-brand" href="#">HONEYMOON SHOP</a>
+    @Html.Partial("PartialLayout1")
+    <li><a href="/home/index">HOME</a></li>
+    <li class="active"><a href="~/home/bruid">Bruid</a></li>
+    <li><a href="~/home/bruidegom">Bruidegom</a></li>
+    <li><a href="#">De winkel</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
+    </ul>
+</div>
                 </div>
-                <ul class="nav navbar-nav navbar-right text-uppercase">
-                    <li class=""><a href="~/home/index">HOME</a></li>
-                    <li><a href="~/home/bruid">Bruid</a></li>
-                    <li><a href="~/home/bruidegom">Bruidegom</a></li>
-                    <li><a href="#">De winkel</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
-                </ul>
             </div>
         </div>
-    </div>
 
     <div class="row welcome">
         <div class="row text-center text-white">
