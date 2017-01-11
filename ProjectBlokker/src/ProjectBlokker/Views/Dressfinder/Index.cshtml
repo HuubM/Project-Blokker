@@ -1,7 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ProjectBlokker.ViewModels.DressfinderIndex
+
 @{
+    ViewData["Title"] = "Dressfinder";
 }
 
+
+
+@foreach (var item in ViewBag.jurken)
+{
+    <div>
+        @item.Omschrijving
+        <hr />
+    </div>
+}
 

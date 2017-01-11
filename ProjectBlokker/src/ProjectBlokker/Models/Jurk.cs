@@ -14,34 +14,38 @@ namespace ProjectBlokker.Models
         [Key]
         public int JurkID { get; set; }
 
-        //public int ArtikelID { get; set; }
-        //public int MerkID { get; set; }
-        //public int CategorieID { get; set; }
-        //public int StijlID { get; set; }
+        [ForeignKey("Artikel")]
+        public int ArtikelID { get; set; }
+
+        [ForeignKey("Merk")]
+        public int MerkID { get; set; }
+
+        [ForeignKey("Categorie")]
+        public int CategorieID { get; set; }
+
+        [ForeignKey("Stijl")]
+        public int StijlID { get; set; }
         public int Prijs { get; set; }
-        //public int NeklijnID { get; set; }
-        //public int SilhouetteID { get; set; }
-        //public int KleurID { get; set; }
+
+        [ForeignKey("Neklijn")]
+        public int NeklijnID { get; set; }
+
+        [ForeignKey("Silhouette")]
+        public int SilhouetteID { get; set; }
+
+        [ForeignKey("Kleur")]
+        public int KleurID { get; set; }
         public string Omschrijving { get; set; }
 
 
         // Naviagtion properties
-        [ForeignKey("Silhouette")]
+        
+        public virtual Artikel artikel { get; set; }
         public virtual Silhouette silhouette { get; set; }
-
-        [ForeignKey("Neklijn")]
         public virtual Neklijn neklijn { get; set; }
-
-        [ForeignKey("Merk")]
         public virtual Merk merk { get; set; }
-
-        [ForeignKey("Stijl")]
         public virtual Stijl stijl { get; set; }
-
-        [ForeignKey("Kleur")]
         public virtual Kleur kleur { get; set; }
-
-        [ForeignKey("Categorie")]
         public virtual Categorie categorie { get; set; }
     }
 }

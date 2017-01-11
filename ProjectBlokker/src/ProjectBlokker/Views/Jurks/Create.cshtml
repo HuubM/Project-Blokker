@@ -1,0 +1,88 @@
+@model ProjectBlokker.Models.Jurk
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Jurk</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="ArtikelID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ArtikelID" class="form-control" />
+                <span asp-validation-for="ArtikelID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategorieID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CategorieID" class="form-control" />
+                <span asp-validation-for="CategorieID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="KleurID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="KleurID" class="form-control" />
+                <span asp-validation-for="KleurID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MerkID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MerkID" class="form-control" />
+                <span asp-validation-for="MerkID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NeklijnID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NeklijnID" class="form-control" />
+                <span asp-validation-for="NeklijnID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Omschrijving" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Omschrijving" class="form-control" />
+                <span asp-validation-for="Omschrijving" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Prijs" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Prijs" class="form-control" />
+                <span asp-validation-for="Prijs" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SilhouetteID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SilhouetteID" class="form-control" />
+                <span asp-validation-for="SilhouetteID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="StijlID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="StijlID" class="form-control" />
+                <span asp-validation-for="StijlID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

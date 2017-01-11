@@ -8,9 +8,10 @@ using ProjectBlokker.Data;
 namespace ProjectBlokker.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170111131740_Jurk3")]
+    partial class Jurk3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -225,39 +226,39 @@ namespace ProjectBlokker.Data.Migrations
                     b.Property<int>("JurkID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ArtikelID");
+                    b.Property<int?>("Artikel");
 
-                    b.Property<int>("CategorieID");
+                    b.Property<int?>("Categorie");
 
-                    b.Property<int>("KleurID");
+                    b.Property<int?>("Kleur");
 
-                    b.Property<int>("MerkID");
+                    b.Property<int?>("Merk");
 
-                    b.Property<int>("NeklijnID");
+                    b.Property<int?>("Neklijn");
 
                     b.Property<string>("Omschrijving");
 
                     b.Property<int>("Prijs");
 
-                    b.Property<int>("SilhouetteID");
+                    b.Property<int?>("Silhouette");
 
-                    b.Property<int>("StijlID");
+                    b.Property<int?>("Stijl");
 
                     b.HasKey("JurkID");
 
-                    b.HasIndex("ArtikelID");
+                    b.HasIndex("Artikel");
 
-                    b.HasIndex("CategorieID");
+                    b.HasIndex("Categorie");
 
-                    b.HasIndex("KleurID");
+                    b.HasIndex("Kleur");
 
-                    b.HasIndex("MerkID");
+                    b.HasIndex("Merk");
 
-                    b.HasIndex("NeklijnID");
+                    b.HasIndex("Neklijn");
 
-                    b.HasIndex("SilhouetteID");
+                    b.HasIndex("Silhouette");
 
-                    b.HasIndex("StijlID");
+                    b.HasIndex("Stijl");
 
                     b.ToTable("Jurk");
                 });
@@ -363,38 +364,31 @@ namespace ProjectBlokker.Data.Migrations
                 {
                     b.HasOne("ProjectBlokker.Models.Artikel", "artikel")
                         .WithMany("Jurken")
-                        .HasForeignKey("ArtikelID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Artikel");
 
                     b.HasOne("ProjectBlokker.Models.Categorie", "categorie")
                         .WithMany("Jurken")
-                        .HasForeignKey("CategorieID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Categorie");
 
                     b.HasOne("ProjectBlokker.Models.Kleur", "kleur")
                         .WithMany("Jurken")
-                        .HasForeignKey("KleurID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Kleur");
 
                     b.HasOne("ProjectBlokker.Models.Merk", "merk")
                         .WithMany("Jurken")
-                        .HasForeignKey("MerkID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Merk");
 
                     b.HasOne("ProjectBlokker.Models.Neklijn", "neklijn")
                         .WithMany("Jurken")
-                        .HasForeignKey("NeklijnID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Neklijn");
 
                     b.HasOne("ProjectBlokker.Models.Silhouette", "silhouette")
                         .WithMany("Jurken")
-                        .HasForeignKey("SilhouetteID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Silhouette");
 
                     b.HasOne("ProjectBlokker.Models.Stijl", "stijl")
                         .WithMany("Jurken")
-                        .HasForeignKey("StijlID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Stijl");
                 });
         }
     }
