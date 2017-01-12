@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Create</h2>
@@ -16,6 +17,13 @@
             <div class="col-md-10">
                 <input asp-for="AfspraakDatum" class="form-control" />
                 <span asp-validation-for="AfspraakDatum" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AfspraakTijd" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AfspraakTijd" class="form-control" />
+                <span asp-validation-for="AfspraakTijd" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
@@ -66,6 +74,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

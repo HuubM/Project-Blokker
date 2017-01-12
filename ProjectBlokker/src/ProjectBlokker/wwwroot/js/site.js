@@ -10,6 +10,7 @@ $(function () {
         }
     });
 
+  
     // Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
 		days: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
@@ -29,7 +30,7 @@ $(function () {
 
     // Datepicker initialisatie
     $('#datetimepicker').datepicker({
-        format: 'dd/mm/yyyy',
+        format: 'dd-MM-yyyy',
         language: 'nl',
         startDate: new Date(),
         minViewMode: 0,
@@ -49,8 +50,11 @@ $(function () {
         var date = new Date(dateInput);
         var tijd = $('input[name=tijdstip]:checked', '#afspraakgegevens').val();
 
-        $('#eindafspraak').val($.format.date(date, "dd-MM-yyyy " + tijd));
-
+        console.log("tijd "+tijd);
+        $('#eindafspraak').val($.format.date(dateInput,"dd-MM-yyyy"));
+        console.log("eindafsrpaak " + $('#eindafspraak').val());
+        
+        $('#eindtijd').val(tijd);
 
         $('.gekozen-datum-tijd').text(weekday[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear() + " OM " + tijd + "U");
 
