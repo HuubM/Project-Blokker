@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace ProjectBlokker.Models
 {
 
-
     public class Jurk
     {
         [Key]
@@ -19,9 +18,6 @@ namespace ProjectBlokker.Models
 
         [ForeignKey("Merk")]
         public int MerkID { get; set; }
-
-        [ForeignKey("Categorie")]
-        public int CategorieID { get; set; }
 
         [ForeignKey("Stijl")]
         public int StijlID { get; set; }
@@ -52,6 +48,6 @@ namespace ProjectBlokker.Models
         public virtual Merk merk { get; set; }
         public virtual Stijl stijl { get; set; }
         public virtual Kleur kleur { get; set; }
-        public virtual Categorie categorie { get; set; }
+        
     }
 }

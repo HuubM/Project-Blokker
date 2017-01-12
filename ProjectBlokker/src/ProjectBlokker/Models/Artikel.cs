@@ -14,6 +14,11 @@ namespace ProjectBlokker.Models
         public int ArtikelID { get; set; }
         public string Naam { get; set; }
 
+        [ForeignKey("Categorie")]
+        public int CategorieID { get; set; }
+
+
+        public virtual Categorie categorie { get; set; }
         public virtual IList<Jurk> Jurken { get; set;}
     }
 }
