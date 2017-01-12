@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace ProjectBlokker.Models
         public int JurkID { get; set; }
 
         [ForeignKey("Artikel")]
+        [DisplayName( "Artikel")]
         public int ArtikelID { get; set; }
 
         [ForeignKey("Merk")]

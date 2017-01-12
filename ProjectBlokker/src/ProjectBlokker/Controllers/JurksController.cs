@@ -21,9 +21,11 @@ namespace ProjectBlokker.Controllers
         }
 
         // GET: Jurks
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Jurk.ToListAsync());
+
+            return View(_context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).ToList<Jurk>());
+     
         }
 
         // GET: Jurks/Details/5
