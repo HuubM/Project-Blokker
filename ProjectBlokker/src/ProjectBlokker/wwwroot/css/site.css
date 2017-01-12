@@ -122,7 +122,7 @@ textarea {
     font-size:60px;
     color:lightcoral;
     /*left:0;
-    right: 0;*/*/
+    right: 0;*/
 
 }
 
@@ -267,6 +267,15 @@ textarea {
 .panel-4 {
     background-color: white;
 }
+
+.panel-search{
+    margin-bottom: 0px;
+}
+
+.panel-group .panel{
+    border-radius: 0px !important;
+}
+
 .welcome {
     margin-top: 180px;
     margin-bottom: 150px;
@@ -285,6 +294,11 @@ textarea {
 .devider{
     background-color: #5a5a5a;
     height: 1px;
+}
+
+.devider2{
+    background-color: #5a5a5a;
+    height: 0.5px;
 }
 
 .sidebarwidth{
@@ -516,7 +530,7 @@ b{
     width: auto;
     height: auto;
     margin: 0;
-    text-indent: -0;
+    text-indent: -0px;
     cursor: pointer;
     background-color: none;
     border: none;
