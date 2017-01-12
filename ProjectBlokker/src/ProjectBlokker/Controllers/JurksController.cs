@@ -46,7 +46,15 @@ namespace ProjectBlokker.Controllers
         // GET: Jurks/Create
         public IActionResult Create()
         {
-            return View();
+            JurkViewModel jvm = new JurkViewModel();
+            jvm.artikelen = _context.Artikel.ToList<Artikel>();
+            jvm.categorieen = _context.Categorie.ToList<Categorie>();
+            jvm.kleuren = _context.Kleur.ToList<Kleur>();
+            jvm.merken = _context.Merk.ToList<Merk>();
+            jvm.neklijnen = _context.Neklijn.ToList<Neklijn>();
+            jvm.silhouettes = _context.Silhouette.ToList<Silhouette>();
+            jvm.stijlen = _context.Stijl.ToList<Stijl>();
+            return View(jvm);
         }
 
         // POST: Jurks/Create
@@ -54,15 +62,26 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JurkID,ArtikelID,CategorieID,KleurID,MerkID,NeklijnID,Omschrijving,Prijs,SilhouetteID,StijlID")] Jurk jurk)
+        public IActionResult Create(Jurk jurk)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(jurk);
-                await _context.SaveChangesAsync();
+                _context.Jurk.Add(jurk);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(jurk);
+
+            JurkViewModel jvm = new JurkViewModel();
+            jvm.jurk = jurk;
+            jvm.artikelen = _context.Artikel.ToList<Artikel>();
+            jvm.categorieen = _context.Categorie.ToList<Categorie>();
+            jvm.kleuren = _context.Kleur.ToList<Kleur>();
+            jvm.merken = _context.Merk.ToList<Merk>();
+            jvm.neklijnen = _context.Neklijn.ToList<Neklijn>();
+            jvm.silhouettes = _context.Silhouette.ToList<Silhouette>();
+            jvm.stijlen = _context.Stijl.ToList<Stijl>();
+
+            return View(jvm);
         }
 
         // GET: Jurks/Edit/5
@@ -81,11 +100,14 @@ namespace ProjectBlokker.Controllers
 
             JurkViewModel jvm = new JurkViewModel();
 
-            ViewBag.artikelen = new SelectList(_context.Artikel.ToList<Artikel>());
-
             jvm.jurk = jurk;
             jvm.artikelen = _context.Artikel.ToList<Artikel>();
-
+            jvm.categorieen = _context.Categorie.ToList<Categorie>();
+            jvm.kleuren = _context.Kleur.ToList<Kleur>();
+            jvm.merken = _context.Merk.ToList<Merk>();
+            jvm.neklijnen = _context.Neklijn.ToList<Neklijn>();
+            jvm.silhouettes = _context.Silhouette.ToList<Silhouette>();
+            jvm.stijlen = _context.Stijl.ToList<Stijl>();
             return View(jvm);
         }
 
@@ -125,11 +147,14 @@ namespace ProjectBlokker.Controllers
 
             JurkViewModel jvm = new JurkViewModel();
 
-            ViewBag.artikelen = new SelectList(_context.Artikel.ToList<Artikel>());
-
             jvm.jurk = jurk;
             jvm.artikelen = _context.Artikel.ToList<Artikel>();
-
+            jvm.categorieen = _context.Categorie.ToList<Categorie>();
+            jvm.kleuren = _context.Kleur.ToList<Kleur>();
+            jvm.merken = _context.Merk.ToList<Merk>();
+            jvm.neklijnen = _context.Neklijn.ToList<Neklijn>();
+            jvm.silhouettes = _context.Silhouette.ToList<Silhouette>();
+            jvm.stijlen = _context.Stijl.ToList<Stijl>();
             return View(jvm);
         }
 

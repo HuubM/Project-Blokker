@@ -9,7 +9,7 @@
 <form asp-action="Edit">
     <div class="form-horizontal">
         <h4>Jurk</h4>
-        <hr />
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
@@ -23,32 +23,52 @@
             </div>
 
         </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
-            <label asp-for="jurk.CategorieID" class="col-md-2 control-label"></label>
+            <label asp-for="jurk.CategorieID" class="col-md-2 control-label">Categorie</label>
             <div class="col-md-10">
-                <input asp-for="jurk.CategorieID" class="form-control" />
-                <span asp-validation-for="jurk.CategorieID" class="text-danger" />
+
+                @Html.DropDownListFor(model => model.jurk.CategorieID,
+            new SelectList(Model.categorieen, "CategorieID", "Naam"), "Selecteer Categorie", new { @class = "form-control" })
+
+
             </div>
         </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
-            <label asp-for="jurk.KleurID" class="col-md-2 control-label"></label>
+            <label asp-for="jurk.KleurID" class="col-md-2 control-label">Kleur</label>
             <div class="col-md-10">
-                <input asp-for="jurk.KleurID" class="form-control" />
-                <span asp-validation-for="jurk.KleurID" class="text-danger" />
+
+                @Html.DropDownListFor(model => model.jurk.KleurID,
+            new SelectList(Model.kleuren, "KleurID", "Naam"), "Selecteer Kleur", new { @class = "form-control" })
+
+
             </div>
         </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
-            <label asp-for="jurk.MerkID" class="col-md-2 control-label"></label>
+            <label asp-for="jurk.MerkID" class="col-md-2 control-label">Merk</label>
             <div class="col-md-10">
-                <input asp-for="jurk.MerkID" class="form-control" />
-                <span asp-validation-for="jurk.MerkID" class="text-danger" />
+
+                @Html.DropDownListFor(model => model.jurk.MerkID,
+            new SelectList(Model.merken, "MerkID", "Naam"), "Selecteer Merk", new { @class = "form-control" })
+
+
             </div>
         </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
-            <label asp-for="jurk.NeklijnID" class="col-md-2 control-label"></label>
+            <label asp-for="jurk.NeklijnID" class="col-md-2 control-label">Neklijn</label>
             <div class="col-md-10">
-                <input asp-for="jurk.NeklijnID" class="form-control" />
-                <span asp-validation-for="jurk.NeklijnID" class="text-danger" />
+
+                @Html.DropDownListFor(model => model.jurk.NeklijnID,
+            new SelectList(Model.neklijnen, "NeklijnID", "Naam"), "Selecteer Neklijn", new { @class = "form-control" })
+
+
             </div>
         </div>
         <div class="form-group">
@@ -65,18 +85,29 @@
                 <span asp-validation-for="jurk.Prijs" class="text-danger" />
             </div>
         </div>
+        
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
-            <label asp-for="jurk.SilhouetteID" class="col-md-2 control-label"></label>
+            <label asp-for="jurk.SilhouetteID" class="col-md-2 control-label">Silhouette</label>
             <div class="col-md-10">
-                <input asp-for="jurk.SilhouetteID" class="form-control" />
-                <span asp-validation-for="jurk.SilhouetteID" class="text-danger" />
+
+                @Html.DropDownListFor(model => model.jurk.SilhouetteID,
+            new SelectList(Model.silhouettes, "SilhouetteID", "Naam"), "Selecteer Silhouette", new { @class = "form-control" })
+
+
             </div>
         </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">
-            <label asp-for="jurk.StijlID" class="col-md-2 control-label"></label>
+            <label asp-for="jurk.StijlID" class="col-md-2 control-label">Stijl</label>
             <div class="col-md-10">
-                <input asp-for="jurk.StijlID" class="form-control" />
-                <span asp-validation-for="jurk.StijlID" class="text-danger" />
+
+                @Html.DropDownListFor(model => model.jurk.StijlID,
+            new SelectList(Model.stijlen, "StijlID", "Naam"), "Selecteer Stijl", new { @class = "form-control" })
+
+
             </div>
         </div>
         <div class="form-group">

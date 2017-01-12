@@ -13,19 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ArtikelID)
+                @Html.DisplayNameFor(model => model.artikel.Naam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategorieID)
+                @Html.DisplayNameFor(model => model.categorie.Naam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KleurID)
+                @Html.DisplayNameFor(model => model.kleur.Naam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MerkID)
+                @Html.DisplayNameFor(model => model.merk.Naam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NeklijnID)
+                @Html.DisplayNameFor(model => model.neklijn.Naam)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Omschrijving)
@@ -34,13 +34,12 @@
                 @Html.DisplayNameFor(model => model.Prijs)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SilhouetteID)
+                @Html.DisplayNameFor(model => model.silhouette.Naam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StijlID)
+                @Html.DisplayNameFor(model => model.stijl.Naam)
             </th>
-            <th></th>
-        </tr>
+                    </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
@@ -49,16 +48,16 @@
                 @Html.DisplayFor(modelItem => item.ArtikelID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategorieID)
+                @Html.DisplayFor(modelItem => item.categorie.Naam)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KleurID)
+                @Html.DisplayFor(modelItem => item.kleur.Naam)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MerkID)
+                @Html.DisplayFor(modelItem => item.merk.Naam)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NeklijnID)
+                @Html.DisplayFor(modelItem => item.neklijn.Naam)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Omschrijving)
@@ -67,10 +66,10 @@
                 @Html.DisplayFor(modelItem => item.Prijs)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SilhouetteID)
+                @Html.DisplayFor(modelItem => item.silhouette.Naam)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StijlID)
+                @Html.DisplayFor(modelItem => item.stijl.Naam)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.JurkID">Edit</a> |
