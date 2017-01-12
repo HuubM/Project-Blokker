@@ -161,5 +161,11 @@ namespace ProjectBlokker.Controllers
 
             return View();
         }
+
+        public IActionResult Jurk()
+        {
+            return View();
+        }
+
     }
 }
