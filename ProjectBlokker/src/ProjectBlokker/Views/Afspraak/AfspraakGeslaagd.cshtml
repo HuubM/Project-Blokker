@@ -1,54 +1,153 @@
-@*@model ProjectBlokker.Models.Afspraak*@
-
 @{
-    ViewData["Title"] = "AfspraakGeslaagd";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home";
 }
 
 <div class="row panel-afspraakgeslaagd">
-    <div class="row menu">
-        <div class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header ">
-                    <a class="navbar-brand" href="#">HONEYMOON SHOP</a>
-                </div>
-                <ul class="nav navbar-nav navbar-right text-uppercase">
-                    <li class="active"><a href="~/home/index">HOME</a></li>
-                    <li><a href="~/home/bruid">Bruid</a></li>
-                    <li><a href="~/home/bruidegom">Bruidegom</a></li>
-                    <li><a href="#">De winkel</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("PartialLayout2")
 
     <div class="row welcome">
         <div class="row text-center text-white">
             <div class="col-md-12">
-                <h1 class="imageback  fontsize-120  top-space-bruidswinkel">Afspraak maken</h1>
+                <h1 class="imageback fontsize-120  top-space-backgroundtext">Afspraak maken</h1>
                 <h3 class="imagefrontz fontsize-28">(door)Pasafspraak maken voor je jurk of pak</h3>
                 <h2 class="text-uppercase text-white text-bold fontsize-32">Van begin tot eind kunnen wij je helpen</h2>
             </div>
         </div>
 
-        
-
 
     </div>
 
-    <div class="row panel-2 text-center">
-        <div class="row welcome">
-            <div class="col-md-12">
-                <h1 class="imagebackmain fontsize-120  margin-0 top-space-backgroundtext">Voltooid!</h1>
-                <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 top-space-large">Je pasafspraak is gemaakt</h3>
-                <h3 class="imagefrontz fontsize-20">Leuk! Je pasafspraak is gemaakt! Er is een bevestiging van je afspraak naar</h3>
-                <h3 class="imagefrontz fontsize-20">je E-mail gestuurd! Maak ook meteen een afspraak voor je partner</h3>
-            </div>
+
+</div>
+
+<div class="row panel-2 text-center ">
+    <div class="row welcome ">
+        <div class="col-md-12">
+            <h1 class="imagebackmain fontsize-120  margin-0 top-space-backgroundtext">Voltooid!</h1>
+            <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 top-space-large">Je pasafspraak is gemaakt</h3>
+            <p></p>
+            <h3 class="imagefrontz fontsize-20">Leuk! Je pasafspraak is gemaakt! Er is een bevestiging van je afspraak naar</h3>
+            <h3 class="imagefrontz fontsize-20">je E-mail gestuurd! Maak ook meteen een afspraak <a href="url">voor je partner!</a></h3>
+            <button class="btn btn-deelditmoment btn-pink text-uppercase text-bold fontsize-20 margin-0">
+            Deel dit moment
+            <img src="~/images/share.png" alt="" />
+            </button>
         </div>
+
     </div>
 </div>
+
+
+
+<div class="row panel-2">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="~/images/home.png" alt="" style="width:100%;" />
+        </div>
+        <div class="col-md-5">
+            <div class="text-bold fontsize-20">
+                Tips en Tricks
+            </div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                commodo consectetur dolar sa adipsising elit Lorem
+                ipsum dolor sit amet <a href="" style="text-decoration:underline"> veelgestelde vragen</a>
+            </p>
+            <p> <img src="~/images/circle.png" /> tip 1</p>
+            <p> <img src="~/images/circle.png" /> tip 2</p>
+            <p> <img src="~/images/circle.png" /> tip 3</p>
+            <p> <img src="~/images/circle.png" /> tip 4</p>
+
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+
+
+    
+        <div class="row text-pink text-center bottom-space-small">
+            <i class="glyphicon glyphicon-triangle-bottom fontsize-20"></i>
+        </div>
+
+    </div>
+
+
+<div class="row panel-2 text-center">
+    <div class="row welcome">
+        <div class="col-md-12">
+            <h1 class="imagebackmain fontsize-120  margin-0 top-space-backgroundtext">How it works</h1>
+            <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 top-space-large">Hoe verloopt het passen van</h3>
+            <h3 class="imagefrontz text-bold text-uppercase fontsize-32 margin-0 bottom-space">Een pak of jurk eigenlijk?</h3>
+        </div>
+    </div>
+    <div class="row bottom-space-small carousel slide" id="onestopshop-carousel" data-ride="carousel">
+        <div class="col-md-8">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/images/bruidcar.png" alt="" class="img-responsive">
+                    <div class="row carousel-caption onestopshop-content">
+                        <div class="col-md-6">
+                            <i class="circlecarousel circleincarousel"> 1 </i>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase text-bold text-gray"><i class="glyphicon glyphicon-play fontsize-20 text-pink"></i> Bekijk video</h3>
+                            <p class="onestopinfo text-left">
+                                Hoe vind je de perfecte outfit?
+                                Onze specialisten nemen echt de tijd voor je en je met elke stap. Oneindig jurken/pakken passen? Geen probleem! Er kunnen zoveel mensen mee als jij zelf wilt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="~/images/bruidcar.png" alt="" class="img-responsive">
+                    <div class="carousel-caption onestopshop-content">
+                        <div class="col-md-6 ">
+                            <i class="circlecarousel circleincarousel"> 2 </i>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase text-bold text-gray">Trouwpakken passen</h3>
+                            <p class="onestopinfo text-left">
+                                Hoe vind je de perfecte outfit?
+                                Onze specialisten nemen echt de tijd voor je en helpen je met elke stap. Oneindig jurken/pakken passen? Geen probleem! Er kunnen zoveel mensen mee als jij zelf wilt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-group list-unstyled onestop-navigators carousel-indicators">
+                <li class="list-item text-left active" data-target="#onestopshop-carousel" data-slide-to="0">
+                    <a href="">
+                        <i class="circle"> 1 </i> Trouwjurken passen
+                    </a>
+                </li>
+                <li class="list-item text-left" data-target="#onestopshop-carousel" data-slide-to="1">
+                    <a href="">
+                        <i class="circle"> 2 </i> Trouwpakken passen
+                    </a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="row text-pink text-center bottom-space-small">
+        <i class="glyphicon glyphicon-triangle-bottom fontsize-20"></i>
+    </div>
+</div>
+
+
+<div class="row">
+    <img class="img-responsive" src="~/images/afspraakgeslaagd.png" />
+</div>
+
 
 
