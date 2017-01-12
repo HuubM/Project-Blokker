@@ -81,8 +81,6 @@ namespace ProjectBlokker.Controllers
 
             JurkViewModel jvm = new JurkViewModel();
 
-            ViewBag.artikelen = new SelectList(_context.Artikel.ToList<Artikel>());
-
             jvm.jurk = jurk;
             jvm.artikelen = _context.Artikel.ToList<Artikel>();
 
@@ -124,8 +122,6 @@ namespace ProjectBlokker.Controllers
 
 
             JurkViewModel jvm = new JurkViewModel();
-
-            ViewBag.artikelen = new SelectList(_context.Artikel.ToList<Artikel>());
 
             jvm.jurk = jurk;
             jvm.artikelen = _context.Artikel.ToList<Artikel>();

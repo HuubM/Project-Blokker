@@ -17,7 +17,7 @@ namespace ProjectBlokker.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id, int sort)
         {
             // Categorieen
             ViewBag.categorieen = _context.Categorie.ToList<Categorie>();
@@ -40,8 +40,15 @@ namespace ProjectBlokker.Controllers
             // Max prijs
             ViewBag.maxprijs = _context.Jurk.Max(j => j.Prijs);
 
-            // Artikelen
-            ViewBag.artikelen = _context.Artikel.ToList<Artikel>();
+
+            // Als id(categorie) is gezet dan halen we alleen artikelen van die categorie
+            if (id != 0)
+            {
+                ViewBag.artikelen = _context.Artikel.Where(j => j.CategorieID == id).ToList<Artikel>();
+            } else
+            {
+                ViewBag.artikelen = _context.Artikel.ToList<Artikel>();
+            }
 
             List<Jurk> jurken = new List<Jurk>();
 
@@ -53,8 +60,27 @@ namespace ProjectBlokker.Controllers
                 jurken.Add(jurk);
             }
 
+
+            // Sorteren
+            if (sort != 0)
+            {
+                switch (sort)
+                {
+                    // prijs hoog naar laag
+                    case 1:
+                        jurken = jurken.OrderByDescending(j => j.Prijs).ToList();
+                        break;
+                    // prijs laag naar hoog
+                    case 2:
+                        jurken = jurken.OrderBy(j => j.Prijs).ToList();
+                        break;
+
+                }
+            }
+
             ViewBag.jurken = jurken;
-            
+
+
 
             return View();
         }

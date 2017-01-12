@@ -22,7 +22,8 @@ namespace ProjectBlokker.Controllers
         // GET: Artikels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Artikel.ToListAsync());
+            var applicationDbContext = _context.Artikel.Include(a => a.categorie);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Artikels/Details/5
@@ -45,6 +46,7 @@ namespace ProjectBlokker.Controllers
         // GET: Artikels/Create
         public IActionResult Create()
         {
+            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID");
             return View();
         }
 
@@ -53,7 +55,7 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ArtikelID,Naam")] Artikel artikel)
+        public async Task<IActionResult> Create([Bind("ArtikelID,CategorieID,Naam")] Artikel artikel)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +63,7 @@ namespace ProjectBlokker.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID", artikel.CategorieID);
             return View(artikel);
         }
 
@@ -77,6 +80,7 @@ namespace ProjectBlokker.Controllers
             {
                 return NotFound();
             }
+            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID", artikel.CategorieID);
             return View(artikel);
         }
 
@@ -85,7 +89,7 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ArtikelID,Naam")] Artikel artikel)
+        public async Task<IActionResult> Edit(int id, [Bind("ArtikelID,CategorieID,Naam")] Artikel artikel)
         {
             if (id != artikel.ArtikelID)
             {
@@ -112,6 +116,7 @@ namespace ProjectBlokker.Controllers
                 }
                 return RedirectToAction("Index");
             }
+            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID", artikel.CategorieID);
             return View(artikel);
         }
 

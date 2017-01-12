@@ -29,6 +29,14 @@ Stijlen:<br />
 }
 
 
+Jurken:<br />
+@foreach (var item in ViewBag.jurken) //stijl
+{
+    @item.JurkID
+    <br />
+}
+
+
 <div class="row">
     <div class="col-md-12">
         <input type="hidden" id="maxprijs" value="@ViewBag.maxprijs" />
