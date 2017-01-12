@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using ProjectBlokker.Data;
 
-namespace ProjectBlokker.Data.Migrations
+namespace ProjectBlokker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170112114627_jurk20")]
-    partial class jurk20
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -232,8 +231,6 @@ namespace ProjectBlokker.Data.Migrations
 
                     b.Property<int>("ArtikelID");
 
-                    b.Property<int?>("CategorieID");
-
                     b.Property<int>("KleurID");
 
                     b.Property<int>("MerkID");
@@ -254,13 +251,9 @@ namespace ProjectBlokker.Data.Migrations
 
                     b.Property<string>("image3_location");
 
-                    b.Property<string>("image4_location");
-
                     b.HasKey("JurkID");
 
                     b.HasIndex("ArtikelID");
-
-                    b.HasIndex("CategorieID");
 
                     b.HasIndex("KleurID");
 
@@ -375,7 +368,7 @@ namespace ProjectBlokker.Data.Migrations
             modelBuilder.Entity("ProjectBlokker.Models.Artikel", b =>
                 {
                     b.HasOne("ProjectBlokker.Models.Categorie", "categorie")
-                        .WithMany()
+                        .WithMany("artikelen")
                         .HasForeignKey("CategorieID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -386,10 +379,6 @@ namespace ProjectBlokker.Data.Migrations
                         .WithMany("Jurken")
                         .HasForeignKey("ArtikelID")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ProjectBlokker.Models.Categorie")
-                        .WithMany("Jurken")
-                        .HasForeignKey("CategorieID");
 
                     b.HasOne("ProjectBlokker.Models.Kleur", "kleur")
                         .WithMany("Jurken")

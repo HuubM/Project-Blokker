@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace ProjectBlokker.Models
 {
-
     public class Jurk
     {
         [Key]
@@ -21,6 +20,7 @@ namespace ProjectBlokker.Models
 
         [ForeignKey("Stijl")]
         public int StijlID { get; set; }
+
         public int Prijs { get; set; }
 
         [ForeignKey("Neklijn")]
@@ -31,23 +31,19 @@ namespace ProjectBlokker.Models
 
         [ForeignKey("Kleur")]
         public int KleurID { get; set; }
-        public string Omschrijving { get; set; }
 
+        public string Omschrijving { get; set; }
 
         public string image1_location { get; set; }
         public string image2_location { get; set; }
         public string image3_location { get; set; }
-        public string image4_location { get; set; }
-
 
         // Naviagtion properties
-
         public virtual Artikel artikel { get; set; }
         public virtual Silhouette silhouette { get; set; }
         public virtual Neklijn neklijn { get; set; }
         public virtual Merk merk { get; set; }
         public virtual Stijl stijl { get; set; }
         public virtual Kleur kleur { get; set; }
-        
     }
 }
