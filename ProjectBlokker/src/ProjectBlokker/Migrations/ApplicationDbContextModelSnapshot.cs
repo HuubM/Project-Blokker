@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using ProjectBlokker.Data;
 
-namespace ProjectBlokker.Data.Migrations
+namespace ProjectBlokker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170111144541_Jurk5")]
-    partial class Jurk5
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -202,9 +201,13 @@ namespace ProjectBlokker.Data.Migrations
                     b.Property<int>("ArtikelID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("CategorieID");
+
                     b.Property<string>("Naam");
 
                     b.HasKey("ArtikelID");
+
+                    b.HasIndex("CategorieID");
 
                     b.ToTable("Artikel");
                 });
@@ -226,23 +229,11 @@ namespace ProjectBlokker.Data.Migrations
                     b.Property<int>("JurkID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("Artikel");
-
                     b.Property<int>("ArtikelID");
-
-                    b.Property<int?>("Categorie");
-
-                    b.Property<int>("CategorieID");
-
-                    b.Property<int?>("Kleur");
 
                     b.Property<int>("KleurID");
 
-                    b.Property<int?>("Merk");
-
                     b.Property<int>("MerkID");
-
-                    b.Property<int?>("Neklijn");
 
                     b.Property<int>("NeklijnID");
 
@@ -250,29 +241,29 @@ namespace ProjectBlokker.Data.Migrations
 
                     b.Property<int>("Prijs");
 
-                    b.Property<int?>("Silhouette");
-
                     b.Property<int>("SilhouetteID");
-
-                    b.Property<int?>("Stijl");
 
                     b.Property<int>("StijlID");
 
+                    b.Property<string>("image1_location");
+
+                    b.Property<string>("image2_location");
+
+                    b.Property<string>("image3_location");
+
                     b.HasKey("JurkID");
 
-                    b.HasIndex("Artikel");
+                    b.HasIndex("ArtikelID");
 
-                    b.HasIndex("Categorie");
+                    b.HasIndex("KleurID");
 
-                    b.HasIndex("Kleur");
+                    b.HasIndex("MerkID");
 
-                    b.HasIndex("Merk");
+                    b.HasIndex("NeklijnID");
 
-                    b.HasIndex("Neklijn");
+                    b.HasIndex("SilhouetteID");
 
-                    b.HasIndex("Silhouette");
-
-                    b.HasIndex("Stijl");
+                    b.HasIndex("StijlID");
 
                     b.ToTable("Jurk");
                 });
@@ -374,35 +365,45 @@ namespace ProjectBlokker.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("ProjectBlokker.Models.Artikel", b =>
+                {
+                    b.HasOne("ProjectBlokker.Models.Categorie", "categorie")
+                        .WithMany("artikelen")
+                        .HasForeignKey("CategorieID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("ProjectBlokker.Models.Jurk", b =>
                 {
                     b.HasOne("ProjectBlokker.Models.Artikel", "artikel")
                         .WithMany("Jurken")
-                        .HasForeignKey("Artikel");
-
-                    b.HasOne("ProjectBlokker.Models.Categorie", "categorie")
-                        .WithMany("Jurken")
-                        .HasForeignKey("Categorie");
+                        .HasForeignKey("ArtikelID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProjectBlokker.Models.Kleur", "kleur")
                         .WithMany("Jurken")
-                        .HasForeignKey("Kleur");
+                        .HasForeignKey("KleurID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProjectBlokker.Models.Merk", "merk")
                         .WithMany("Jurken")
-                        .HasForeignKey("Merk");
+                        .HasForeignKey("MerkID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProjectBlokker.Models.Neklijn", "neklijn")
                         .WithMany("Jurken")
-                        .HasForeignKey("Neklijn");
+                        .HasForeignKey("NeklijnID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProjectBlokker.Models.Silhouette", "silhouette")
                         .WithMany("Jurken")
-                        .HasForeignKey("Silhouette");
+                        .HasForeignKey("SilhouetteID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProjectBlokker.Models.Stijl", "stijl")
                         .WithMany("Jurken")
-                        .HasForeignKey("Stijl");
+                        .HasForeignKey("StijlID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

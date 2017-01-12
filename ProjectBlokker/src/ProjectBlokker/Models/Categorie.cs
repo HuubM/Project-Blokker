@@ -12,6 +12,6 @@ namespace ProjectBlokker.Models
         public int CategorieID { get; set; }
         public string Naam { get; set; }
 
-        public virtual IList<Jurk> Jurken { get; set; }
+        public virtual IList<Artikel> artikelen { get; set; }
     }
 }
