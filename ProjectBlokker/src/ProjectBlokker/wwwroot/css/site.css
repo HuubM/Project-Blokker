@@ -122,7 +122,7 @@ textarea {
     font-size:60px;
     color:lightcoral;
     /*left:0;
-    right: 0;*/*/
+    right: 0;*/
 
 }
 
@@ -530,7 +530,7 @@ b{
     width: auto;
     height: auto;
     margin: 0;
-    text-indent: -0;
+    text-indent: -0px;
     cursor: pointer;
     background-color: none;
     border: none;
