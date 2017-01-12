@@ -59,7 +59,9 @@ namespace ProjectBlokker.Controllers
             // Haal 1 jurk van elk artikel om te laten zien
             foreach (Artikel artikel in ViewBag.artikelen)
             {
-                Jurk jurk = _context.Jurk.Where(j => j.artikel.ArtikelID == artikel.ArtikelID).FirstOrDefault<Jurk>();
+                // Haal jurk op van artikel
+                Jurk jurk = _context.Jurk.Where(j => j.artikel.ArtikelID == artikel.ArtikelID).First<Jurk>();
+
 
                 if (jurk != null)
                 {

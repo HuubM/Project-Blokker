@@ -10,7 +10,7 @@ $(function () {
         }
     });
 
-
+    
     
     // Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
@@ -148,10 +148,6 @@ $(function () {
         $('#tijd-kiezen').slideUp();
         e.preventDefault();
     });
-
-
-
-
     
 
 
@@ -173,6 +169,10 @@ $(function () {
     });
     */
 
+
+    if ($("#maxprijs").val() < 100) {
+        $("#maxprijs").val(100);
+    }
 
     $("#slider").slider({
         range: true,
@@ -210,8 +210,6 @@ $(function () {
         of: $('#slider span:eq(1)'),
         offset: "0, 10"
     });
-
-
 
 
 });
