@@ -242,8 +242,13 @@ textarea {
 .panel-afspraakgeslaagd{
     background-image: url("../images/bruid.png");
     background-size: 100% 100%;
-    )
 }
+
+.panel-dressfinder{
+    background-image: url("../images/dressfinder.png");
+    background-size: 100% 100%;
+}
+
 .panel-home {
 	background-image: url("../images/home.png");
     background-size:100% 100%;
@@ -270,6 +275,20 @@ textarea {
 .welcome h2, .welcome h3 {
     margin: 0;
     padding: 0;
+}
+
+.categoryitem{
+    line-height: 25px;
+    margin-bottom: 3px;
+}
+
+.devider{
+    background-color: #5a5a5a;
+    height: 1px;
+}
+
+.sidebarwidth{
+    width: 75%;
 }
 
 b{
