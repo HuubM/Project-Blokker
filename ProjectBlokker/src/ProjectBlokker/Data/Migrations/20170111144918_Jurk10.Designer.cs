@@ -8,9 +8,10 @@ using ProjectBlokker.Data;
 namespace ProjectBlokker.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170111144918_Jurk10")]
+    partial class Jurk10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -242,14 +243,6 @@ namespace ProjectBlokker.Data.Migrations
                     b.Property<int>("SilhouetteID");
 
                     b.Property<int>("StijlID");
-
-                    b.Property<string>("image1_location");
-
-                    b.Property<string>("image2_location");
-
-                    b.Property<string>("image3_location");
-
-                    b.Property<string>("image4_location");
 
                     b.HasKey("JurkID");
 

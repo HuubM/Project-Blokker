@@ -1,62 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ProjectBlokker.ViewModels.DressfinderIndex
+
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Dressfinder";
 }
 
-<div class="row panel-dressfinder">
-    @Html.Partial("PartialLayout2")
 
-    <div class="row welcome top-space-large bottom-space">
-        <div class="row text-center text-white">
-            <div class="col-md-12">
-                <h1 class="imageback fontsize-120  top-space-backgroundtext">Dressfinder</h1>
-                <h3 class="imagefrontz fontsize-28">Opzoek naar de perfecte jurk</h3>
-                <h2 class="text-uppercase text-white text-bold fontsize-32">Van begin tot eind kunnen wij je helpen</h2>
-            </div>
+Categorieen:<br />
+@foreach (var item in ViewBag.categorieen) //categorie
+{
+    <input type="checkbox" id="categorie_@item.Naam" name="categorie" value="@item.CategorieID">
+    <label for="categorie_@item.Naam">@item.Naam</label><br />
+}
+
+
+Merken:<br />
+@foreach (var item in ViewBag.merken) //merk
+{
+    <input type="checkbox" id="merk_@item.Naam" name="merk" value="@item.MerkID">
+    <label for="merk_@item.Naam">@item.Naam</label><br />
+}
+
+
+Stijlen:<br />
+@foreach (var item in ViewBag.stijlen) //stijl
+{
+    <input type="checkbox" id="stijl_@item.Naam" name="stijl" value="@item.StijlID">
+    <label for="stijl_@item.Naam">@item.Naam</label><br />
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="hidden" id="maxprijs" value="@ViewBag.maxprijs" />
+
+        <div class="col-md-3">
+            Prijs:
+        </div>
+
+        <div class="col-md-3">
+            <div id="slider"></div>
+            <div id="min"></div>
+            <div id="max"></div>
         </div>
 
 
-    </div>
-
+        </div>
 </div>
 
 
-
-    <div class="row panel-2">
-        <div class="col-md-1"></div>
-        <div class="row style">
-            <div class="col-md-3">
-              <div class="sidebarwidth">
-                <h3 class="text-bold">Categorieën:</h3>
-                <p class="bg-warning categoryitem">Summer SALE</p>
-                <p class="bg-warning categoryitem">Nieuwe Collectie</p>
-                <p class="bg-warning categoryitem">Alle jurken bekijken</p>
-                  <p class="text-bold" style="line-height: 1px; padding-top: 20px;">Filter op:</p>
-                  <div class="devider"></div>
-
-                  <div class="panel-group">
-                      <div class="panel panel-default">
-                          <div class="panel-heading">
-                              <h4 class="panel-title">
-                                  <a data-toggle="collapse" href="#collapse1">Merk</a>
-                              </h4>
-                          </div>
-                          <div class="devider"></div>
-                          <div id="collapse1" class="panel-collapse collapse">
-                                  <div class="panel-body">
-                                  
-                                  </div>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <img class="img-responsive" src="~/images/bottom-dressfinder.png" />
-    </div>

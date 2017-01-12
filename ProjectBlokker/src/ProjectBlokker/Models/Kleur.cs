@@ -11,5 +11,7 @@ namespace ProjectBlokker.Models
         [Key]
         public int KleurID { get; set; }
         public string Naam { get; set; }
+
+        public virtual IList<Jurk> Jurken { get; set; }
     }
 }
