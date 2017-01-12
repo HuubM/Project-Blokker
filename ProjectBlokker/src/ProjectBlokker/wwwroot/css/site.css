@@ -114,15 +114,7 @@ textarea {
     left: 0;
     right: 0;
 
-    /*position:absolute;
-    z-index:0;
-    opacity:0.3;
-    font-family:'Script MT';
-    font-weight: bold;
-    font-size:60px;
-    color:lightcoral;
-    /*left:0;
-    right: 0;*/*/
+
 
 }
 
@@ -234,7 +226,10 @@ textarea {
 	background-image: url("../images/bruidegom.png");
     background-size:100% 100%;
 }*/
-
+.panel-dressfinder{
+    background-image: url("../images/dressfinder.png");
+    background-size: 100% 100%;
+}
 .panel-afspraak {
     background-color: #fafafa;
 }
@@ -242,7 +237,7 @@ textarea {
 .panel-afspraakgeslaagd{
     background-image: url("../images/bruid.png");
     background-size: 100% 100%;
-    )
+    
 }
 .panel-home {
 	background-image: url("../images/home.png");
