@@ -291,6 +291,13 @@ textarea {
     margin-bottom: 3px;
 }
 
+.jurk-subimg{
+    height: 214px !important;
+    width: 150px !important;
+    overflow-y: auto;
+    min-width: 100% !important;
+}
+
 .devider{
     background-color: #5a5a5a;
     height: 1px;
