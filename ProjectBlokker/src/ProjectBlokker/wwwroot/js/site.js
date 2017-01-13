@@ -1,7 +1,7 @@
 ﻿
 $(function () {
     
-
+    
     $("#repeatEmail").rules("add", {
         equalTo: "#Email",
         messages: {
@@ -10,8 +10,9 @@ $(function () {
         }
     });
 
-  
-    // Datepicker nl waarden
+    
+    
+     //Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
 		days: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
 		daysShort: ["zo", "ma", "di", "wo", "do", "vr", "za"],
@@ -24,13 +25,14 @@ $(function () {
 		weekStart: 1,
 		format: "dd-mm-yyyy"
     };
+    
 
     var weekday = ["ZO", "MA", "DI", "WO", "DO", "VR", "ZA"];
     var months = ["JANUARI", "FEBRUARI", "MAART", "APRIL", "MEI", "JUNI", "JULI", "AUGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DECEMBER"];
 
-    // Datepicker initialisatie
+     //Datepicker initialisatie
     $('#datetimepicker').datepicker({
-        format: 'dd-MM-yyyy',
+        format: 'dd/mm/yyyy',
         language: 'nl',
         startDate: new Date(),
         minViewMode: 0,
@@ -42,7 +44,7 @@ $(function () {
         $('#selectTime').slideDown();
     });
 
-    // Van stap 1 naar stap 2
+     //Van stap 1 naar stap 2
     $('#naar-gegevensinvullen').on("click", function (e) {
         
         
@@ -55,6 +57,8 @@ $(function () {
         console.log("eindafsrpaak " + $('#eindafspraak').val());
         
         $('#eindtijd').val(tijd);
+
+
 
         $('.gekozen-datum-tijd').text(weekday[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear() + " OM " + tijd + "U");
 
@@ -70,7 +74,7 @@ $(function () {
         e.preventDefault();
     });
 
-    // Terug naar stap 1 vanuit stap 2
+     //Terug naar stap 1 vanuit stap 2
     $('#terug-stap1').on("click", function (e) {
 
         $('#datum-tijd').slideDown();
@@ -85,13 +89,13 @@ $(function () {
     });
 
 
-    // Van stap 2 naar stap 3
+     //Van stap 2 naar stap 3
     $('#naar-gegevenscontroleren').on("click", function (e) {
 
-        // Als valid, dan mag die naar stap 3
+         //Als valid, dan mag die naar stap 3
         if ($('#afspraakgegevens').valid()) {
 
-            // Zet gegevens in controle tabel
+             //Zet gegevens in controle tabel
             $('#gekozennaam').text($('#Naam').val());
             $('#gekozentrouwdatum').text($('#TrouwDatum').val());
             $('#gekozentelefoon').text($('#TelNr').val());
@@ -110,7 +114,7 @@ $(function () {
         }
     });
 
-    // Terug naar stap 2 vanuit stap 3
+     //Terug naar stap 2 vanuit stap 3
     $('#terug-stap2').on("click", function (e) {
 
         $('#gekozen-tijd-datum').slideDown();
@@ -125,7 +129,7 @@ $(function () {
     });
 
 
-    // Bij tijd selecteren in stap 1
+     //Bij tijd selecteren in stap 1
     $('#selectTime').on("click", function (e) {
 
         var dateInput = $('#datumAfpsraak').val();
@@ -140,7 +144,7 @@ $(function () {
         e.preventDefault();
     });
 
-    // Terug naar datum in stap 1
+     //Terug naar datum in stap 1
     $('#tijd-terug-datum').on("click", function (e) {
 
         $('#datum-kiezen').slideDown();
@@ -149,10 +153,6 @@ $(function () {
         $('#tijd-kiezen').slideUp();
         e.preventDefault();
     });
-
-
-
-
     
 
 
@@ -165,11 +165,18 @@ $(function () {
     });
     
     
-    // Input waarden toevoegen bij kiezen datum
+     //Input waarden toevoegen bij kiezen datum
     $('#datetimepicker').on("changeDate", function () {
 
         $('#datumAfpsraak').val(
            $('#datetimepicker').datepicker('getDate')
         );
     });
+    
+
+
+    
+
+
 });
+

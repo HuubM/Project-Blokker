@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using ProjectBlokker.Data;
 
-namespace ProjectBlokker.Data.Migrations
+namespace ProjectBlokker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170112193737_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -130,8 +131,6 @@ namespace ProjectBlokker.Data.Migrations
 
                     b.Property<DateTime>("AfspraakDatum");
 
-                    b.Property<DateTime>("AfspraakTijd");
-
                     b.Property<string>("Email")
                         .IsRequired();
 
@@ -198,6 +197,138 @@ namespace ProjectBlokker.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ProjectBlokker.Models.Artikel", b =>
+                {
+                    b.Property<int>("ArtikelID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CategorieID");
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("ArtikelID");
+
+                    b.HasIndex("CategorieID");
+
+                    b.ToTable("Artikel");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Categorie", b =>
+                {
+                    b.Property<int>("CategorieID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("CategorieID");
+
+                    b.ToTable("Categorie");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Jurk", b =>
+                {
+                    b.Property<int>("JurkID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ArtikelID");
+
+                    b.Property<int>("KleurID");
+
+                    b.Property<int>("MerkID");
+
+                    b.Property<int>("NeklijnID");
+
+                    b.Property<string>("Omschrijving");
+
+                    b.Property<int>("Prijs");
+
+                    b.Property<int>("SilhouetteID");
+
+                    b.Property<int>("StijlID");
+
+                    b.Property<string>("image1_location");
+
+                    b.Property<string>("image2_location");
+
+                    b.Property<string>("image3_location");
+
+                    b.HasKey("JurkID");
+
+                    b.HasIndex("ArtikelID");
+
+                    b.HasIndex("KleurID");
+
+                    b.HasIndex("MerkID");
+
+                    b.HasIndex("NeklijnID");
+
+                    b.HasIndex("SilhouetteID");
+
+                    b.HasIndex("StijlID");
+
+                    b.ToTable("Jurk");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Kleur", b =>
+                {
+                    b.Property<int>("KleurID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("KleurID");
+
+                    b.ToTable("Kleur");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Merk", b =>
+                {
+                    b.Property<int>("MerkID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("MerkID");
+
+                    b.ToTable("Merk");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Neklijn", b =>
+                {
+                    b.Property<int>("NeklijnID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("NeklijnID");
+
+                    b.ToTable("Neklijn");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Silhouette", b =>
+                {
+                    b.Property<int>("SilhouetteID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("SilhouetteID");
+
+                    b.ToTable("Silhouette");
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Stijl", b =>
+                {
+                    b.Property<int>("StijlID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Naam");
+
+                    b.HasKey("StijlID");
+
+                    b.ToTable("Stijl");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -232,6 +363,47 @@ namespace ProjectBlokker.Data.Migrations
                     b.HasOne("ProjectBlokker.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Artikel", b =>
+                {
+                    b.HasOne("ProjectBlokker.Models.Categorie", "categorie")
+                        .WithMany("artikelen")
+                        .HasForeignKey("CategorieID")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ProjectBlokker.Models.Jurk", b =>
+                {
+                    b.HasOne("ProjectBlokker.Models.Artikel", "artikel")
+                        .WithMany("Jurken")
+                        .HasForeignKey("ArtikelID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProjectBlokker.Models.Kleur", "kleur")
+                        .WithMany("Jurken")
+                        .HasForeignKey("KleurID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProjectBlokker.Models.Merk", "merk")
+                        .WithMany("Jurken")
+                        .HasForeignKey("MerkID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProjectBlokker.Models.Neklijn", "neklijn")
+                        .WithMany("Jurken")
+                        .HasForeignKey("NeklijnID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProjectBlokker.Models.Silhouette", "silhouette")
+                        .WithMany("Jurken")
+                        .HasForeignKey("SilhouetteID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProjectBlokker.Models.Stijl", "stijl")
+                        .WithMany("Jurken")
+                        .HasForeignKey("StijlID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }
