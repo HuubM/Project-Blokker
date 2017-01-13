@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ProjectBlokker.Migrations
 {
-    public partial class Honeymooninitial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,8 @@ namespace ProjectBlokker.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AfspraakDatum = table.Column<DateTime>(nullable: false),
+                    AfspraakDatum = table.Column<DateTime>(type: "Date", nullable: false),
+                    AfspraakTijd = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Naam = table.Column<string>(nullable: false),
                     Nieuwsbrief = table.Column<bool>(nullable: false),

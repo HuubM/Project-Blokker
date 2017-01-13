@@ -1,7 +1,7 @@
 ﻿
 $(function () {
     
-    
+          /*
     $("#repeatEmail").rules("add", {
         equalTo: "#Email",
         messages: {
@@ -9,9 +9,7 @@ $(function () {
             required: "E-mail adres is niet hetzelfde."
         }
     });
-
-    
-    
+    */
      //Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
 		days: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
@@ -153,8 +151,6 @@ $(function () {
         $('#tijd-kiezen').slideUp();
         e.preventDefault();
     });
-    
-
 
 
     $('input:radio[name="tijdstip"]').change(
@@ -172,11 +168,5 @@ $(function () {
            $('#datetimepicker').datepicker('getDate')
         );
     });
-    
-
-
-    
-
-
 });
 

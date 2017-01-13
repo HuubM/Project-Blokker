@@ -8,7 +8,7 @@ using ProjectBlokker.Data;
 namespace ProjectBlokker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170112193737_initial")]
+    [Migration("20170113111205_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,7 +129,11 @@ namespace ProjectBlokker.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("AfspraakDatum");
+                    b.Property<DateTime>("AfspraakDatum")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("AfspraakTijd")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();

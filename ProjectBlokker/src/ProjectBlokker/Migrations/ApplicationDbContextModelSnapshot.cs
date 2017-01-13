@@ -128,7 +128,11 @@ namespace ProjectBlokker.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("AfspraakDatum");
+                    b.Property<DateTime>("AfspraakDatum")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("AfspraakTijd")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();
