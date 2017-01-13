@@ -4,6 +4,7 @@
     ViewData["Title"] = "Dressfinder";
 }
 
+
 <div class="row panel-dressfinder">
     @Html.Partial("PartialLayout2")
 
@@ -19,10 +20,13 @@
 </div>
 
 <div class="row panel-2">
-    <div class="col-md-1"></div>
-    <div class="row style">
-        <div class="col-md-3">
-            <form method="post">
+    <form method="post" id="dress-form">
+        <div class="row style">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-3">
+
                 <div class="sidebarwidth">
                     <h3 class="text-bold">Categorieën:</h3>
 
@@ -31,7 +35,7 @@
                         <a href="/dressfinder/index/@item.CategorieID"><p class="bg-warning categoryitem">@item.Naam</p></a>
                     }
 
-                    <a href=""><p class="bg-warning categoryitem">Alle jurken bekijken</p></a>
+                    <a href="/dressfinder/index"><p class="bg-warning categoryitem">Alle jurken bekijken</p></a>
 
                     <p class="text-bold" style="line-height: 1px; padding-top: 20px;">Filter op:</p>
                     <div class="devider"></div>
@@ -47,8 +51,17 @@
                                 <div class="panel-body">
                                     @foreach (var item in ViewBag.merken) //merk
                                     {
-                                        <input type="checkbox" id="merk_@item.Naam" name="merk" value="@item.MerkID">
-                                        <label for="merk_@item.Naam">@item.Naam</label><br />
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.MerkID" class="roundedOneinput" id="merk_@item.Naam" name="merk" />
+                                                    <label for="merk_@item.Naam"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <label for="merk_@item.Naam">@item.Naam</label>
+                                            </div>
+                                        </div>
                                     }
                                 </div>
                             </div>
@@ -68,8 +81,17 @@
                                 <div class="panel-body">
                                     @foreach (var item in ViewBag.stijlen) //stijl
                                     {
-                                        <input type="checkbox" id="stijl_@item.Naam" name="stijl" value="@item.StijlID">
-                                        <label for="stijl_@item.Naam">@item.Naam</label><br />
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.StijlID" class="roundedOneinput" id="stijl_@item.Naam" name="stijl" />
+                                                    <label for="stijl_@item.Naam"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <label for="stijl_@item.Naam">@item.Naam</label>
+                                            </div>
+                                        </div>
                                     }
                                 </div>
                             </div>
@@ -168,31 +190,44 @@
                     </div>
 
                 </div>
-            </form>
-        </div>
-
-        <div class="col-md-7">
-            <div class="dressfinder-dres">
-
-                @foreach (var item in ViewBag.jurken)
-                {
-                    @item.JurkID
-                    <div class="dress-item">
-                        <img width="200" height="300" src="http://img.tsaclothing.com/2/24/248/m/e81eccf6a56682a0bf4bc5850690ceca.jpg" />
-                    </div>
-                }
 
             </div>
-        </div>
-        <div class="col-md-1">
-        </div>
 
-    </div>
+            <div class="col-md-8">
+                <select name="sort">
+                    <option value="1">Prijs Hoog / Laag</option>
+                    <option value="2">Prijs Laag / Hoog</option>
+                </select>
+
+                <div id="dressfinder-dres" class="d-flex">
+                    @foreach (var item in ViewBag.jurken) // jurken laten zien
+                    {
+                        <div class="dress-item">
+                            <a href="/dressfinder/jurk/@item.JurkID">
+                                <img alt="jurk" src="/images/jurk/@item.image1_location" />
+                                <b>@item.artikel.Naam</b>
+                            </a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="min" id="minvalue" />
+        <input type="hidden" name="max" id="maxvalue" />
+        @if (ViewBag.categorie > 0)
+        {
+            <input type="hidden" value="@ViewBag.categorie" name="id" />
+        }
+    </form>
+
 </div>
 
 <div class="row">
     <img class="img-responsive" src="~/images/bottom-dressfinder.png" />
 </div>
+
+
 
 
 

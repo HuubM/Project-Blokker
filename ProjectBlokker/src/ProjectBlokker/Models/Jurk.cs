@@ -47,5 +47,6 @@ namespace ProjectBlokker.Models
         public virtual Merk merk { get; set; }
         public virtual Stijl stijl { get; set; }
         public virtual Kleur kleur { get; set; }
+        
     }
 }
