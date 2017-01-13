@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -14,6 +15,9 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.AfspraakDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AfspraakTijd)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -38,6 +42,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AfspraakDatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AfspraakTijd)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)

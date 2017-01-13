@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectBlokker.Data;
 using ProjectBlokker.Models;
 
-namespace ProjectBlokker.Controllers
+namespace ProjectBlokker.Views
 {
     public class AfspraakOverviewController : Controller
     {
@@ -53,7 +53,7 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,AfspraakDatum,Email,Naam,Nieuwsbrief,TelNr,TrouwDatum")] Afspraak afspraak)
+        public async Task<IActionResult> Create([Bind("ID,AfspraakDatum,AfspraakTijd,Email,Naam,Nieuwsbrief,TelNr,TrouwDatum")] Afspraak afspraak)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,AfspraakDatum,Email,Naam,Nieuwsbrief,TelNr,TrouwDatum")] Afspraak afspraak)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,AfspraakDatum,AfspraakTijd,Email,Naam,Nieuwsbrief,TelNr,TrouwDatum")] Afspraak afspraak)
         {
             if (id != afspraak.ID)
             {

@@ -3,223 +3,219 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="row panel-2">
+<div class="row panel-afspraak">
     @Html.Partial("PartialLayout2")
-
 
     <div class="row welcome top-space-large bottom-space">
         <div class="row text-center">
             <div class="col-md-12">
-                <h1 class="imagebackmain fontsize-120   top-space-backgroundtext">Trouwjurken</h1>
-                <h2 class="imagefrontz text-uppercase text-bold fontsize-32">Maak je pasafspraak</h2>
+                <h2 class="text-uppercase text-bold fontsize-32">Maak je pasafspraak</h2>
             </div>
         </div>
     </div>
-
-
-
-
-    <div class="row panel-2 text-center afspraak-widget afspraakwindow">
-        <form id="afspraakgegevens" method="post" action="/afspraak/Add" class="rowss">
-            <div class="col-md-7 afspraak-left col">
-                <div class="afspraak-left-inner">
-                    <div class="col-md-3">
-                        <div class="stepwizard">
-                            <div class="stepwizard-row">
-                                <div class="stepwizard-step circle1 active">
-                                    <div class="circle">1</div>
-                                    <h4 class="small margin-0 text-bold">Datum en tijd selecteren</h4>
-                                </div>
-                                <div class="stepwizard-step circle2">
-                                    <div class="circle">2</div>
-                                    <h4 class="small margin-0 text-bold">Gegevens invullen</h4>
-                                </div>
-                                <div class="stepwizard-step circle3">
-                                    <div class="circle">3</div>
-                                    <h4 class="small margin-0 text-bold">Gegevens controleren</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 text-left">
-                        <div id="datum-tijd">
-                            <h3 class="fontsize-17 text-bold">Stap 1, Datum en tijd selecteren</h3>
-
-                            <p class="fontsize-17">Selecteer eerst een datum en vervolgens een tijdstip dat je wilt komen passen!</p>
-
-                            <h4 class="fontsize-14">Openingstijden:</h4>
-                            <table class="text-bold fontsize-14">
-                                <tr>
-                                    <td>MA</td>
-                                    <td>12:00-17:30</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding-right: 10px;">DI-VR</td>
-                                    <td>09:30-17:30</td>
-                                </tr>
-                                <tr>
-                                    <td>ZA</td>
-                                    <td>09:30-18:00</td>
-                                </tr>
-                                <tr>
-                                    <td>ZO</td>
-                                    <td>11:00-18:00</td>
-                                </tr>
-                            </table>
-
-                            <p class="fontsize-14 top-space-small">*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
-
-                            <button id="naar-gegevensinvullen" class="btn btn-pink bottom-space-small">Naar stap 2</button>
-                        </div>
-                        <div id="gegevens-invullen">
-                            <h3 class="fontsize-17 text-bold">Stap 2, Gegevens invullen</h3>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @Html.LabelFor(model => model.Naam, "Voor- en achternaam*")
-                                </div>
-                            </div>
-                            <div class="row">
-                                @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control", id = "Naam" } })
-                                @Html.ValidationMessageFor(model => model.Naam)
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @Html.LabelFor(model => model.TrouwDatum, "Trouwdatum*")
-                                </div>
-                            </div>
-                            <div class="row">
-                                @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type = "Date" } })
-                                @Html.ValidationMessageFor(model => model.TrouwDatum)
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @Html.LabelFor(model => model.TelNr, "Telefoonnummer")
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                @Html.EditorFor(model => model.TelNr, new { htmlAttributes = new { @class = "form-control", id = "TelNr" } })
-                                @Html.ValidationMessageFor(model => model.TelNr)
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @Html.LabelFor(model => model.Email, "E-mailadres*")
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
-                                @Html.ValidationMessageFor(model => model.Email)
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="repeatEmail">Herhaal E-mailadres*</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <input class="form-control text-box single-line" data-val="true" data-val-required="E-mailadres is verplicht." id="repeatEmail" name="repeatEmail" type="email" value="" aria-required="true" aria-describedby="repeatEmail-error" aria-invalid="true">
-                                <span class="field-validation-error" data-valmsg-for="repeatEmail" data-valmsg-replace="true"></span>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <input class="fontsize-14" type="checkbox" value="true" id="Nieuwsbrief" name="Nieuwsbrief" />
-                                </div>
-                                <div class="col-md-10">
-                                    <h4> Ja, ik wil me graag aanmelden voor de inspirerende nieuwsbrief van honeymoon Shop</h4>
-                                </div>
-                            </div>
-
-                            <button id="naar-gegevenscontroleren" class="btn btn-pink bottom-space-small top-space-small">Naar stap 3</button>
-                        </div>
-                        <div id="gegevens-controleren">
-                            <h3 class="fontsize-17 text-bold">Stap 3, Gegevens controleren</h3>
-                            <p>Controleer alle gegevens voor je pasafspraak bij Honeymoon shop aan Korte hoogstraat 4, te Rotterdam.</p>
-
-                            <input type="submit" class="btn btn-pink text-uppercase" value="Afspraak bevestigen" />
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5 kiesdatum col">
-                <div id="datum-kiezen" class="afspraak-right-inner">
-                    <h4 class="text-left text-white text-bold"> <img src="~/images/hartje2.png" alt="" style="width: 22px; height:22px;" /> &nbsp; Selecteer een datum: </h4>
-
-                    <div class="form-group text-white">
-                        <div class='input-group date' id='datetimepicker'>
-                            <input type="hidden" id="datumAfpsraak">
-                        </div>
-                        <a id="selectTime" class="text-white" href="#">Selecteer een tijd &nbsp; <img src="~/images/pijltje2.png" alt="" style="width: 25%; height: 7.5%;" /> </a>
-                    </div>
-                </div>
-
-                <div id="tijd-kiezen" class="text-left text-white">
-                    <div class="text-bold">
-                        <h4 class="text-left text-white">Selecteer een tijdstip</h4>
-                        <h3 id="gekozen-datum"></h3>
-                        <input type="radio" name="tijdstip" value="09:30" id="0930"><label for="0930">09:30</label><br>
-                        <input type="radio" name="tijdstip" value="12:00" id="1200"><label for="1200">12:00</label><br>
-                        <input type="radio" name="tijdstip" value="15:00" id="1500"><label for="1500">15:00</label>
-                        <br />
-                    </div>
-                    <a href="#" id="tijd-terug-datum" class="text-white push-to-bottom"><img src="~/images/pijltje3.png" alt="" style="width: 25%; height: 7.5%;" /> &nbsp; Terug naar datum selecteren</a>
-                </div>
-
-                <div id="gekozen-tijd-datum" class="text-left text-white">
-                    <h4 class="text-bold text-left text-white">Gekozen tijd en datum:</h4>
-                    <h4 class="gekozen-datum-tijd text-bold"></h4>
-                    <p>
-                        Vul je persoonlijke gegevens in om de pasafspraak compleet te maken.
-                    </p>
-
-                    <a href="#" class="text-white" id="terug-stap1">Terug naar stap 1 om datum te wijzigen</a>
-                </div>
-
-                <div id="gegevens-bevestigen" class="text-white">
-                    <h4 class="text-left text-bold">Controleer je gegevens:</h4>
-                    <h4 class="gekozen-datum-tijd text-bold"></h4>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">Naam:</div>
-                        <div class="col-md-9"><div id="gekozennaam"></div></div>
-                    </div>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">Trouwdatum:</div>
-                        <div class="col-md-9"><div id="gekozentrouwdatum"></div></div>
-                    </div>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">Telefoon:</div>
-                        <div class="col-md-9"><div id="gekozentelefoon"></div></div>
-                    </div>
-
-                    <div class="row text-left">
-                        <div class="col-md-3 text-bold">E-mail:</div>
-                        <div class="col-md-9"><div id="gekozenemail"></div></div>
-                    </div>
-
-                    <a href="#" id="terug-stap2" class="text-white">Terug naar stap 2 om gegevens te wijzigen</a>
-                </div>
-            </div>
-            <input type="hidden" name="AfspraakDatum" id="eindafspraak" />
-        </form>
-    </div>
 </div>
+
+<div class="row panel-2 text-center afspraak-widget afspraakwindow">
+    <form id="afspraakgegevens" method="post" action="/afspraak/Add" class="rowss">
+        <div class="col-md-7 afspraak-left col">
+            <div class="afspraak-left-inner">
+                <div class="col-md-3">
+                    <div class="stepwizard">
+                        <div class="stepwizard-row">
+                            <div class="stepwizard-step circle1 active">
+                                <div class="circle">1</div>
+                                <h4 class="small margin-0 text-bold">Datum en tijd selecteren</h4>
+                            </div>
+                            <div class="stepwizard-step circle2">
+                                <div class="circle">2</div>
+                                <h4 class="small margin-0 text-bold">Gegevens invullen</h4>
+                            </div>
+                            <div class="stepwizard-step circle3">
+                                <div class="circle">3</div>
+                                <h4 class="small margin-0 text-bold">Gegevens controleren</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 text-left">
+                    <div id="datum-tijd">
+                        <h3 class="fontsize-17 text-bold">Stap 1, Datum en tijd selecteren</h3>
+
+                        <p class="fontsize-17">Selecteer eerst een datum en vervolgens een tijdstip dat je wilt komen passen!</p>
+
+                        <h4 class="fontsize-14">Openingstijden:</h4>
+                        <table class="text-bold fontsize-14">
+                            <tr>
+                                <td>MA</td>
+                                <td>12:00-17:30</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;">DI-VR</td>
+                                <td>09:30-17:30</td>
+                            </tr>
+                            <tr>
+                                <td>ZA</td>
+                                <td>09:30-18:00</td>
+                            </tr>
+                            <tr>
+                                <td>ZO</td>
+                                <td>11:00-18:00</td>
+                            </tr>
+                        </table>
+
+                        <p class="fontsize-14 top-space-small">*Op alle werkdagen kunnen er ook schoenen worden gepast. Helaas is dit niet mogelijk in het weekend.</p>
+
+                        <button id="naar-gegevensinvullen" class="btn btn-pink bottom-space-small">Naar stap 2</button>
+                    </div>
+                    <div id="gegevens-invullen">
+                        <h3 class="fontsize-17 text-bold">Stap 2, Gegevens invullen</h3>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.Naam, "Voor- en achternaam*")
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.EditorFor(model => model.Naam, new { htmlAttributes = new { @class = "form-control", id = "Naam" } })
+                            @Html.ValidationMessageFor(model => model.Naam)
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.TrouwDatum, "Trouwdatum")
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.EditorFor(model => model.TrouwDatum, new { htmlAttributes = new { @class = "form-control", id = "TrouwDatum", type = "Date" } })
+                            @Html.ValidationMessageFor(model => model.TrouwDatum)
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.TelNr, "Telefoonnummer")
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.EditorFor(model => model.TelNr, new { htmlAttributes = new { @class = "form-control", id = "TelNr" } })
+                            @Html.ValidationMessageFor(model => model.TelNr)
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.Email, "E-mailadres*")
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="repeatEmail">Herhaal E-mailadres*</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <input class="form-control text-box single-line" data-val="true" data-val-required="E-mailadres is verplicht." id="repeatEmail" name="repeatEmail" type="email" value="" aria-required="true" aria-describedby="repeatEmail-error" aria-invalid="true">
+                            <span class="field-validation-error" data-valmsg-for="repeatEmail" data-valmsg-replace="true"></span>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="fontsize-14" type="checkbox" value="true" id="Nieuwsbrief" name="Nieuwsbrief" />
+                            </div>
+                            <div class="col-md-10">
+                                <h4> Ja, ik wil me graag aanmelden voor de inspirerende nieuwsbrief van honeymoon Shop</h4>
+                            </div>
+                        </div>
+
+                        <button id="naar-gegevenscontroleren" class="btn btn-pink bottom-space-small top-space-small">Naar stap 3</button>
+                    </div>
+                    <div id="gegevens-controleren">
+                        <h3 class="fontsize-17 text-bold">Stap 3, Gegevens controleren</h3>
+                        <p>Controleer alle gegevens voor je pasafspraak bij Honeymoon shop aan Korte hoogstraat 4, te Rotterdam.</p>
+
+                        <input type="submit" class="btn btn-pink text-uppercase" value="Afspraak bevestigen" />
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 kiesdatum col">
+            <div id="datum-kiezen" class="afspraak-right-inner">
+                <h4 class="text-left text-white text-bold"> <img src="~/images/hartje2.png" alt="" style="width: 22px; height:22px;"/> &nbsp; Selecteer een datum: </h4>
+
+                <div class="form-group text-white">
+                    <div class='input-group date' id='datetimepicker'>
+                        <input type="hidden" id="datumAfpsraak">
+                    </div>
+                    <a id="selectTime" class="text-white" href="#">Selecteer een tijd &nbsp; <img src="~/images/pijltje2.png" alt="" style="width: 25%; height: 7.5%;" /> </a>
+                </div>
+            </div>
+
+            <div id="tijd-kiezen" class="text-left text-white">
+                <div class="text-bold">
+                <h4 class="text-left text-white">Selecteer een tijdstip</h4>
+                <h3 id="gekozen-datum"></h3>
+                <input type="radio" name="tijdstip" value="09:30" id="0930"><label for="0930">09:30</label><br>
+                <input type="radio" name="tijdstip" value="12:00" id="1200"><label for="1200">12:00</label><br>
+                <input type="radio" name="tijdstip" value="15:00" id="1500"><label for="1500">15:00</label>
+                <br />
+                </div>
+                <a href="#" id="tijd-terug-datum" class="text-white push-to-bottom"><img src="~/images/pijltje3.png" alt="" style="width: 25%; height: 7.5%;" /> &nbsp; Terug naar datum selecteren</a>
+            </div>
+
+            <div id="gekozen-tijd-datum" class="text-left text-white">
+                <h4 class="text-bold text-left text-white">Gekozen tijd en datum:</h4>
+                <h4 class="gekozen-datum-tijd text-bold"></h4>
+                <p>
+                    Vul je persoonlijke gegevens in om de pasafspraak compleet te maken.
+                </p>
+
+                <a href="#" class="text-white" id="terug-stap1">Terug naar stap 1 om datum te wijzigen</a>
+            </div>
+
+            <div id="gegevens-bevestigen" class="text-white">
+                <h4 class="text-left text-bold">Controleer je gegevens:</h4>
+                <h4 class="gekozen-datum-tijd text-bold"></h4>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">Naam:</div>
+                    <div class="col-md-9"><div id="gekozennaam"></div></div>
+                </div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">Trouwdatum:</div>
+                    <div class="col-md-9"><div id="gekozentrouwdatum"></div></div>
+                </div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">Telefoon:</div>
+                    <div class="col-md-9"><div id="gekozentelefoon"></div></div>
+                </div>
+
+                <div class="row text-left">
+                    <div class="col-md-3 text-bold">E-mail:</div>
+                    <div class="col-md-9"><div id="gekozenemail"></div></div>
+                </div>
+
+                <a href="#" id="terug-stap2" class="text-white">Terug naar stap 2 om gegevens te wijzigen</a>
+            </div>
+        </div>
+        <input type="hidden" name="AfspraakDatum" id="eindafspraak"/>
+        <input type="hidden" name="AfspraakTijd" id="eindtijd" />
+    </form>
+</div>
+
 <div class="row">
     <img class="img-responsive" src="~/images/Ronaldo.PNG" />
 </div>
-    
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

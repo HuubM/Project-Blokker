@@ -37,16 +37,33 @@ namespace ProjectBlokker.Controllers
             return View("AfspraakGeslaagd");
         }
 
+    
+
 
         [HttpPost]
         public IActionResult Add(Afspraak afspraak)
         {
+            
+            /*foreach (var modelStateValue in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelStateValue.Errors)
+                {
+                    // Do something useful with these properties
+                    var errorMessage = error.ErrorMessage;
+                    var exception = error.Exception;
+                    Console.WriteLine(errorMessage);
+                    Console.WriteLine(exception);
+                }
+            }*/
+
             if (ModelState.IsValid)
             {
+               
+
                 _context.Afspraak.Add(afspraak);
                 _context.SaveChanges();
 
-                var message = new MimeMessage();
+                /*var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("HoneyMoonShop", "HoneyMoonShop@outlook.com"));
                 //message.To.Add(new MailboxAddress(@afspraak.Naam, @afspraak.Email));
                 message.Subject = "Afspraak Bevestiging HoneyMoonShop";
@@ -62,11 +79,11 @@ namespace ProjectBlokker.Controllers
                     client.Authenticate("honeymoonshop@outlook.com", "Honeymoon"); //TODO betere security
                     client.Send(message);
                     client.Disconnect(true);
-                }
-
+                }*/
+               
             }
-
-            return RedirectToAction("/AfspraakGeslaagd");
+           return RedirectToAction("/AfspraakGeslaagd");
+             
         }
         
     }
