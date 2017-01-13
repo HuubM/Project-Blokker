@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectBlokker.Data;
 using ProjectBlokker.Models;
+using ProjectBlokker.ViewModels;
 
 namespace ProjectBlokker.Controllers
 {
@@ -46,8 +47,11 @@ namespace ProjectBlokker.Controllers
         // GET: Artikels/Create
         public IActionResult Create()
         {
-            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID");
-            return View();
+            ArtikelViewModel avm = new ArtikelViewModel();
+            avm.artikel = artikel;
+            avm.categorie = _context.Categorie.ToList<Categorie>();
+
+            return View(avm);
         }
 
         // POST: Artikels/Create
@@ -55,16 +59,19 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ArtikelID,CategorieID,Naam")] Artikel artikel)
+        public IActionResult Create(Artikel artikel)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(artikel);
-                await _context.SaveChangesAsync();
+                _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID", artikel.CategorieID);
-            return View(artikel);
+
+            ArtikelViewModel avm = new ArtikelViewModel();
+            avm.categorie = _context.Categorie.ToList<Categorie>();
+            
+            return View(avm);
         }
 
         // GET: Artikels/Edit/5

@@ -8,22 +8,30 @@ using Microsoft.EntityFrameworkCore;
 using ProjectBlokker.Data;
 using ProjectBlokker.Models;
 using ProjectBlokker.ViewModels;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ProjectBlokker.Controllers
 {
     public class JurksController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IHostingEnvironment _environment;
 
-        public JurksController(ApplicationDbContext context)
+        public JurksController(ApplicationDbContext context, IHostingEnvironment environment)
         {
-            _context = context;    
+            _context = context;
+            _environment = environment;
         }
 
+
         // GET: Jurks
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Jurk.ToListAsync());
+
+            return View(_context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).ToList<Jurk>());
+     
         }
 
         // GET: Jurks/Details/5
@@ -62,17 +70,48 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Jurk jurk)
+        public IActionResult Create(JurkViewModel jvm)
         {
             if (ModelState.IsValid)
             {
-                _context.Jurk.Add(jurk);
+                var uploads = Path.Combine(_environment.WebRootPath, "images/jurk");
+
+                if (jvm.plaatje1.Length > 0)
+                {
+                    using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje1.FileName), FileMode.Create))
+                    {
+                        jvm.plaatje1.CopyTo(fileStream);
+                        jvm.jurk.image1_location = jvm.plaatje1.FileName;
+                    }
+                }
+
+                if (jvm.plaatje2.Length > 0)
+                {
+                    using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje2.FileName), FileMode.Create))
+                    {
+                        
+                        jvm.plaatje2.CopyTo(fileStream);
+                        jvm.jurk.image2_location = jvm.plaatje2.FileName;
+                    }
+                }
+
+                if (jvm.plaatje3.Length > 0)
+                {
+                    using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje3.FileName), FileMode.Create))
+                    {
+                        jvm.plaatje1.CopyTo(fileStream);
+                        jvm.jurk.image3_location = jvm.plaatje3.FileName;
+                    }
+                }
+
+
+                _context.Jurk.Add(jvm.jurk);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            JurkViewModel jvm = new JurkViewModel();
-            jvm.jurk = jurk;
+            //JurkViewModel jvm = new JurkViewModel();
+            //jvm.jurk = jurk;
             jvm.artikelen = _context.Artikel.ToList<Artikel>();
             jvm.categorieen = _context.Categorie.ToList<Categorie>();
             jvm.kleuren = _context.Kleur.ToList<Kleur>();
@@ -143,7 +182,6 @@ namespace ProjectBlokker.Controllers
                 }
                 return RedirectToAction("Index");
             }
-
 
             JurkViewModel jvm = new JurkViewModel();
 

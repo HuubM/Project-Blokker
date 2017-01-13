@@ -23,18 +23,7 @@
             </div>
 
         </div>
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="jurk.JurkID" />
-        <div class="form-group">
-            <label asp-for="jurk.CategorieID" class="col-md-2 control-label">Categorie</label>
-            <div class="col-md-10">
 
-                @Html.DropDownListFor(model => model.jurk.CategorieID,
-            new SelectList(Model.categorieen, "CategorieID", "Naam"), "Selecteer Categorie", new { @class = "form-control" })
-
-
-            </div>
-        </div>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="jurk.JurkID" />
         <div class="form-group">

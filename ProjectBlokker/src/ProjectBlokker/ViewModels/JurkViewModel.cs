@@ -1,4 +1,5 @@
-﻿using ProjectBlokker.Models;
+﻿using Microsoft.AspNetCore.Http;
+using ProjectBlokker.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,8 @@ namespace ProjectBlokker.ViewModels
         public IEnumerable<Silhouette> silhouettes { get; set; }
         public IEnumerable<Stijl> stijlen { get; set; }
 
-
+        public IFormFile plaatje1 { get; set; }
+        public IFormFile plaatje2 { get; set; }
+        public IFormFile plaatje3 { get; set; }
     }
 }

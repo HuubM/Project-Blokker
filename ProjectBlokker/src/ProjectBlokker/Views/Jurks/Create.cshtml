@@ -6,112 +6,126 @@
 
 <h2>Create</h2>
 
-<form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>Jurk</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="jurk.ArtikelID" class="col-md-2 control-label">Artikel</label>
-            <div class="col-md-10">
+<form asp-action="Create" enctype="multipart/form-data">
+        <div class="form-horizontal">
+            <h4>Jurk</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="jurk.ArtikelID" class="col-md-2 control-label">Artikel</label>
+                <div class="col-md-10">
 
-            @Html.DropDownListFor(model => model.jurk.ArtikelID,
+                    @Html.DropDownListFor(model => model.jurk.ArtikelID,
             new SelectList(Model.artikelen, "ArtikelID", "Naam"), "Selecteer Artikel", new { @class = "form-control" })
 
 
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.CategorieID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-             
-                <span asp-validation-for="jurk.CategorieID" class="text-danger" />
 
-                @Html.DropDownListFor(model => model.jurk.CategorieID,
-            new SelectList(Model.categorieen, "CategorieID", "Naam"), "Selecteer Categorie", new { @class = "form-control" })
+            <div class="form-group">
+                <label asp-for="jurk.KleurID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
 
+                    <span asp-validation-for="jurk.KleurID" class="text-danger" />
 
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.KleurID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-          
-                <span asp-validation-for="jurk.KleurID" class="text-danger" />
-
-                @Html.DropDownListFor(model => model.jurk.KleurID,
+                    @Html.DropDownListFor(model => model.jurk.KleurID,
             new SelectList(Model.kleuren, "KleurID", "Naam"), "Selecteer Kleur", new { @class = "form-control" })
 
 
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.MerkID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-              
-                <span asp-validation-for="jurk.MerkID" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="jurk.MerkID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
 
-                @Html.DropDownListFor(model => model.jurk.MerkID,
+                    <span asp-validation-for="jurk.MerkID" class="text-danger" />
+
+                    @Html.DropDownListFor(model => model.jurk.MerkID,
             new SelectList(Model.merken, "MerkID", "Naam"), "Selecteer Merk", new { @class = "form-control" })
 
 
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.NeklijnID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
- 
-                <span asp-validation-for="jurk.NeklijnID" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="jurk.NeklijnID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
 
-                @Html.DropDownListFor(model => model.jurk.NeklijnID,
+                    <span asp-validation-for="jurk.NeklijnID" class="text-danger" />
+
+                    @Html.DropDownListFor(model => model.jurk.NeklijnID,
             new SelectList(Model.neklijnen, "NeklijnID", "Naam"), "Selecteer Neklijn", new { @class = "form-control" })
 
 
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.Omschrijving" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="jurk.Omschrijving" class="form-control" />
-                <span asp-validation-for="jurk.Omschrijving" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="jurk.Omschrijving" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="jurk.Omschrijving" class="form-control" />
+                    <span asp-validation-for="jurk.Omschrijving" class="text-danger" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.Prijs" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="jurk.Prijs" class="form-control" />
-                <span asp-validation-for="jurk.Prijs" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="jurk.Prijs" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="jurk.Prijs" class="form-control" />
+                    <span asp-validation-for="jurk.Prijs" class="text-danger" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.SilhouetteID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <span asp-validation-for="jurk.SilhouetteID" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="jurk.SilhouetteID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <span asp-validation-for="jurk.SilhouetteID" class="text-danger" />
 
-                @Html.DropDownListFor(model => model.jurk.SilhouetteID,
+                    @Html.DropDownListFor(model => model.jurk.SilhouetteID,
             new SelectList(Model.silhouettes, "SilhouetteID", "Naam"), "Selecteer Silhouette", new { @class = "form-control" })
 
 
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="jurk.StijlID" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <span asp-validation-for="jurk.StijlID" class="text-danger" />
+            <div class="form-group">
+                <label asp-for="jurk.StijlID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <span asp-validation-for="jurk.StijlID" class="text-danger" />
 
-                @Html.DropDownListFor(model => model.jurk.StijlID,
+                    @Html.DropDownListFor(model => model.jurk.StijlID,
             new SelectList(Model.stijlen, "StijlID", "Naam"), "Selecteer Stijl", new { @class = "form-control" })
 
 
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="plaatje1" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="file" name="plaatje1" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="plaatje2" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="file" name="plaatje2" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="plaatje3" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="file" name="plaatje3" />
+                </div>
+            </div>
+
+            
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-</form>
+    </form>
 
 <div>
     <a asp-action="Index">Back to List</a>
