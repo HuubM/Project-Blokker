@@ -1,0 +1,78 @@
+@model IEnumerable<ProjectBlokker.Models.Jurk>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.artikel)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.kleur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.merk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.neklijn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Omschrijving)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prijs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.silhouette)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stijl)
+            </th>
+                    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.artikel.Naam)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => item.kleur.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.merk.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.neklijn.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Omschrijving)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prijs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.silhouette.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stijl.Naam)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.JurkID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.JurkID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.JurkID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

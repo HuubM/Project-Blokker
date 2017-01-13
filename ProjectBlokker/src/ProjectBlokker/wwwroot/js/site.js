@@ -1,7 +1,7 @@
 ﻿
 $(function () {
     
-
+    /*
     $("#repeatEmail").rules("add", {
         equalTo: "#Email",
         messages: {
@@ -10,6 +10,8 @@ $(function () {
         }
     });
 
+    
+    
     // Datepicker nl waarden
     $.fn.datepicker.dates['nl'] = {
 		days: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"],
@@ -23,6 +25,7 @@ $(function () {
 		weekStart: 1,
 		format: "dd-mm-yyyy"
     };
+    
 
     var weekday = ["ZO", "MA", "DI", "WO", "DO", "VR", "ZA"];
     var months = ["JANUARI", "FEBRUARI", "MAART", "APRIL", "MEI", "JUNI", "JULI", "AUGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DECEMBER"];
@@ -145,10 +148,6 @@ $(function () {
         $('#tijd-kiezen').slideUp();
         e.preventDefault();
     });
-
-
-
-
     
 
 
@@ -168,4 +167,11 @@ $(function () {
            $('#datetimepicker').datepicker('getDate')
         );
     });
+    */
+
+
+    
+
+
 });
+

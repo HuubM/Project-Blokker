@@ -1,0 +1,76 @@
+@model ProjectBlokker.Models.Jurk
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Jurk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtikelID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ArtikelID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CategorieID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategorieID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KleurID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KleurID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MerkID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MerkID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NeklijnID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NeklijnID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SilhouetteID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SilhouetteID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StijlID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StijlID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>
