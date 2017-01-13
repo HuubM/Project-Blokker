@@ -43,23 +43,10 @@ namespace ProjectBlokker.Controllers
         [HttpPost]
         public IActionResult Add(Afspraak afspraak)
         {
-            
-            /*foreach (var modelStateValue in ViewData.ModelState.Values)
-            {
-                foreach (var error in modelStateValue.Errors)
-                {
-                    // Do something useful with these properties
-                    var errorMessage = error.ErrorMessage;
-                    var exception = error.Exception;
-                    Console.WriteLine(errorMessage);
-                    Console.WriteLine(exception);
-                }
-            }*/
 
             if (ModelState.IsValid)
             {
                
-
                 _context.Afspraak.Add(afspraak);
                 _context.SaveChanges();
 
@@ -80,9 +67,9 @@ namespace ProjectBlokker.Controllers
                     client.Send(message);
                     client.Disconnect(true);
                 }*/
-               
-            }
-           return RedirectToAction("/AfspraakGeslaagd");
+              
+            } return RedirectToAction("/AfspraakGeslaagd");
+           
              
         }
         
