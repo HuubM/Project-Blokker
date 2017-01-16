@@ -7,27 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectBlokker.Data;
 using ProjectBlokker.Models;
-using ProjectBlokker.ViewModels;
 
-namespace ProjectBlokker.Controllers
+namespace ProjectBlokker.Views
 {
-    public class ArtikelsController : Controller
+    public class StijlsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ArtikelsController(ApplicationDbContext context)
+        public StijlsController(ApplicationDbContext context)
         {
             _context = context;    
         }
 
-        // GET: Artikels
-        public IActionResult Index()
+        // GET: Stijls
+        public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Artikel.Include(a => a.categorie);
-            return View(_context.Artikel.Include(a => a.categorie));
+            return View(await _context.Stijl.ToListAsync());
         }
 
-        // GET: Artikels/Details/5
+        // GET: Stijls/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,47 +33,38 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var artikel = await _context.Artikel.SingleOrDefaultAsync(m => m.ArtikelID == id);
-            if (artikel == null)
+            var stijl = await _context.Stijl.SingleOrDefaultAsync(m => m.StijlID == id);
+            if (stijl == null)
             {
                 return NotFound();
             }
 
-            return View(artikel);
+            return View(stijl);
         }
 
-        // GET: Artikels/Create
+        // GET: Stijls/Create
         public IActionResult Create()
         {
-            ArtikelViewModel avm = new ArtikelViewModel();
-            avm.categorie = _context.Categorie.ToList<Categorie>();
-
-            //ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID");
-
-            return View(avm);
+            return View();
         }
 
-        // POST: Artikels/Create
+        // POST: Stijls/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ArtikelViewModel avm)
+        public async Task<IActionResult> Create([Bind("StijlID,Naam")] Stijl stijl)
         {
             if (ModelState.IsValid)
             {
-                _context.Artikel.Add(avm.artikel);
-                _context.SaveChanges();
+                _context.Add(stijl);
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
-            //ArtikelViewModel avm = new ArtikelViewModel();
-            avm.categorie = _context.Categorie.ToList<Categorie>();
-            
-            return View(avm);
+            return View(stijl);
         }
 
-        // GET: Artikels/Edit/5
+        // GET: Stijls/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,25 +72,22 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var artikel = await _context.Artikel.SingleOrDefaultAsync(m => m.ArtikelID == id);
-            if (artikel == null)
+            var stijl = await _context.Stijl.SingleOrDefaultAsync(m => m.StijlID == id);
+            if (stijl == null)
             {
                 return NotFound();
             }
-            ArtikelViewModel avm = new ArtikelViewModel();
-            avm.artikel = artikel;
-            avm.categorie = _context.Categorie.ToList<Categorie>();
-            return View(avm);
+            return View(stijl);
         }
 
-        // POST: Artikels/Edit/5
+        // POST: Stijls/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("ArtikelID,CategorieID,Naam")] Artikel artikel)
+        public async Task<IActionResult> Edit(int id, [Bind("StijlID,Naam")] Stijl stijl)
         {
-            if (id != artikel.ArtikelID)
+            if (id != stijl.StijlID)
             {
                 return NotFound();
             }
@@ -110,12 +96,12 @@ namespace ProjectBlokker.Controllers
             {
                 try
                 {
-                    _context.Update(artikel);
-                    _context.SaveChanges();
+                    _context.Update(stijl);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ArtikelExists(artikel.ArtikelID))
+                    if (!StijlExists(stijl.StijlID))
                     {
                         return NotFound();
                     }
@@ -126,14 +112,10 @@ namespace ProjectBlokker.Controllers
                 }
                 return RedirectToAction("Index");
             }
-
-            ArtikelViewModel avm = new ArtikelViewModel();
-            avm.artikel = artikel;
-            avm.categorie = _context.Categorie.ToList<Categorie>();
-            return View(avm);
+            return View(stijl);
         }
 
-        // GET: Artikels/Delete/5
+        // GET: Stijls/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,29 +123,29 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var artikel = await _context.Artikel.SingleOrDefaultAsync(m => m.ArtikelID == id);
-            if (artikel == null)
+            var stijl = await _context.Stijl.SingleOrDefaultAsync(m => m.StijlID == id);
+            if (stijl == null)
             {
                 return NotFound();
             }
 
-            return View(artikel);
+            return View(stijl);
         }
 
-        // POST: Artikels/Delete/5
+        // POST: Stijls/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var artikel = await _context.Artikel.SingleOrDefaultAsync(m => m.ArtikelID == id);
-            _context.Artikel.Remove(artikel);
+            var stijl = await _context.Stijl.SingleOrDefaultAsync(m => m.StijlID == id);
+            _context.Stijl.Remove(stijl);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool ArtikelExists(int id)
+        private bool StijlExists(int id)
         {
-            return _context.Artikel.Any(e => e.ArtikelID == id);
+            return _context.Stijl.Any(e => e.StijlID == id);
         }
     }
 }

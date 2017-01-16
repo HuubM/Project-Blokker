@@ -28,27 +28,28 @@ namespace ProjectBlokker.Controllers
 
         // GET: Jurks
         public IActionResult Index()
-        {
+        {       
 
             return View(_context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).ToList<Jurk>());
      
         }
 
         // GET: Jurks/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var jurk = await _context.Jurk.SingleOrDefaultAsync(m => m.JurkID == id);
+            var jurk = _context.Jurk.SingleOrDefaultAsync(m => m.JurkID == id);
             if (jurk == null)
             {
                 return NotFound();
             }
 
-            return View(jurk);
+            return View(_context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).ToList<Jurk>());
+
         }
 
         // GET: Jurks/Create
