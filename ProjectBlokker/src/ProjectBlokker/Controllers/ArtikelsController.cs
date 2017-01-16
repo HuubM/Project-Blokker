@@ -48,6 +48,7 @@ namespace ProjectBlokker.Controllers
         public IActionResult Create()
         {
             ArtikelViewModel avm = new ArtikelViewModel();
+            avm.artikel = artikel;
             avm.categorie = _context.Categorie.ToList<Categorie>();
 
             return View(avm);

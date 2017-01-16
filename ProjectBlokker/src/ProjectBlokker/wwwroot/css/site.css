@@ -18,6 +18,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
@@ -256,21 +257,6 @@ textarea {
 .panel-4 {
     background-color: white;
 }
-
-.devider {
-    height: 1px;
-    background-color: #78726F;
-}
-
-
-.panel-group{
-    margin-bottom: 0px;
-}
-
-.panel-group .panel{
-    border-radius: 0 !important;
-}
-
 .welcome {
     margin-top: 180px;
     margin-bottom: 150px;
