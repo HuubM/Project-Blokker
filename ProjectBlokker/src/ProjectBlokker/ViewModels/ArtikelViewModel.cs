@@ -10,6 +10,7 @@ namespace ProjectBlokker.ViewModels
     {
         public Artikel artikel { get; set; }
 
+
         public IEnumerable<Categorie> categorie { get; set; }
 
 
