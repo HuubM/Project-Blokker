@@ -47,11 +47,9 @@ namespace ProjectBlokker.Controllers
         // GET: Artikels/Create
         public IActionResult Create()
         {
-            ArtikelViewModel avm = new ArtikelViewModel();
-            avm.artikel = artikel;
-            avm.categorie = _context.Categorie.ToList<Categorie>();
+            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID");
 
-            return View(avm);
+            return View();
         }
 
         // POST: Artikels/Create

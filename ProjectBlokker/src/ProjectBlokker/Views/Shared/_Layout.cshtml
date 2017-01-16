@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -17,6 +18,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
@@ -126,15 +128,35 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="~/js/Jqueryui-min.js" asp-append-version="true"></script>
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/Jqueryui-min.js" asp-append-version="true"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/jquery-dateFormat.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        
+    </environment>
+        <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                 asp-fallback-test="window.jQuery">
+         </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/Jqueryui-min.js" asp-append-version="true"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/jquery-dateFormat.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("scripts", required: false)
 
     @if (ViewBag.extrajs != null)
     {
