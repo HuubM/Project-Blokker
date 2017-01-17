@@ -35,7 +35,7 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var artikel = await _context.Artikel.SingleOrDefaultAsync(m => m.ArtikelID == id);
+            var artikel = await _context.Artikel.Include(a => a.categorie).SingleOrDefaultAsync(m => m.ArtikelID == id);
             if (artikel == null)
             {
                 return NotFound();

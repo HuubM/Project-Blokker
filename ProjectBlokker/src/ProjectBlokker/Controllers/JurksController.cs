@@ -35,20 +35,20 @@ namespace ProjectBlokker.Controllers
         }
 
         // GET: Jurks/Details/5
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var jurk = _context.Jurk.SingleOrDefaultAsync(m => m.JurkID == id);
+            var jurk = await _context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).SingleOrDefaultAsync(m => m.JurkID == id);
             if (jurk == null)
             {
                 return NotFound();
             }
 
-            return View(_context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).ToList<Jurk>());
+            return View(jurk);
 
         }
 

@@ -10,29 +10,30 @@
     <h4>Jurk</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.ArtikelID)
+            @Html.DisplayNameFor(model => model.artikel)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ArtikelID)
+            @Html.DisplayFor(model => model.artikel.Naam)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.KleurID)
+            @Html.DisplayNameFor(model => model.kleur)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.KleurID)
+            @Html.DisplayFor(model => model.kleur.Naam)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.MerkID)
+            @Html.DisplayNameFor(model => model.merk)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.MerkID)
+            @Html.DisplayFor(model => model.merk.Naam)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NeklijnID)
+            @Html.DisplayNameFor(model => model.neklijn)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.NeklijnID)
+            @Html.DisplayFor(model => model.neklijn.Naam)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Omschrijving)
@@ -47,16 +48,34 @@
             @Html.DisplayFor(model => model.Prijs)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.SilhouetteID)
+            @Html.DisplayNameFor(model => model.silhouette)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.SilhouetteID)
+            @Html.DisplayFor(model => model.silhouette.Naam)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.StijlID)
+            @Html.DisplayNameFor(model => model.stijl)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.StijlID)
+            @Html.DisplayFor(model => model.stijl.Naam)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.image1_location)
+        </dt>
+        <dd>
+            <img src="~/images/jurk/" height="40" width="40"/>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.image2_location)
+        </dt>
+        <dd>
+            <img src="~/images/jurk/" height="40" width="40" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.image3_location)
+        </dt>
+        <dd>
+            <img src="~/images/jurk/" height="40" width="40" />
         </dd>
     </dl>
 </div>

@@ -13,6 +13,7 @@ namespace ProjectBlokker.Models
     {
         [Key]
         public int ArtikelID { get; set; }
+
         public string Naam { get; set; }
 
         [ForeignKey("Categorie")]
