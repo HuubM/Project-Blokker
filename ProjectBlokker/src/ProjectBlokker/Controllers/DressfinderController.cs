@@ -284,8 +284,11 @@ namespace ProjectBlokker.Controllers
             {
                 return NotFound();
             }
+            else {
+                var x = id;
+            }
 
-            var jurk = _context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).SingleOrDefault();
+            var jurk = _context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).FirstOrDefault();
             if (jurk == null)
             {
                 return NotFound();
