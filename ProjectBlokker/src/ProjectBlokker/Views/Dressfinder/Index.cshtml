@@ -204,15 +204,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="dressfinder-dres" class="d-flex">
-                            @foreach (var item in ViewBag.jurken) // jurken laten zien
-                            {
-                                <div class="dress-item">
-                                    <a href="/dressfinder/jurk/@item.JurkID">
-                                        <img alt="jurk" src="/images/jurk/@item.image1_location" />
-                                        <b>@item.artikel.Naam</b>
-                                    </a>
-                                </div>
-                            }
+                            @Html.Partial("Dresses")
                         </div>
                     </div>
                 </div>

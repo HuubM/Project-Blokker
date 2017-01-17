@@ -8,9 +8,6 @@
         @Html.Partial("PartialLayout2")
     </div>
 
-@Model.kleur.Naam
-
-
     <div class="row panel-2">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -20,13 +17,14 @@
                 <div class="col-md-4">
 
                     <div class="row">
-                        <div class="col-md-3 padding-0" style="padding-left: 7%">
-                            <img src="~/images/Arrowlinks.png" class="img-responsive" alt="<<<<<">
-                        </div>
-                        <div class="col-md-9 padding-0" style="line-height: 25px;">
-                            <p style="text-decoration: underline;">Terug naar overzicht</p>
-                        </div>
-
+                        <a href="/Dressfinder/Index">
+                            <div class="col-md-3 padding-0" style="padding-left: 7%">
+                                <img src="~/images/Arrowlinks.png" class="img-responsive" alt="<<<<<">
+                            </div>
+                            <div class="col-md-9 padding-0" style="line-height: 25px;">
+                                <p style="text-decoration: underline; color: black;">Terug naar overzicht</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -35,21 +33,21 @@
 
             <div class="row" style="padding-top: 5%;">
                 <div class="col-md-3">
-                    <img src="~/images/jurk.PNG" class="img-responsive jurk-subimg" alt="<<<<<">
-                    <img src="~/images/jurk.PNG" class="img-responsive jurk-subimg" alt="<<<<<">
-                    <img src="~/images/jurk.PNG" class="img-responsive jurk-subimg" alt="<<<<<">
+                    <img src="~/images/jurk/@Model.image1_location" class="img-responsive jurk-subimg" alt="<<<<<">
+                    <img src="~/images/jurk/@Model.image1_location" class="img-responsive jurk-subimg" alt="<<<<<">
+                    <img src="~/images/jurk/@Model.image1_location" class="img-responsive jurk-subimg" alt="<<<<<">
                 </div>
                 <div class="col-md-6">
-                    <img src="~/images/jurk.PNG" class="img-responsive" alt="Jurk">
+                    <img src="~/images/jurk/@Model.image1_location" class="img-responsive" alt="Jurk">
                 </div>
                 <div class="col-md-3">
-                    <h3>Maggie Sottero</h3>
-                    <h4>Artikel nr. 12294</h4>
-                    <p style="padding-top: 10%;">Trouwjurk van het merk Maggie Sottero gemaakt van kant. De top kan met- en zonder schouders gedragen worden. De jurk heeft een laag uitgesneden rug en een fishtail model met een sleep.</p>
-                    <p style="padding-top: 10%;">Merk: <span class="text-pink">Maggie Sottero</span></p>
-                    <p>Kenmerken: <span class="text-pink">verlijdelijk, Kant, Ivoor, Fishtail, Lage rug, Schouderbandjes, Strapless</span></p>
-                    <p>Prijsindicatie: $7.500</p>
-                    <p>Beschikbare kleuren: Rood, Ivoor, Donker Rood</p>
+                    <h3> @Model.artikel.Naam </h3>
+                    <h4>Artikel nr. @Model.artikel.ArtikelID</h4>
+                    <p style="padding-top: 10%;"> @Model.Omschrijving </p>
+                    <p style="padding-top: 10%;">Merk: <span class="text-pink"> @Model.merk.Naam </span></p>
+                    <p>Kenmerken: <span class="text-pink"> @Model.stijl.Naam, @Model.silhouette.Naam, @Model.neklijn.Naam, @Model.kleur.Naam</span></p>
+                    <p>Prijsindicatie: @Model.Prijs </p>
+                    <p>Beschikbare kleuren: @Model.kleur.Naam </p>
                     <p>Kom de jurk passen!</p>
                     <a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Pasafspraak maken</a>
                     <div class="bottom-space-small"></div>
