@@ -32,9 +32,9 @@ namespace ProjectBlokker.Models
                 Seedcategorie(context, categorieLijst);
                 context.SaveChanges();
 
-                IList<string> artikelLijst = new List<string> { "artikel1", " artikel2", "artikel3" };
-                //Seedartikel(context, artikelLijst, categorieLijst);
-
+                IList<string> artikelLijst = new List<string> { "artikel1", " artikel2", "artikel3", " artikel2", "artikel3", " artikel2", "artikel3" };
+                Seedartikel(context, artikelLijst, categorieLijst);
+                context.SaveChanges();
 
                 IList<string> merkenAanmaken = new List<string> {"Badgley & Mischka", "Ladybird", "Diane Legrand", "Pronovias", "Maggie Sottero"
                 , "Eddy K.", "Mylene Sophie", "Demetrios", "Olvi's", "Martina Liana" };
@@ -113,21 +113,27 @@ namespace ProjectBlokker.Models
             }
         }
 
-        //private static void Seedartikel(ApplicationDbContext context, IList<string> artikelLijst, IList<string> categorieLijst)
-        //{
-        //    var randomNumber = new Random();
-        //    Artikel artikel = new Artikel()
-        //    {
-        //        Naam = artikelLijst[randomNumber.Next(artikelLijst.Count)],
-        //        CategorieID = randomNumber.Next(categorieLijst.Count-1)
-        //    };
+        private static void Seedartikel(ApplicationDbContext context, IList<string> artikelLijst, IList<string> categorieLijst)
+        {
+            var randomNumber = new Random();
+            foreach (var artikelnaam in artikelLijst)
+            {
 
+                var categorieen = context.Categorie.ToList();
+                int max = categorieen.Count();
+                int randCat = randomNumber.Next(0, max);
 
+                int randomCategorieID = categorieen[randCat].CategorieID;
 
-        //            context.Artikel.Add(artikel);
-                
-            
-        //}
+                Artikel artikel = new Artikel()
+                {
+                    Naam =  artikelnaam,
+                    CategorieID = randomCategorieID
+                };
+
+                context.Artikel.Add(artikel);
+            }
+        }
 
 
         private static void SeedJurk(ApplicationDbContext context, int aantalJurken)
