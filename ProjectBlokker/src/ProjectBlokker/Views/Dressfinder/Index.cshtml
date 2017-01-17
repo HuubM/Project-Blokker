@@ -4,20 +4,11 @@
     ViewData["Title"] = "Dressfinder";
 }
 
-
-<div class="row panel-dressfinder">
+<div class="row panel-home-black">
     @Html.Partial("PartialLayout2")
-
-    <div class="row welcome top-space-large bottom-space">
-        <div class="row text-center text-white">
-            <div class="col-md-12">
-                <h1 class="imageback fontsize-120  top-space-backgroundtext">Dressfinder</h1>
-                <h3 class="imagefrontz fontsize-28">Opzoek naar de perfecte jurk</h3>
-                <h2 class="text-uppercase text-white text-bold fontsize-32">Van begin tot eind kunnen wij je helpen</h2>
-            </div>
-        </div>
-    </div>
 </div>
+
+
 
 <div class="row panel-2">
     <form method="post" id="dress-form" class="bottom-space-small">
@@ -38,7 +29,6 @@
                     <a href="/dressfinder/index"><p class="categoryitem">Alle jurken bekijken</p></a>
 
                     <h5 class="text-bold" style="line-height: 1px; padding-top: 20px;">Filter op:</h5>
-                    <div class="devider"></div>
                     <div class="panel-group panel-search margin-0">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -48,7 +38,6 @@
                                 </h3>
 
                             </div>
-                            <div class="devider"></div>
                             <div id="merk-collapse" class="panel-collapse in">
                                 <div class="panel-body">
                                     @foreach (var item in ViewBag.merken) //merk
@@ -67,8 +56,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="devider"></div>
                     <div class="panel-group panel-search margin-0">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -77,7 +64,6 @@
                                     <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
                                 </h3>
                             </div>
-                            <div class="devider"></div>
                             <div id="stijl-collapse" class="panel-collapse in">
                                 <div class="panel-body">
                                     @foreach (var item in ViewBag.stijlen) //stijl
@@ -96,8 +82,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="devider"></div>
                     <div class="panel-group margin-0">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -106,7 +90,6 @@
                                     <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
                                 </h3>
                             </div>
-                            <div class="devider"></div>
                             <div id="prijs-collapse" class="panel-collapse in">
                                 <div class="panel-body">
                                     <div class="row">
@@ -119,13 +102,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="devider"></div>
                             </div>
                         </div>
                     </div>
 
                     <h5 class="text-bold" style="line-height: 1px; padding-top: 20px;">Filters verfijnen:</h5>
-                    <div class="devider"></div>
 
                     <div class="panel-group panel-search margin-0">
                         <div class="panel panel-default" id="neklijn-panel">
@@ -135,7 +116,6 @@
                                     <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
                                 </h3>
                             </div>
-                            <div class="devider"></div>
                             <div id="neklijn-collapse" class="panel-collapse in">
                                 <div class="panel-body">
                                     @foreach (var item in ViewBag.neklijnen) //stijl
@@ -154,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="devider"></div>
                     <div class="panel-group panel-search margin-0">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -163,7 +142,6 @@
                                     <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
                                 </h3>
                             </div>
-                            <div class="devider"></div>
                             <div id="silhouette-collapse" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     @foreach (var item in ViewBag.silhouette) //silhouette
@@ -182,8 +160,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="devider"></div>
                     <div class="panel-group margin-0">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -192,7 +168,6 @@
                                     <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
                                 </h3>
                             </div>
-                            <div class="devider"></div>
                             <div id="kleur-collapse" class="panel-collapse collapse">
                                 <div class="panel-body">
 
@@ -209,7 +184,6 @@
                                         </div>
                                     }
                                 </div>
-                                <div class="devider"></div>
                             </div>
                         </div>
                     </div>

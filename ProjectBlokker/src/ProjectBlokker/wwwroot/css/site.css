@@ -291,8 +291,13 @@ textarea {
 }
 .panel-home {
 	background-image: url("../images/home.png");
-    background-size:100% 100%;
+    background-size:100%;
 }
+
+.panel-home-black {
+    background-color: white;
+}
+
 .panel-bruidegom {
 	background-image: url("../images/bruidegom.png");
     background-size:100% 100%;
@@ -457,9 +462,9 @@ b{
 }
 
 .btn-pink {
-    background-color: #F2587C;
-    border-radius: 0;
-    color:white;
+    background-color: #F2587C !important;
+    border-radius: 0 !important;
+    color:white !important;
 }
 
 .btn-blue{
