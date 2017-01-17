@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/ProjectBlokker/src/ProjectBlokker/wwwroot/images/jurk

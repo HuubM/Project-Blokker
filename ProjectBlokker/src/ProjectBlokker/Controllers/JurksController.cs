@@ -72,11 +72,12 @@ namespace ProjectBlokker.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(JurkViewModel jvm)
         {
+
             if (ModelState.IsValid)
             {
                 var uploads = Path.Combine(_environment.WebRootPath, "images/jurk");
 
-                if (jvm.plaatje1.Length > 0)
+                if (jvm.plaatje1 != null && jvm.plaatje1.Length > 0) 
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje1.FileName), FileMode.Create))
                     {
@@ -85,7 +86,8 @@ namespace ProjectBlokker.Controllers
                     }
                 }
 
-                if (jvm.plaatje2.Length > 0)
+
+                if (jvm.plaatje2 != null && jvm.plaatje2.Length > 0)
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje2.FileName), FileMode.Create))
                     {
@@ -95,7 +97,7 @@ namespace ProjectBlokker.Controllers
                     }
                 }
 
-                if (jvm.plaatje3.Length > 0)
+                if (jvm.plaatje3 != null && jvm.plaatje3.Length > 0)
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje3.FileName), FileMode.Create))
                     {

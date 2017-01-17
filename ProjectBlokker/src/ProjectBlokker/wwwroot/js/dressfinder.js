@@ -7,9 +7,7 @@
 
     $("#slider").slider({
         change: function (event, ui) {
-
-            $("#minvalue").val($("#min").text());
-            $("#maxvalue").val($("#max").text());
+            console.log("ja: "+ $("#min") );
             filterDress();
         },
         range: true,
@@ -21,7 +19,12 @@
                 //var handleIndex = $(ui.handle).data('index.uiSliderHandle');
                 var handleIndex = $(ui.handle).index();
                 var label = handleIndex == 1 ? '#min' : '#max';
-                $(label).html(ui.value).position({
+                var inputVal = handleIndex == 1 ? '#minvalue' : '#maxvalue';
+                
+                // zet de input valu voor min of max prijs
+                $(inputVal).val(ui.value);
+
+                $(label).html("€ " + ui.value).position({
                     my: 'center top',
                     at: 'center bottom',
                     of: ui.handle,
@@ -34,14 +37,14 @@
         }
     });
 
-    $('#min').html($('#slider').slider('values', 0)).position({
+    $('#min').html("€ " + $('#slider').slider('values', 0)).position({
         my: 'center top',
         at: 'center bottom',
         of: $('#slider span:eq(0)'),
         offset: "0, 10"
     });
 
-    $('#max').html($('#slider').slider('values', 1)).position({
+    $('#max').html("€ " + $('#slider').slider('values', 1)).position({
         my: 'center top',
         at: 'center bottom',
         of: $('#slider span:eq(1)'),
