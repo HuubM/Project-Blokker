@@ -551,7 +551,7 @@ b{
     width: auto;
     height: auto;
     margin: 0;
-    text-indent: -0;
+    text-indent: 0;
     cursor: pointer;
     background-color: none;
     border: none;
@@ -611,8 +611,8 @@ b{
 }
 .top-space-blog{
     margin-top:-90px;
-
 }
+
 .top-space-review{
     
 }
@@ -627,6 +627,13 @@ b{
 .bottom-space-large {
     margin-bottom: 150px;
 }
+
+.devider{
+    height: 2px;
+    background-color: #c2c2c2;
+    margin-top: 1%;
+}
+
 .imglogo {
     max-width: 425px;
 }

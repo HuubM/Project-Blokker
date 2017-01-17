@@ -1,4 +1,4 @@
-@model ProjectBlokker.Models.Artikel
+@model ProjectBlokker.ViewModels.ArtikelViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -11,19 +11,23 @@
         <h4>Artikel</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="ArtikelID" />
+    <input type="hidden" asp-for="artikel.ArtikelID" />
         <div class="form-group">
-            <label asp-for="CategorieID" class="control-label col-md-2"></label>
+            <label asp-for="artikel.CategorieID" class="control-label col-md-2">Categorie</label>
             <div class="col-md-10">
-                <select asp-for="CategorieID" class="form-control" asp-items="ViewBag.CategorieID"></select>
-                <span asp-validation-for="CategorieID" class="text-danger" />
+               
+                
+                @Html.DropDownListFor(model => model.artikel.CategorieID,
+                new SelectList(Model.categorie, "CategorieID", "Naam"), "Selecteer Categorie", new { @class = "form-control" })
+
+
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Naam" class="col-md-2 control-label"></label>
+            <label asp-for="artikel.Naam" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Naam" class="form-control" />
-                <span asp-validation-for="Naam" class="text-danger" />
+                <input asp-for="artikel.Naam" class="form-control" />
+                <span asp-validation-for="artikel.Naam" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
