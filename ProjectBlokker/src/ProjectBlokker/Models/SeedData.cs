@@ -45,6 +45,7 @@ namespace ProjectBlokker.Models
 
                 SeedAfspraak(context);
                 SeedJurk(context, 20);
+                context.SaveChanges();
 
             }
         }
@@ -220,7 +221,7 @@ namespace ProjectBlokker.Models
 
                 };
                 context.Jurk.Add(jurk);
-                context.SaveChanges();
+
 
             }
         }
