@@ -968,6 +968,7 @@ input.form-control {
 }
 
 .roundedOneinput {
+    display: none;
     margin: 12px 0 0 !important;
 }
 
