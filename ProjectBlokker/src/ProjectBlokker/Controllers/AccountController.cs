@@ -37,6 +37,13 @@ namespace ProjectBlokker.Controllers
             _logger = loggerFactory.CreateLogger<AccountController>();
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        
+
         //
         // GET: /Account/Login
         [HttpGet]
@@ -44,7 +51,7 @@ namespace ProjectBlokker.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            return View("login");
         }
 
         //
@@ -63,7 +70,7 @@ namespace ProjectBlokker.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return View("cms");
                 }
                 if (result.RequiresTwoFactor)
                 {
