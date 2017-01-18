@@ -16,6 +16,8 @@ namespace ProjectBlokker.Models
             {
                 ClearAll(context);
 
+                //DressFinder Seed
+
                 IList<string> stijlenLijst = new List<string> { "Kant", "Klassieke Bruid", "Prinses Bruid", "Ruches rok", "Modieuze Bruid", "Budget Bruid" };
                 SeedStijl(context, stijlenLijst);
 
@@ -41,13 +43,51 @@ namespace ProjectBlokker.Models
                 Seedmerk(context, merkenAanmaken);
                 context.SaveChanges();
 
+                SeedAfspraak(context);
                 SeedJurk(context, 20);
 
             }
         }
 
+        
+
+        private static void SeedAfspraak(ApplicationDbContext context)
+        {
+
+            Afspraak afspraak1 = new Afspraak() {AfspraakDatum = new DateTime(2017,01,22), AfspraakTijd = "09:30", Naam = "Rutje Anderlaat", TelNr = 555789456, Email = "rut@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018,08,18) };
+            Afspraak afspraak2 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 22), AfspraakTijd = "12:00", Naam = "Timon Guiter", TelNr = 555789456, Email = "tim@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak3= new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 22), AfspraakTijd = "15:00", Naam = "Rita Markeerstift", TelNr = 555789456, Email = "rit@live.nl", Nieuwsbrief = false, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak4 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 30), AfspraakTijd = "09:30", Naam = "Claudio Brei", TelNr = 555789456, Email = "cla@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak5 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 30), AfspraakTijd = "12:00", Naam = "Panther Guy", TelNr = 555789456, Email = "pan@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak6 = new Afspraak() { AfspraakDatum = new DateTime(2017, 01, 31), AfspraakTijd = "15:00", Naam = "Rico Guy", TelNr = 555789456, Email = "ric@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak7 = new Afspraak() { AfspraakDatum = new DateTime(2017, 02, 26), AfspraakTijd = "12:00", Naam = "Tino Guy", TelNr = 555789456, Email = "tin@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak8 = new Afspraak() { AfspraakDatum = new DateTime(2017, 02, 11), AfspraakTijd = "09:30", Naam = "Lion Guy", TelNr = 555789456, Email = "lio@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+
+            Afspraak[] seedafspraak = new Afspraak[8];
+
+            seedafspraak[0] = afspraak1;
+            seedafspraak[1] = afspraak2;
+            seedafspraak[2] = afspraak3;
+            seedafspraak[3] = afspraak4;
+            seedafspraak[4] = afspraak5;
+            seedafspraak[5] = afspraak6;
+            seedafspraak[6] = afspraak7;
+            seedafspraak[7] = afspraak8;
+            
+
+            for (int i = 0; i < seedafspraak.Length; i++)
+            {
+                context.Afspraak.Add(seedafspraak[i]);
+            }
+
+            
+            context.SaveChanges();
+        }
+
         private static void ClearAll(ApplicationDbContext context)
         {
+           
+            context.Database.ExecuteSqlCommand("delete from Afspraak");
             context.Database.ExecuteSqlCommand("delete from Artikel");
             context.Database.ExecuteSqlCommand("delete from Stijl");
             context.Database.ExecuteSqlCommand("delete from Neklijn");
