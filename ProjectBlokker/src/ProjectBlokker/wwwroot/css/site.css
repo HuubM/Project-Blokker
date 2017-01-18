@@ -639,6 +639,17 @@ b{
     margin-top: 1%;
 }
 
+.jurkmainimg{
+    height: 45%;
+    width: 75%;
+}
+
+.jurksubimg{
+    height: 30%;
+    width: 20%;
+    overflow-y: hidden;
+}
+
 .imglogo {
     max-width: 425px;
 }
