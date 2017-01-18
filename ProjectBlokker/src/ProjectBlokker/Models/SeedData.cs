@@ -42,6 +42,7 @@ namespace ProjectBlokker.Models
                 context.SaveChanges();
 
                 SeedJurk(context, 20);
+                context.SaveChanges();
 
             }
         }
@@ -180,7 +181,7 @@ namespace ProjectBlokker.Models
 
                 };
                 context.Jurk.Add(jurk);
-                context.SaveChanges();
+
 
             }
         }
