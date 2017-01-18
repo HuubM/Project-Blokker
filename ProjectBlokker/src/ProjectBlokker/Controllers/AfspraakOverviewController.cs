@@ -19,11 +19,30 @@ namespace ProjectBlokker.Views
             _context = context;    
         }
 
-        // GET: AfspraakOverview
+        public ActionResult Index(string sortOrder)
+        {
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var afspraken = from s in _context.Afspraak
+                           select s;
+            switch (sortOrder)
+            {   case "Date":
+                    afspraken = afspraken.OrderBy(s => s.AfspraakDatum);
+                    break;
+                case "date_desc":
+                    afspraken = afspraken.OrderByDescending(s => s.AfspraakDatum);
+                    break;
+                default:
+                    afspraken = afspraken.OrderBy(s => s.Naam);
+                    break;
+            }
+            return View(afspraken.ToList());
+        }
+
+        /* GET: AfspraakOverview
         public async Task<IActionResult> Index()
         {
             return View(await _context.Afspraak.ToListAsync());
-        }
+        }*/
 
         // GET: AfspraakOverview/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AfspraakDatum)
+                @Html.ActionLink("AfspraakDatum" , "Index", new { sortOrder = ViewBag.DateSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AfspraakTijd)

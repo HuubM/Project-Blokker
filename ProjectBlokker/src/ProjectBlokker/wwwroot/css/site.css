@@ -1000,7 +1000,7 @@ input.form-control {
     margin:0 5px 0 0;
     width: 15px;
     height: 15px;
-    background: pink;
+    background: #FCE8E7;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
@@ -1032,7 +1032,7 @@ input.form-control {
     position: absolute;
     width: 9px;
     height: 9px;
-    background: pink;
+    background: #FCE8E7;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
@@ -1063,7 +1063,7 @@ input.form-control {
 
 
 .ui-slider-range  {
-    background-color: pink !important;
+    background-color: #FCE8E7 !important;
 }
 
 .panel-default > .panel-heading {
@@ -1072,7 +1072,7 @@ input.form-control {
 }
 
 .categoryitem {
-    background-color: #FAC9C4;
+    background-color: #FCE8E7;
     color: black;
     padding: 2px 5px;
     margin: 2px 0;
