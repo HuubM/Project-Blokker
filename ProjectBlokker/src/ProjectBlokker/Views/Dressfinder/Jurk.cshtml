@@ -1,5 +1,6 @@
 ﻿@model ProjectBlokker.Models.Jurk
 
+
     @{
         ViewData["Title"] = "Jurk";
     }
@@ -34,17 +35,98 @@
             <div class="row" style="padding-top: 5%;">
                 <div class="col-md-3">
                     <div class="">
-                        <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                            <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="<<<<<">
-                        </div>
-                        <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                            <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="<<<<<">
-                        </div>
-                        <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                            <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="<<<<<">
-                        </div>
+                        @if (Model.image1_location != null)
+                        {
+                            <a data-toggle="modal" data-target="#foto1">
+                                <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
+                                    <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="<<<<<">
+                                </div>
+                            </a>
+                        }
+
+                        @if (Model.image2_location != null)
+                        {
+                            <a data-toggle="modal" data-target="#foto2">
+                                <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
+                                    <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="<<<<<">
+                                </div>
+                            </a>
+                        }
+
+                        @if (Model.image3_location != null)
+                        {
+                            <a data-toggle="modal" data-target="#foto3">
+                                <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
+                                    <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="<<<<<">
+                                </div>
+                            </a>
+                        }
                         </div>
                 </div>
+
+                <!-- Modal 1-->
+                <div id="foto1" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Dress Foto 1</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="Foto 1">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal 2-->
+                <div id="foto2" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Dress Foto 2</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="Foto 1">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal 3-->
+                <div id="foto3" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Dress Foto 3</h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="Foto 1">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div class="jurkmainimg">
                         <img src="~/images/jurk/@Model.image1_location" style="width: 467px; height:700px;" class="" alt="Jurk">

@@ -353,6 +353,7 @@ b{
     height: 150px;
     margin: 0 auto;
     padding: 60px 30px;
+    margin-bottom: 20px;
 }
 
 .footer-highlight a {
@@ -648,6 +649,10 @@ b{
     height: 30%;
     width: 20%;
     overflow-y: hidden;
+}
+
+.btn-width-25{
+    width: 25%;
 }
 
 .imglogo {
@@ -1110,6 +1115,14 @@ input.form-control {
 
     .headline-right {
         padding-left: 0;
+    }
+
+    
+}
+
+@media (max-width: 992px) {
+    .btn-width-25 {
+        width: 100%;
     }
 }
 
