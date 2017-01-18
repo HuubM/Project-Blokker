@@ -28,7 +28,23 @@ namespace ProjectBlokker.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+           return View();
+        }
+
+        public ActionResult getTime(DateTime dateInput)
+        {
+            var tijd = _context.Afspraak;
             return View();
+        }
+
+        public ActionResult getDate()
+        {
+            
+            var datum = _context.Afspraak.GroupBy(x => x.AfspraakDatum)
+                                                   .Where(x => x.Count() > 2)
+                                                   .Select(x => x.Key);
+
+            return Json(datum);
         }
 
         // GET: /<controller>/

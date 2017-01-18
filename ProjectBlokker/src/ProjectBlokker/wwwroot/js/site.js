@@ -1,6 +1,42 @@
 ﻿
+function GetAllDates() {
+    $.ajax({
+        type: "POST",
+        url: "/Afspraak/getDate",
+        success: function (result) {
+            //alert("Succes");
+
+            var tempResult = result;
+
+            for (i = 0; i < tempResult.length; i++) {
+                tempDate = tempResult[i].split("T", 1);
+                var pieces = tempDate[0].split("-");
+                pieces = pieces.reverse();
+                pieces = pieces.join("-");
+                tempDate[0] = pieces;
+                tempResult[i] = tempDate[0];
+            }
+            var disabledDates = tempResult;
+
+            console.log(tempResult);
+            console.log(disabledDates);
+            
+            disabledDatesList = disabledDates;
+            
+        },
+
+        async: false
+
+    });
+};
+
+function getAllTimes() {
+    $.ajax({ })
+}
+
+
 $(function () {
-    
+    GetAllDates();
           /*
     $("#repeatEmail").rules("add", {
         equalTo: "#Email",
@@ -34,9 +70,11 @@ $(function () {
         language: 'nl',
         startDate: new Date(),
         minViewMode: 0,
-        maxViewMode: 0
+        maxViewMode: 0,
+        datesDisabled: disabledDatesList
+        
     });
-
+    
     $('#datetimepicker').datepicker()
     .on('changeDate', function (e) {
         $('#selectTime').slideDown();
@@ -152,7 +190,7 @@ $(function () {
         e.preventDefault();
     });
 
-
+    //Input waarden toevoegen bij kiezen tijd
     $('input:radio[name="tijdstip"]').change(
     function () {
         if ($(this).is(':checked')) {
