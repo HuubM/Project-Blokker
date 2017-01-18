@@ -21,10 +21,10 @@ namespace ProjectBlokker.Controllers
         }
 
         // GET: Artikels
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var applicationDbContext = _context.Artikel.Include(a => a.categorie);
-            return View(await applicationDbContext.ToListAsync());
+            return View(_context.Artikel.Include(a => a.categorie));
         }
 
         // GET: Artikels/Details/5
@@ -35,7 +35,7 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var artikel = await _context.Artikel.SingleOrDefaultAsync(m => m.ArtikelID == id);
+            var artikel = await _context.Artikel.Include(a => a.categorie).SingleOrDefaultAsync(m => m.ArtikelID == id);
             if (artikel == null)
             {
                 return NotFound();
@@ -47,9 +47,12 @@ namespace ProjectBlokker.Controllers
         // GET: Artikels/Create
         public IActionResult Create()
         {
-            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID");
+            ArtikelViewModel avm = new ArtikelViewModel();
+            avm.categorie = _context.Categorie.ToList<Categorie>();
 
-            return View();
+            //ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID");
+
+            return View(avm);
         }
 
         // POST: Artikels/Create
@@ -57,16 +60,16 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Artikel artikel)
+        public IActionResult Create(ArtikelViewModel avm)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(artikel);
-                _context.SaveChangesAsync();
+                _context.Artikel.Add(avm.artikel);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ArtikelViewModel avm = new ArtikelViewModel();
+            //ArtikelViewModel avm = new ArtikelViewModel();
             avm.categorie = _context.Categorie.ToList<Categorie>();
             
             return View(avm);
@@ -85,8 +88,10 @@ namespace ProjectBlokker.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID", artikel.CategorieID);
-            return View(artikel);
+            ArtikelViewModel avm = new ArtikelViewModel();
+            avm.artikel = artikel;
+            avm.categorie = _context.Categorie.ToList<Categorie>();
+            return View(avm);
         }
 
         // POST: Artikels/Edit/5
@@ -94,7 +99,7 @@ namespace ProjectBlokker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ArtikelID,CategorieID,Naam")] Artikel artikel)
+        public IActionResult Edit(int id, [Bind("ArtikelID,CategorieID,Naam")] Artikel artikel)
         {
             if (id != artikel.ArtikelID)
             {
@@ -106,7 +111,7 @@ namespace ProjectBlokker.Controllers
                 try
                 {
                     _context.Update(artikel);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,8 +126,11 @@ namespace ProjectBlokker.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            ViewData["CategorieID"] = new SelectList(_context.Categorie, "CategorieID", "CategorieID", artikel.CategorieID);
-            return View(artikel);
+
+            ArtikelViewModel avm = new ArtikelViewModel();
+            avm.artikel = artikel;
+            avm.categorie = _context.Categorie.ToList<Categorie>();
+            return View(avm);
         }
 
         // GET: Artikels/Delete/5

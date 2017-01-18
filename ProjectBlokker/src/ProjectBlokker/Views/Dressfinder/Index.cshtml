@@ -4,237 +4,226 @@
     ViewData["Title"] = "Dressfinder";
 }
 
-<div class="row panel-home">
-    @Html.Partial("PartialLayout1")
-    <li class="active"><a href="/home/index">HOME</a></li>
-    <li><a href="~/home/bruid">Bruid</a></li>
-    <li><a href="~/home/bruidegom">Bruidegom</a></li>
-    <li><a href="#">De winkel</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Afspraak maken</a></li>
-    </ul>
+<div class="row panel-home-black">
+    @Html.Partial("PartialLayout2")
 </div>
 
-<div class="row panel-dressfinder">
-    <div class="row welcome top-space-large bottom-space">
-        <div class="row text-center text-white">
-            <div class="col-md-12">
-                <h1 class="imageback fontsize-120  top-space-backgroundtext">Dressfinder</h1>
-                <h3 class="imagefrontz fontsize-28">Opzoek naar de perfecte jurk</h3>
-                <h2 class="text-uppercase text-white text-bold fontsize-32">Van begin tot eind kunnen wij je helpen</h2>
+
+
+<div class="row panel-2">
+    <form method="post" id="dress-form" class="bottom-space-small">
+        <div class="row style">
+            <div class="col-md-1">
+
             </div>
-        </div>
-    </div>
-    </div>  
+            <div class="col-md-2">
 
-    <div class="row panel-2">
-        <form method="post" id="dress-form">
-            <div class="row style">
-                <div class="col-md-1">
+                <div class="dressfinder-sidebar">
+                    <h4 class="text-bold margin-0">Categorieën:</h4>
 
-                </div>
-                <div class="col-md-3">
+                    @foreach (var item in ViewBag.categorieen) //categorie
+                    {
+                        <a href="/dressfinder/index/@item.CategorieID"><p class="categoryitem">@item.Naam</p></a>
+                    }
 
-                    <div class="sidebarwidth">
-                        <h3 class="text-bold">Categorieën:</h3>
+                    <a href="/dressfinder/index"><p class="categoryitem">Alle jurken bekijken</p></a>
 
-                        @foreach (var item in ViewBag.categorieen) //categorie
-                        {
-                            <a href="/dressfinder/index/@item.CategorieID"><p class="bg-warning categoryitem">@item.Naam</p></a>
-                        }
+                    <h5 class="text-bold" style="line-height: 1px; padding-top: 20px;">Filter op:</h5>
+                    <div class="panel-group panel-search margin-0">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 data-toggle="collapse" href="#merk-collapse" class="panel-title fontsize-14">
+                                    Merk
+                                    <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
+                                </h3>
 
-                        <a href="/dressfinder/index"><p class="bg-warning categoryitem">Alle jurken bekijken</p></a>
-
-                        <p class="text-bold" style="line-height: 1px; padding-top: 20px;">Filter op:</p>
-                        <div class="devider"></div>
-                        <div class="panel-group panel-search">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a>Merk</a>
-                                    </h4>
-                                </div>
-                                <div class="devider"></div>
-                                <div id="collapse2" class="panel-collapse">
-                                    <div class="panel-body">
-                                        @foreach (var item in ViewBag.merken) //merk
-                                        {
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="roundedOne">
-                                                        <input type="checkbox" value="@item.MerkID" class="roundedOneinput" id="merk_@item.Naam" name="merk" />
-                                                        <label for="merk_@item.Naam"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <label for="merk_@item.Naam">@item.Naam</label>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="devider"></div>
-                        <div class="panel-group panel-search">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a>Stijl Jurk</a>
-                                    </h4>
-                                </div>
-                                <div class="devider"></div>
-                                <div id="collapse2" class="panel-collapse">
-                                    <div class="panel-body">
-                                        @foreach (var item in ViewBag.stijlen) //stijl
-                                        {
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="roundedOne">
-                                                        <input type="checkbox" value="@item.StijlID" class="roundedOneinput" id="stijl_@item.Naam" name="stijl" />
-                                                        <label for="stijl_@item.Naam"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <label for="stijl_@item.Naam">@item.Naam</label>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="devider"></div>
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a>Prijs</a>
-                                    </h4>
-                                </div>
-                                <div class="devider"></div>
-                                <div id="collapse2" class="panel-collapse">
-                                    <div class="panel-body">
+                            <div id="merk-collapse" class="panel-collapse in">
+                                <div class="panel-body">
+                                    @foreach (var item in ViewBag.merken) //merk
+                                    {
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="hidden" id="maxprijs" value="@ViewBag.maxprijs" />
-
-                                                <div id="slider"></div>
-                                                <div id="min"></div>
-                                                <div id="max"></div>
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.MerkID" class="roundedOneinput" id="merk_@item.Naam" name="merk" />
+                                                    <label for="merk_@item.Naam"></label>
+                                                </div>
+                                                <label for="merk_@item.Naam">@item.Naam</label>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="devider"></div>
+                                    }
                                 </div>
                             </div>
                         </div>
-
-                        <p class="text-bold" style="line-height: 1px; padding-top: 20px;">Filters verfijnen:</p>
-                        <div class="devider"></div>
-
-                        <div class="panel-group panel-search">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a>Neklijn</a>
-                                    </h4>
+                    </div>
+                    <div class="panel-group panel-search margin-0">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 data-toggle="collapse" href="#stijl-collapse" class="panel-title fontsize-14">
+                                    Stijl Jurk
+                                    <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
+                                </h3>
+                            </div>
+                            <div id="stijl-collapse" class="panel-collapse in">
+                                <div class="panel-body">
+                                    @foreach (var item in ViewBag.stijlen) //stijl
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.StijlID" class="roundedOneinput" id="stijl_@item.Naam" name="stijl" />
+                                                    <label for="stijl_@item.Naam"></label>
+                                                </div>
+                                                <label for="stijl_@item.Naam">@item.Naam</label>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
-                                <div class="devider"></div>
-                                <div id="collapse2" class="panel-collapse">
-                                    <div class="panel-body">
-                                        @foreach (var item in ViewBag.neklijnen) //categorie
-                                        {
-                                            <input type="checkbox" id="neklijn_@item.Naam" name="neklijn" value="@item.NeklijnID">
-                                            <label for="neklijn_@item.Naam">@item.Naam</label><br />
-                                        }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group margin-0">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 data-toggle="collapse" href="#prijs-collapse" class="panel-title fontsize-14">
+                                    Prijs
+                                    <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
+                                </h3>
+                            </div>
+                            <div id="prijs-collapse" class="panel-collapse in">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="hidden" id="maxprijs" value="@ViewBag.maxprijs" />
+
+                                            <div id="slider"></div>
+                                            <div id="min"></div>
+                                            <div id="max"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="devider"></div>
-                        <div class="panel-group panel-search">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a>Silhouette</a>
-                                    </h4>
-                                </div>
-                                <div class="devider"></div>
-                                <div id="collapse2" class="panel-collapse">
-                                    <div class="panel-body">
-                                        @foreach (var item in ViewBag.silhouette) //categorie
-                                        {
-                                            <input type="checkbox" id="silhouette_@item.Naam" name="silhouette" value="@item.SilhouetteID">
-                                            <label for="silhouette_@item.Naam">@item.Naam</label><br />
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="devider"></div>
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a>Kleur</a>
-                                    </h4>
-                                </div>
-                                <div class="devider"></div>
-                                <div id="collapse2" class="panel-collapse">
-                                    <div class="panel-body">
-                                        @foreach (var item in ViewBag.kleuren) //categorie
-                                        {
-                                            <input type="checkbox" id="kleur_@item.Naam" name="kleur" value="@item.KleurID">
-                                            <label for="kleur_@item.Naam">@item.Naam</label><br />
-                                        }
-                                    </div>
-                                    <div class="devider"></div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
-                </div>
+                    <h5 class="text-bold" style="line-height: 1px; padding-top: 20px;">Filters verfijnen:</h5>
 
-                <div class="col-md-8">
-                    <select name="sort">
-                        <option value="1">Prijs Hoog / Laag</option>
-                        <option value="2">Prijs Laag / Hoog</option>
-                    </select>
-
-                    <div id="dressfinder-dres" class="d-flex">
-                        @foreach (var item in ViewBag.jurken) // jurken laten zien
-                        {
-                            <div class="dress-item">
-                                <a href="/dressfinder/jurk/@item.JurkID">
-                                    <img alt="jurk" src="/images/jurk/@item.image1_location" />
-                                    <b>@item.artikel.Naam</b>
-                                </a>
+                    <div class="panel-group panel-search margin-0">
+                        <div class="panel panel-default" id="neklijn-panel">
+                            <div class="panel-heading">
+                                <h3 data-toggle="collapse" href="#neklijn-collapse" class="panel-title fontsize-14">
+                                    Neklijn
+                                    <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
+                                </h3>
                             </div>
-                        }
+                            <div id="neklijn-collapse" class="panel-collapse in">
+                                <div class="panel-body">
+                                    @foreach (var item in ViewBag.neklijnen) //stijl
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.NeklijnID" class="roundedOneinput" id="neklijn_@item.NeklijnID" name="neklijn" />
+                                                    <label for="neklijn_@item.NeklijnID"></label>
+                                                </div>
+                                                <label for="neklijn_@item.NeklijnID">@item.Naam</label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group panel-search margin-0">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 data-toggle="collapse" href="#silhouette-collapse" class="panel-title fontsize-14">
+                                    Silhouette
+                                    <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
+                                </h3>
+                            </div>
+                            <div id="silhouette-collapse" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    @foreach (var item in ViewBag.silhouette) //silhouette
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.SilhouetteID" class="roundedOneinput" id="silhouette_@item.SilhouetteID" name="silhouette" />
+                                                    <label for="silhouette_@item.SilhouetteID"></label>
+                                                </div>
+                                                <label for="silhouette_@item.SilhouetteID">@item.Naam</label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group margin-0">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 data-toggle="collapse" href="#kleur-collapse" class="panel-title fontsize-14">
+                                    Kleur
+                                    <i class="dress-triangle glyphicon glyphicon-triangle-top fontsize-12 float-right"></i>
+                                </h3>
+                            </div>
+                            <div id="kleur-collapse" class="panel-collapse collapse">
+                                <div class="panel-body">
 
+                                    @foreach (var item in ViewBag.kleuren) //silhouette
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="roundedOne">
+                                                    <input type="checkbox" value="@item.KleurID" class="roundedOneinput" id="kleur_@item.KleurID" name="kleur" />
+                                                    <label for="kleur_@item.KleurID"></label>
+                                                </div>
+                                                <label for="kleur_@item.KleurID">@item.Naam</label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="min" id="minvalue" />
-            <input type="hidden" name="max" id="maxvalue" />
-            @if (ViewBag.categorie > 0)
-            {
-                <input type="hidden" value="@ViewBag.categorie" name="id" />
-            }
-        </form>
 
-    </div>
+            <div class="col-md-8 form-inline">
+                <div class="row bottom-space-small">
+                    <div class="col-md-11 text-right">
+                        <b>Sorteer op: </b>
+                        <select class="form-control" name="sort">
+                            <option value="1">Prijs Hoog / Laag</option>
+                            <option value="2">Prijs Laag / Hoog</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="dressfinder-dres" class="d-flex">
+                            @Html.Partial("Dresses")
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="row">
-        <img class="img-responsive" src="~/images/bottom-dressfinder.png" />
-    </div>
+        </div>
+        <input type="hidden" name="min" id="minvalue" />
+        <input type="hidden" name="max" id="maxvalue" />
+        @if (ViewBag.categorie > 0)
+        {
+            <input type="hidden" value="@ViewBag.categorie" name="id" />
+        }
+    </form>
+
+</div>
+
+<div class="row">
+    <img class="img-responsive" src="~/images/bottom-dressfinder.png" />
+</div>
 
 
 

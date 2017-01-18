@@ -277,10 +277,21 @@ namespace ProjectBlokker.Controllers
             return View();
         }
 
-        public IActionResult Jurk()
-        {
-            return View();
-        }
 
+        public IActionResult Jurk(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jurk = _context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).Where(j => j.JurkID == id).FirstOrDefault();
+            if (jurk == null)
+            {
+                return NotFound();
+            }
+
+            return View(jurk);
+        }
     }
 }

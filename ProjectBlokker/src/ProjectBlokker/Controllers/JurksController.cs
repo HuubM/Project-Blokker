@@ -28,7 +28,7 @@ namespace ProjectBlokker.Controllers
 
         // GET: Jurks
         public IActionResult Index()
-        {
+        {       
 
             return View(_context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).ToList<Jurk>());
      
@@ -42,13 +42,14 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var jurk = await _context.Jurk.SingleOrDefaultAsync(m => m.JurkID == id);
+            var jurk = await _context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).SingleOrDefaultAsync(m => m.JurkID == id);
             if (jurk == null)
             {
                 return NotFound();
             }
 
             return View(jurk);
+
         }
 
         // GET: Jurks/Create
@@ -72,11 +73,12 @@ namespace ProjectBlokker.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(JurkViewModel jvm)
         {
+
             if (ModelState.IsValid)
             {
                 var uploads = Path.Combine(_environment.WebRootPath, "images/jurk");
 
-                if (jvm.plaatje1.Length > 0)
+                if (jvm.plaatje1 != null && jvm.plaatje1.Length > 0) 
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje1.FileName), FileMode.Create))
                     {
@@ -85,7 +87,8 @@ namespace ProjectBlokker.Controllers
                     }
                 }
 
-                if (jvm.plaatje2.Length > 0)
+
+                if (jvm.plaatje2 != null && jvm.plaatje2.Length > 0)
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje2.FileName), FileMode.Create))
                     {
@@ -95,7 +98,7 @@ namespace ProjectBlokker.Controllers
                     }
                 }
 
-                if (jvm.plaatje3.Length > 0)
+                if (jvm.plaatje3 != null && jvm.plaatje3.Length > 0)
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, jvm.plaatje3.FileName), FileMode.Create))
                     {

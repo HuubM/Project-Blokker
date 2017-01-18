@@ -46,7 +46,8 @@
       "type": "build"
     },
     "MailKit": "1.10.1",
-    "System.ComponentModel.Annotations": "4.3.0"
+    "System.ComponentModel.Annotations": "4.3.0",
+    "Microsoft.EntityFrameworkCore": "1.0.1"
   },
 
   "tools": {

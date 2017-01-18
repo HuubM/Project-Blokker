@@ -1,21 +1,6 @@
-﻿@model ProjectBlokker.ViewModels.DressfinderIndex
-
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     Layout = null;
 }
 
-@foreach (var item in ViewBag.jurken) // jurken laten zien
-{
 
-    <div class="dress-item">
-        <a href="/dressfinder/jurk/@item.JurkID">
-            <img src="/images/jurk/@item.image1_location" />
-            <b>@item.artikel.Naam</b>
-
-            @item.Prijs
-        </a>
-    </div>
-}
+@Html.Partial("Dresses")
