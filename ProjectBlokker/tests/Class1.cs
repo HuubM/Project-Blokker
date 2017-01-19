@@ -15,7 +15,7 @@ namespace tests
     public class Class1
     {
         [Fact]
-        public void PassingTest()
+        public void AfspraakToevoegen()
         {
             Afspraak afspraak = new Afspraak()
             {
@@ -39,9 +39,14 @@ namespace tests
 
             var result = ac.Add(afspraak);
 
+            // Checken of wat toegevoegd is wel een afspraak is.
             mockDbSetAfspraak.Verify(m => m.Add(It.IsAny<Afspraak>()), Times.Once());
-            mockDbContext.Verify(m => m.SaveChanges(), Times.Once());
 
+            // Test of email en naam klopt
+            mockDbSetAfspraak.Verify(m => m.Add(It.Is<Afspraak>(a => a.Email == "Jandebeste@gmail.com" && a.Naam == "Jan")));
+
+            // Check of afspraak 1x toegevoegd wordt
+            mockDbContext.Verify(m => m.SaveChanges(), Times.Once());
         }
     }
 }
