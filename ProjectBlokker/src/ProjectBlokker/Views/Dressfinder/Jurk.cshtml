@@ -1,4 +1,4 @@
-﻿@model ProjectBlokker.Models.Jurk
+﻿@model IEnumerable<ProjectBlokker.Models.Jurk>
 
 
     @{
@@ -35,29 +35,29 @@
             <div class="row" style="padding-top: 5%;">
                 <div class="col-md-3">
                     <div class="">
-                        @if (Model.image1_location != null)
+                        @if (Model.First().image1_location != null)
                         {
                             <a data-toggle="modal" data-target="#foto1">
                                 <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                                    <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="Jurk Foto">
+                                    <img src="~/images/jurk/@Model.First().image1_location" style="width: 100%;" alt="Jurk Foto">
                                 </div>
                             </a>
                         }
 
-                        @if (Model.image2_location != null)
+                        @if (Model.First().image2_location != null)
                         {
                             <a data-toggle="modal" data-target="#foto2">
                                 <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                                    <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="Jurk Foto">
+                                    <img src="~/images/jurk/@Model.First().image2_location" style="width: 100%;" alt="Jurk Foto">
                                 </div>
                             </a>
                         }
 
-                        @if (Model.image3_location != null)
+                        @if (Model.First().image3_location != null)
                         {
                             <a data-toggle="modal" data-target="#foto3">
                                 <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                                    <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="Jurk foto">
+                                    <img src="~/images/jurk/@Model.First().image3_location" style="width: 100%;" alt="Jurk foto">
                                 </div>
                             </a>
                         }
@@ -75,7 +75,7 @@
                                 <h4 class="modal-title">Dress Foto 1</h4>
                             </div>
                             <div class="modal-body">
-                                <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="Foto 1">
+                                <img src="~/images/jurk/@Model.First().image1_location" style="width: 100%;" alt="Foto 1">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -96,7 +96,7 @@
                                 <h4 class="modal-title">Dress Foto 2</h4>
                             </div>
                             <div class="modal-body">
-                                <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="Foto 1">
+                                <img src="~/images/jurk/@Model.First().image2_location" style="width: 100%;" alt="Foto 1">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -117,7 +117,7 @@
                                 <h4 class="modal-title">Dress Foto 3</h4>
                             </div>
                             <div class="modal-body">
-                                <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="Foto 1">
+                                <img src="~/images/jurk/@Model.First().image3_location" style="width: 100%;" alt="Foto 1">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -129,26 +129,27 @@
 
                 <div class="col-md-6">
                     <div class="jurkmainimg">
-                        <img src="~/images/jurk/@Model.image1_location" style="width: 467px; height:700px;" class="" alt="Jurk">
+                        <img src="~/images/jurk/@Model.First().image1_location" style="width: 467px; height:700px;" class="" alt="Jurk">
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <h3 class="text-bold"> @Model.artikel.Naam </h3>
-                    <h4>Artikel nr. @Model.artikel.ArtikelID</h4>
-                    <p style="padding-top: 10%;"> @Model.Omschrijving </p>
-                    <p style="padding-top: 10%;">Merk: <span class="text-pink"> @Model.merk.Naam </span></p>
-                    <p>Kenmerken: <span class="text-pink"> @Model.stijl.Naam, @Model.silhouette.Naam, @Model.neklijn.Naam, @Model.kleur.Naam</span></p>
-                    <p>Prijsindicatie: @Model.Prijs </p>
+                    <h3 class="text-bold"> @Model.First().artikel.Naam </h3>
+                    <h4>Artikel nr. @Model.First().artikel.ArtikelID</h4>
+                    <p style="padding-top: 10%;"> @Model.First().Omschrijving </p>
+                    <p style="padding-top: 10%;">Merk: <span class="text-pink"> @Model.First().merk.Naam </span></p>
+                    <p>Kenmerken: <span class="text-pink"> @Model.First().stijl.Naam, @Model.First().silhouette.Naam, @Model.First().neklijn.Naam, @Model.First().kleur.Naam</span></p>
+                    <p>Prijsindicatie: @Model.First().Prijs </p>
                     <p>
-                        Beschikbare kleuren:
+                     Beschikbare kleuren:
 
-                        @foreach (Jurk jurk in Model.artikel.Jurken)
+                     
+                    @foreach (Jurk jurk in Model)
+                    {
+                        if (jurk.kleur != null)
                         {
-                            if (jurk.kleur != null)
-                            {
-                                <a href="~/dressfinder/jurk/@jurk.JurkID">@jurk.kleur.Naam</a>
-                            }
+                            <a href="~/dressfinder/jurk/@jurk.JurkID">@jurk.kleur.Naam</a>
                         }
+                    }
                     </p>
 
                     <p>Kom de jurk passen!</p>
