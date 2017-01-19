@@ -20,7 +20,7 @@
                     <div class="row">
                         <a href="/Dressfinder/Index">
                             <div class="col-md-3 padding-0" style="padding-left: 7%">
-                                <img src="~/images/Arrowlinks.png" class="img-responsive" alt="<<<<<">
+                                <img src="~/images/Arrowlinks.png" class="img-responsive" alt="Jurk Foto">
                             </div>
                             <div class="col-md-9 padding-0" style="line-height: 25px;">
                                 <p style="text-decoration: underline; color: black;">Terug naar overzicht</p>
@@ -39,7 +39,7 @@
                         {
                             <a data-toggle="modal" data-target="#foto1">
                                 <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                                    <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="<<<<<">
+                                    <img src="~/images/jurk/@Model.image1_location" style="width: 100%;" alt="Jurk Foto">
                                 </div>
                             </a>
                         }
@@ -48,7 +48,7 @@
                         {
                             <a data-toggle="modal" data-target="#foto2">
                                 <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                                    <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="<<<<<">
+                                    <img src="~/images/jurk/@Model.image2_location" style="width: 100%;" alt="Jurk Foto">
                                 </div>
                             </a>
                         }
@@ -57,7 +57,7 @@
                         {
                             <a data-toggle="modal" data-target="#foto3">
                                 <div class="bottom-space-small" style="height: 220px; overflow: hidden;">
-                                    <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="<<<<<">
+                                    <img src="~/images/jurk/@Model.image3_location" style="width: 100%;" alt="Jurk foto">
                                 </div>
                             </a>
                         }
@@ -133,13 +133,24 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <h3> @Model.artikel.Naam </h3>
+                    <h3 class="text-bold"> @Model.artikel.Naam </h3>
                     <h4>Artikel nr. @Model.artikel.ArtikelID</h4>
                     <p style="padding-top: 10%;"> @Model.Omschrijving </p>
                     <p style="padding-top: 10%;">Merk: <span class="text-pink"> @Model.merk.Naam </span></p>
                     <p>Kenmerken: <span class="text-pink"> @Model.stijl.Naam, @Model.silhouette.Naam, @Model.neklijn.Naam, @Model.kleur.Naam</span></p>
                     <p>Prijsindicatie: @Model.Prijs </p>
-                    <p>Beschikbare kleuren: @Model.kleur.Naam </p>
+                    <p>
+                        Beschikbare kleuren:
+
+                        @foreach (Jurk jurk in Model.artikel.Jurken)
+                        {
+                            if (jurk.kleur != null)
+                            {
+                                <a href="~/dressfinder/jurk/@jurk.JurkID"><span class="text-pink">@jurk.kleur.Naam</span></a>
+                            }
+                        }
+                    </p>
+
                     <p>Kom de jurk passen!</p>
                     <a href="~/Afspraak/Index" class="btn btn-pink text-bold" role="button">Pasafspraak maken</a>
                     <div class="bottom-space-small"></div>

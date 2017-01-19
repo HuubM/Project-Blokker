@@ -21,8 +21,6 @@ namespace ProjectBlokker.Controllers
         [HttpPost]
         public IActionResult Index(List<string> merk, int sort, int id)
         {
-            
-
             // Categorieen
             ViewBag.categorieen = _context.Categorie.ToList<Categorie>();
 
@@ -285,7 +283,7 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var jurk = _context.Jurk.Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).Where(j => j.JurkID == id).FirstOrDefault();
+            var jurk = _context.Jurk.Include(x => x.artikel.Jurken).Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).Where(j => j.JurkID == id).FirstOrDefault();
             if (jurk == null)
             {
                 return NotFound();
