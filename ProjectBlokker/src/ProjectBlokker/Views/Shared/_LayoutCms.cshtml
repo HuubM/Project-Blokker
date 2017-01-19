@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjectBlokker</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </environment>
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+</head>
+<body>
+    <div class="container">
+        <div class="row header ">
+            <div class="col-sm-4 col-md-4 mainlinks">
+                <a class="btn selected" href="/home/index">WEBSITE</a>
+                <a class="btn" href="">WEBSHOP</a>
+            </div>
+            <div class="col-sm-8 col-md-8 text-right infobar">
+                <div class="col-xs-4 col-md-9 phonenumber">
+                    <strong>T</strong> (010) 4126143
+                </div>
+                <div class="col-xs-8 col-md-3 searchbar">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Wat zoek je?">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default searchbtn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+
+                    <!--<input type= "text" class= "search-query form-control" placeholder= "Wat zoek je?">-->
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="~/Account/cms" class="mainlinks text-bold pull-left" role="button"> Terug Naar CMS </a>
+        </div>
+        <div>
+            <a href="~/Account/LogOff" class="mainlinks text-bold pull-right" role="button"> Uitloggen </a>
+        </div>
+
+
+    </div>
+
+    
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+
+    <div class="container">
+        
+        <div class="footer">
+            <div class="row text-center top-space">
+                <div class="col-md-4">
+                    <p class="imageback top-space-review">Afspraak</p>
+                    <h3 class="footer-highlight"><a class="imagefront" href="/afspraak/index">Maak een pasafspraak</a></h3>
+                </div>
+                <div class="col-md-4 ">
+                    <p class="imageback top-space-review">Social</p>
+                    <h3 class="footer-highlight"><a class="imagefront" href"">Volg Ons</a><br />
+                        <a href="https://www.facebook.com/HoneymoonshopNL"> <i class="fa fa-facebook marginright"></i></a>
+                        <a href="https://twitter.com/HoneymoonshopNL"><i class="fa fa-twitter marginright">  </i></a>
+                        <a href="https://nl.pinterest.com/honeymoonshop/"><i class="fa fa-pinterest marginright"></i></a> 
+                        <a href="https://www.youtube.com/user/honeymoonshop"><i class="fa fa-youtube marginright"></i></a>
+                        <a href="https://www.instagram.com/honeymoonshopnl/"><i class="fa fa-instagram marginright"></i></a>
+                    </h3>
+                </div>
+                <div class="col-md-4">
+                    <p class="imageback top-space-review">Reviews</p>
+                    <h3 class="footer-highlight"><a class="imagefront" href="">Bekijk onze reviews</a></h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 top-space text-center">
+                    Korte Hoogstraat 4, 3011 GL Rotterdam <strong>email</strong> info@honeymoonshop.nl <strong>tel</strong> (010) 412 61 43 <strong>whatsapp</strong> (06) 25 19 99 27
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 bottom-space text-center">
+                    <strong>Openingstijden MA</strong> 12.00-17.30 <strong>Di t/m Vr</strong> 09.30-17.30 <strong>ZA</strong> 09.30-18.00
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="~/images/gwslogo_pink.png" alt="GRANDWEDDINGSHOW" class="img-responsive center-block" />
+                    
+
+                </div>
+            </div>
+            <div class="row footer-links">
+                <div class="col-md-4">
+                    <h4 class="text-pink text-bold text-uppercase fontsize-14 margin-0">Winkel</h4>
+                    <ul>
+                        <li> <a href="">Over de Honeymoon shop</a></li>
+                        <li> <a href="">Servicepunten</a></li>
+                        <li> <a href="">Routebeschrijving</a></li>
+                        <li> <a href="">Beurzen en evenementen</a></li>
+                        <li> <a href="">Vacatures</a></li>
+                        <li> <a href="">Verkoopwaarden</a></li>
+                        <li> <a href="">CBW erkend</a></li>
+                        <li> <a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-pink text-bold text-uppercase fontsize-14 margin-0">Service</h4>
+                    <ul>
+                        <li><a href="">Beoordelingen</a></li>
+                        <li><a href="/dressfinder/index">Dressfinder</a></li>
+                        <li><a href="">Gratis trouwmagazine</a></li>
+                        <li><a href="">Nieuwsbrief</a></li>
+                        <li><a href="">Veel gestelde vragen</a></li>
+                        <li><a href="">CBW erkend</a></li>
+                        <li><a href="">Reinigen van je trouwjurk</a></li>
+                        <li><a href="">10 redenen om je afspraak te maken</a></li>
+                        <li><a href="">The Perfect Match</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-pink text-bold text-uppercase fontsize-14 margin-0">Acties</h4>
+                    <ul>
+                        <li><a href="">The Grand Wedding Show</a></li>
+                        <li><a href="">Summer Sale</a></li>
+                        <li><a href="">Trouwjurken onder de 1000 euro</a></li>
+                        <li><a href="">Trouwjurken voor de volslanke bruid</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/Jqueryui-min.js" asp-append-version="true"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/jquery-dateFormat.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        
+    </environment>
+        <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                 asp-fallback-test="window.jQuery">
+         </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/Jqueryui-min.js" asp-append-version="true"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/jquery-dateFormat.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+
+    @if (ViewBag.extrajs != null)
+    {
+        <script src="@ViewBag.extrajs" asp-append-version="true"></script>
+    }
+
+</body>
+</html>
