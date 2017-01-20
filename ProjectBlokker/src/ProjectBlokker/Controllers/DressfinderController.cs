@@ -283,13 +283,23 @@ namespace ProjectBlokker.Controllers
                 return NotFound();
             }
 
-            var jurk = _context.Jurk.Include(x => x.artikel.Jurken).Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).Where(j => j.JurkID == id).FirstOrDefault();
+            List<Jurk> jurken = new List<Jurk>();
+
+            // Haal de jurk
+            Jurk jurk = _context.Jurk.Include(x => x.artikel.Jurken).Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).Where(j => j.JurkID == id).FirstOrDefault();
             if (jurk == null)
             {
                 return NotFound();
             }
 
-            return View(jurk);
+            jurken.Add(jurk);
+
+            // Haal vervolgens de jurken onder hetzelfde artikel om de andere kleuren te laten zien.
+            List<Jurk> related = _context.Jurk.Include(x => x.artikel.Jurken).Include(x => x.kleur).Include(x => x.merk).Include(x => x.artikel).Include(x => x.neklijn).Include(x => x.silhouette).Include(x => x.stijl).Where(j => j.ArtikelID == jurk.ArtikelID && j.JurkID != jurk.JurkID).ToList();
+
+            jurken.AddRange(related);
+
+            return View(jurken);
         }
     }
 }
