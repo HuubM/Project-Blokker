@@ -966,7 +966,17 @@ input.form-control {
 
 .dress-item {
     width:245px;
+    padding: 10px;
 }
+
+.dress-item a {
+    color: black;
+}
+
+.dress-item b {
+    padding-top: 5px;
+}
+
 
 #dress-form {
     margin-top: 50px;
@@ -985,6 +995,7 @@ input.form-control {
 .dress-item img{
     width: 230px;
     height: 350px;
+    margin-bottom: 5px;
 }
 
 #slider {
