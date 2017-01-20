@@ -31,10 +31,21 @@ namespace ProjectBlokker.Controllers
            return View();
         }
 
-        public ActionResult getTime(DateTime dateInput)
+        [HttpGet]
+        public ActionResult pickedDate(int afspraakdag, int afspraakmaand, int afspraakjaar)
         {
-            var tijd = _context.Afspraak;
-            return View();
+            DateTime tempDate = new DateTime(afspraakjaar, afspraakmaand, afspraakdag);
+            //tempDate = new DateTime(2017, 12, 12, 0, 0, 0);
+            //DateTime dbDate = new DateTime(afspraakDate);
+
+            var buttonTijden = from tijden in _context.Afspraak
+                               where tijden.AfspraakDatum == tempDate
+                               select tijden.AfspraakTijd;
+            // ViewBag.tijds = buttonTijden;
+            //var arr = buttonTijden.ToArray();
+
+
+            return Json(buttonTijden);
         }
 
         public ActionResult getDate()

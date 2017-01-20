@@ -30,8 +30,14 @@ function GetAllDates() {
     });
 };
 
-function getAllTimes() {
-    $.ajax({ })
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
 }
 
 
@@ -199,9 +205,43 @@ $(function () {
     });
     
     
-     //Input waarden toevoegen bij kiezen datum
+    //Input waarden toevoegen bij kiezen datum
     $('#datetimepicker').on("changeDate", function () {
 
+        var dateInput = $('#datumAfpsraak').val();
+        var test = dateInput.toString();
+        var pieces = test.split("/");
+
+        var option = {
+            url: '/Afspraak/pickedDate',
+            data: ({ afspraakdag: parseInt(pieces[0]), afspraakmaand: parseInt(pieces[1]), afspraakjaar: parseInt(pieces[2]) }),
+            method: 'get',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8'
+        };
+
+        $.ajax(option).success(function (data) {
+            $("#0930").prop("checked", false);
+            $("#1200").prop("checked", false);
+            $("#1500").prop("checked", false);
+            if (contains(data, '09:30')) {
+                $("#0930").prop("disabled", true);
+            }
+            else
+                $("#0930").prop("disabled", false);
+            if (contains(data, '12:00')) {
+                $("#1200").prop("disabled", true);
+            }
+            else
+                $("#1200").prop("disabled", false);
+            if (contains(data, '15:00')) {
+                $("#1500").prop("disabled", true);
+            }
+            else
+                $("#1500").prop("disabled", false);
+
+
+        })
         $('#datumAfpsraak').val(
            $('#datetimepicker').datepicker('getDate')
         );
