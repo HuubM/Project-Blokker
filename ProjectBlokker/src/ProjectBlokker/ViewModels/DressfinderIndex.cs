@@ -1,4 +1,5 @@
-﻿using ProjectBlokker.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ProjectBlokker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace ProjectBlokker.ViewModels
         public Neklijn neklijn { get; set; }
         public Silhouette silhouette { get; set; }
         public Stijl stijl { get; set; }
+
+        public IEnumerable<int> aantaltonen { get; set; }
     }
 }

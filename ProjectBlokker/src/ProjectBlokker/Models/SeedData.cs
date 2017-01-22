@@ -34,7 +34,7 @@ namespace ProjectBlokker.Models
                 Seedcategorie(context, categorieLijst);
                 context.SaveChanges();
 
-                IList<string> artikelLijst = new List<string> { "artikel1", " artikel2", "artikel3", " artikel2", "artikel3", " artikel2", "artikel3" };
+                IList<string> artikelLijst = new List<string> { "Beatiful by Enzoani", " Ladybird", "Tres Chic", " Diane Legrand", "Pronovias", " Maggie Sottero", "Eddy K.", "Myléne Sophie", "Demetrios", "Rebecca Ingram", "Enzoani", "Blue by Enzoani", "Beatiful by Enzoani", "Modeca", "Cosmobella", "Orea Sposa", "Affinity Bridal" };
                 Seedartikel(context, artikelLijst, categorieLijst);
                 context.SaveChanges();
 
@@ -44,7 +44,7 @@ namespace ProjectBlokker.Models
                 context.SaveChanges();
 
                 SeedAfspraak(context);
-                SeedJurk(context, 20);
+                SeedJurk(context, 30);
                 context.SaveChanges();
 
             }

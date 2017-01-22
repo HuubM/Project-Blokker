@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProjectBlokker.Data;
 using ProjectBlokker.Models;
+using ProjectBlokker.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 
 namespace ProjectBlokker.Controllers
 {
@@ -77,10 +79,11 @@ namespace ProjectBlokker.Controllers
             return View();
         }
 
+
         [HttpPost]
-        public IActionResult Filter(List<int> merk, int sort, int id, List<int> stijl, List<int> neklijn, List<int> silhouette, List<int> kleur, int max, int min)
+        public IActionResult Filter(List<int> merk, int sort, int id, List<int> stijl, List<int> neklijn, List<int> silhouette, List<int> kleur, int max, int min, int aantaltonen, int pagina)
         {
-            ViewBag.test = merk;
+
             // Categorieen
             ViewBag.categorieen = _context.Categorie.ToList<Categorie>();
 
@@ -108,12 +111,38 @@ namespace ProjectBlokker.Controllers
             // Als id(categorie) is gezet dan halen we alleen artikelen van die categorie
             if (id != 0)
             {
-                artikelen = _context.Artikel.Where(j => j.CategorieID == id).ToList();
+                artikelen = _context.Artikel.Include(j => j.Jurken).Where(j => j.CategorieID == id).ToList();
             }
             else
             {
-                artikelen = _context.Artikel.ToList<Artikel>();
+                artikelen = _context.Artikel.Include(j => j.Jurken).ToList<Artikel>();
             }
+
+            // Artikel moet wel een jurk hebben.
+            artikelen = artikelen.Where(j => j.Jurken.Count > 0).ToList();
+
+
+            // totaal aantal artikelen voor aantal paginas.
+            int aantaljurken = artikelen.Count();
+
+            ViewBag.aantaljurken = aantaljurken;
+
+            // aantal skippen als er een pagina is
+            if (pagina > 1)
+            {
+                artikelen = artikelen.Skip((pagina - 1) * aantaltonen).ToList();
+            }
+
+            // Aantal tonen       
+            artikelen = artikelen.Take(aantaltonen).ToList();
+
+
+            // aantal paginas berekenen(naar boven afronden)
+            double aantalpaginas = Math.Ceiling((double)aantaljurken / aantaltonen);
+
+            ViewData["aantalpaginas"] = aantalpaginas;
+            ViewBag.pagina = pagina;
+            ViewBag.aantalPaginas = aantalpaginas;
 
 
             // Voeg aan viewbag toe
@@ -197,8 +226,14 @@ namespace ProjectBlokker.Controllers
             }
 
             ViewBag.jurken = jurken;
+            ViewBag.pagina = pagina;
 
-            return View();
+            DressfinderIndex dfi = new DressfinderIndex();
+
+            ViewBag.aantaltonen = aantaltonen;
+            dfi.aantaltonen = new List<int>() { 6, 12, 24, 36 }; ;
+
+            return View(dfi);
         }
 
         public IActionResult Index(int id, int sort)
@@ -227,21 +262,43 @@ namespace ProjectBlokker.Controllers
             // Max prijs
             ViewBag.maxprijs = _context.Jurk.Max(j => j.Prijs);
 
+            List<Artikel> artikelen;
 
             // Als id(categorie) is gezet dan halen we alleen artikelen van die categorie
             if (id != 0)
             {
                 ViewBag.categorie = id;
-                ViewBag.artikelen = _context.Artikel.Where(j => j.CategorieID == id).ToList<Artikel>();
+                artikelen = _context.Artikel.Include(j => j.Jurken).Where(j => j.CategorieID == id).ToList<Artikel>();
             } else
             {
-                ViewBag.artikelen = _context.Artikel.ToList<Artikel>();
+                artikelen = _context.Artikel.Include(j => j.Jurken).ToList<Artikel>();
             }
+
+
+            // Artikel moet wel een jurk hebben.
+            artikelen = artikelen.Where(j => j.Jurken.Count > 0).ToList();
+
+            // totaal aantal artikelen voor aantal paginas.
+            int aantaljurken = artikelen.Count();
+
+
+            int aantaltonen = 24;
+
+            // Aantal tonen       
+            artikelen = artikelen.Take(aantaltonen).ToList();
+
+
+            // aantal paginas berekenen(naar boven afronden)
+            double aantalpaginas = Math.Ceiling((double)aantaljurken / aantaltonen);
+
+            ViewBag.pagina = 1;
+            ViewBag.aantalPaginas = aantalpaginas;
+
 
             List<Jurk> jurken = new List<Jurk>();
 
             // Haal 1 jurk van elk artikel om te laten zien
-            foreach (Artikel artikel in ViewBag.artikelen)
+            foreach (Artikel artikel in artikelen)
             {
                 Jurk jurk = _context.Jurk.Where(j => j.artikel.ArtikelID == artikel.ArtikelID).FirstOrDefault<Jurk>();
 
@@ -268,11 +325,17 @@ namespace ProjectBlokker.Controllers
                 }
             }
 
+
             ViewBag.jurken = jurken;
 
+            ViewBag.artikelen = artikelen;
 
+            DressfinderIndex dfi = new DressfinderIndex();
 
-            return View();
+            ViewBag.aantaltonen = 24;
+            dfi.aantaltonen = new List<int>() { 6, 12, 24, 36 }; ;
+
+            return View(dfi);
         }
 
 

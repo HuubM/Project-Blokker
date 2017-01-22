@@ -53,9 +53,22 @@
 
 
 
-    $("#dress-form").change(function () {
+    $("#dress-form").change(function (e) {
         filterDress();
     });
+
+
+    $('body').on("click", 'a.naarPagina', function (e) {
+
+        e.preventDefault();
+
+        var pagina = $(this).attr("data-content");
+        // zet pagina nummer
+        $("#pagina").val(pagina);
+
+        filterDress();
+    });
+
 
     function filterDress() {
         $.ajax({
@@ -67,6 +80,7 @@
                 $('#dressfinder-dres').html(data);
             }
         });
+        return false;
     }
 
 });

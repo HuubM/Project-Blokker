@@ -959,6 +959,20 @@ input.form-control {
     border-width: 2px;
 }
 
+.paginanummering {
+     text-align: right;
+     padding: 8px;
+}
+
+.paginanummering a {
+    color: grey;
+    font-size: 18px;
+}
+
+.paginanummering a.current {
+    color: black;
+}
+
 #dressfinder-dres {
     display: flex;
     flex-wrap: wrap;

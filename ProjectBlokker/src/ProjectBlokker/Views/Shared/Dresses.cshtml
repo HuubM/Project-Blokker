@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ProjectBlokker.ViewModels.DressfinderIndex
+
+@{
     Layout = null;
 }
 
@@ -12,3 +14,47 @@
         </a>
     </div>
 }
+
+<div style="width:100%"></div>
+<div class="row" style="width: 100%">
+    <div class="col-md-6">
+
+        <b>Aantal tonen: </b>
+
+        <select name="aantaltonen" class="form-control">
+            @foreach (var item in Model.aantaltonen)
+            {
+                if (ViewBag.aantaltonen == item)
+                {
+                    <option selected value="@item">
+                        @item
+                    </option>
+                }
+                else
+                {
+                    <option value="@item">
+                        @item
+                    </option>
+                }
+
+            }
+        </select>
+     </div>
+     <div class="col-md-6 paginanummering">
+
+
+            @for (int i = 1; i <= ViewBag.aantalPaginas; i++)
+            {
+                if (ViewBag.pagina == i)
+                {
+                    <a href="" class="naarPagina current" data-content="@i"> @i </a>
+                }
+                else
+                {
+                    <a href="" class="naarPagina" data-content="@i"> @i </a>
+                }
+
+            }
+     </div>
+    
+</div>
