@@ -47,7 +47,7 @@ namespace ProjectBlokker.Controllers
 
             return Json(buttonTijden);
         }
-
+        //haalt de datum uit de database waarvan deze meer dan 2 keer voorkomt
         public ActionResult getDate()
         {
             
@@ -66,7 +66,7 @@ namespace ProjectBlokker.Controllers
 
     
 
-
+        // De bericht functie werkt goed. Het feit is alleen dat outlook dit account geblokkeerd heeft omdat dit geassocieerd werd met spam.
         [HttpPost]
         public IActionResult Add(Afspraak afspraak)
         {

@@ -55,9 +55,9 @@ namespace ProjectBlokker.Models
         private static void SeedAfspraak(ApplicationDbContext context)
         {
 
-            Afspraak afspraak1 = new Afspraak() {AfspraakDatum = new DateTime(2017,01,22), AfspraakTijd = "09:30", Naam = "Rutje Anderlaat", TelNr = 555789456, Email = "rut@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018,08,18) };
-            Afspraak afspraak2 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 22), AfspraakTijd = "12:00", Naam = "Timon Guiter", TelNr = 555789456, Email = "tim@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
-            Afspraak afspraak3= new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 22), AfspraakTijd = "15:00", Naam = "Rita Markeerstift", TelNr = 555789456, Email = "rit@live.nl", Nieuwsbrief = false, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak1 = new Afspraak() {AfspraakDatum = new DateTime(2017,01,31), AfspraakTijd = "09:30", Naam = "Rutje Anderlaat", TelNr = 555789456, Email = "rut@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018,08,18) };
+            Afspraak afspraak2 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 31), AfspraakTijd = "12:00", Naam = "Timon Guiter", TelNr = 555789456, Email = "tim@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
+            Afspraak afspraak3= new Afspraak() {AfspraakDatum = new DateTime(2017, 02, 22), AfspraakTijd = "15:00", Naam = "Rita Markeerstift", TelNr = 555789456, Email = "rit@live.nl", Nieuwsbrief = false, TrouwDatum = new DateTime(2018, 08, 18) };
             Afspraak afspraak4 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 30), AfspraakTijd = "09:30", Naam = "Claudio Brei", TelNr = 555789456, Email = "cla@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
             Afspraak afspraak5 = new Afspraak() {AfspraakDatum = new DateTime(2017, 01, 30), AfspraakTijd = "12:00", Naam = "Panther Guy", TelNr = 555789456, Email = "pan@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };
             Afspraak afspraak6 = new Afspraak() { AfspraakDatum = new DateTime(2017, 01, 31), AfspraakTijd = "15:00", Naam = "Rico Guy", TelNr = 555789456, Email = "ric@live.nl", Nieuwsbrief = true, TrouwDatum = new DateTime(2018, 08, 18) };

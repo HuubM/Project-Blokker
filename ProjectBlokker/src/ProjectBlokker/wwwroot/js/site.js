@@ -80,7 +80,7 @@ $(function () {
         datesDisabled: disabledDatesList
         
     });
-    
+    //
     $('#datetimepicker').datepicker()
     .on('changeDate', function (e) {
         $('#selectTime').slideDown();
